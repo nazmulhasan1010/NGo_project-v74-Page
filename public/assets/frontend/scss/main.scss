@@ -477,45 +477,13 @@ a {
             }
 
             ul {
-                @include disFlex;
-                list-style: none;
-                height: 80px;
-                width: 100%;
-                font-size: 1.4rem;
-                @include montserrat(700);
-                margin-top: 10px;
-
-                a {
-                    height: 100%;
-                }
-
-                li {
-                    color: $textColor;
-                    margin-right: 20px;
-                    text-transform: uppercase;
-                    height: 100%;
-                    @include disFlex;
-                    border-bottom: 3px solid transparent;
+                .options-menu {
                     position: relative;
-
-                    &:hover {
-                        color: $mainbg;
-                        border-bottom: 3px solid $mainbg;
-                    }
-
-                    .option-head {
-                        @include disFlex;
-
-                        .fa-solid {
-                            font-size: 2rem;
-                            margin-left: 5px;
-                        }
-                    }
 
                     .option-main {
                         display: none;
                         position: absolute;
-                        bottom: -150px;
+                        top: 30px;
                         left: -20px;
                         z-index: 9999;
                         @include disFlex;
@@ -554,7 +522,46 @@ a {
                                         color: $mainbg;
                                     }
                                 }
+
+                                .options-active {
+                                    color: $mainbg;
+                                }
                             }
+                        }
+                    }
+                }
+
+                @include disFlex;
+                list-style: none;
+                height: 80px;
+                width: 100%;
+                font-size: 1.4rem;
+                @include montserrat(700);
+                margin-top: 10px;
+
+                a {
+                    height: 100%;
+                }
+
+                li {
+                    color: $textColor;
+                    margin-right: 20px;
+                    text-transform: uppercase;
+                    height: 100%;
+                    @include disFlex;
+                    border-bottom: 3px solid transparent;
+
+                    &:hover {
+                        color: $mainbg;
+                        border-bottom: 3px solid $mainbg;
+                    }
+
+                    .option-head {
+                        @include disFlex;
+
+                        .fa-solid {
+                            font-size: 2rem;
+                            margin-left: 5px;
                         }
                     }
                 }
@@ -1638,9 +1645,10 @@ a {
         }
 
         .other-info {
-             width: 90%;
-             border-top: 1px solid $textColor-50;
-             padding: 10px 0;
+            width: 90%;
+            border-top: 1px solid $textColor-50;
+            padding: 10px 0;
+
             p {
                 font-size: 1.3rem;
                 @include montserrat(600);
@@ -1649,19 +1657,23 @@ a {
             }
         }
     }
-    .heading-{
+
+    .heading- {
         margin: 50px 0 20px 0;
     }
-    .faq-input{
-        label{
+
+    .faq-input {
+        label {
             font-size: 1.5rem;
             margin-top: 10px;
             @include montserrat(600);
         }
-        input{
+
+        input {
             font-size: 1.5rem;
         }
-        .more-button{
+
+        .more-button {
             padding: 5px 25px;
             margin-top: 10px;
         }

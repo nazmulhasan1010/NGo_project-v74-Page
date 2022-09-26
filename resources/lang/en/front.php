@@ -5,7 +5,7 @@ return[
     'goal'=>'Project goal',
     'area'=>'working area',
     'mission'=>'mission',
-    'imgG'=>'Image gallery',
+    'imgG'=>'Image',
     'entre'=>'Entrepreneurs',
     'entres'=>'Entrepreneurs',
     'stories'=>'Success Stories',
@@ -13,6 +13,14 @@ return[
     'news'=>'News',
     'blog'=>'Blog',
     'notice'=>'Notice',
+    'activity'=>'Capacity',
+    'home'=>'Home',
+    'product'=>'Product',
+    'knowledge'=>'Knowledge',
+
+    'brochure'=>'Brochure',
+    'publication'=>'Publication',
+    'policyG'=>'Policy Guideline',
 
     'project'=>'Project',
     'summary'=>'Summary',

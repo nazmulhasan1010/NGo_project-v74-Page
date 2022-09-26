@@ -34,6 +34,7 @@ use App\Http\Controllers\frontend\frontHomeController;
 use App\Http\Controllers\frontend\pageController;
 use App\Http\Controllers\lanController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -58,8 +59,8 @@ Route::get('blogs', [pageController::class, 'blogs']);
 Route::get('blog/{id}', [pageController::class, 'blog']);
 Route::get('notice/{id}', [pageController::class, 'notice']);
 Route::get('notices', [pageController::class, 'notices']);
-Route::get('activities', [pageController::class, 'activities']);
-Route::get('activity/{id}', [pageController::class, 'activity']);
+Route::get('capacity', [pageController::class, 'activities']);
+Route::get('capacity/{id}', [pageController::class, 'activity']);
 Route::get('stories', [pageController::class, 'stories']);
 Route::get('story/{id}', [pageController::class, 'story']);
 Route::post('message', [clientController::class, 'message']);
@@ -117,5 +118,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('clientMessages', clientMessagesController::class);
 });
 
-//test
+//storage clear
+Route::get('clear-all-developer', function () {
+    Artisan::call('storage:link');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    return redirect()->back();
+});
 

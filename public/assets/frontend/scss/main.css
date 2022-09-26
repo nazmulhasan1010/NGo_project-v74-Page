@@ -491,6 +491,61 @@ a {
   font-weight: 700;
   margin-top: 10px;
 }
+.header .menu_bar .menus ul .options-menu {
+  position: relative;
+}
+.header .menu_bar .menus ul .options-menu .option-main {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+}
+.header .menu_bar .menus ul .options-menu .option-main .menu-option {
+  background-color: #ffffff;
+  color: #381a1a;
+  height: auto;
+  width: 250px;
+  border: 2px solid rgba(255, 72, 0, 0.5);
+  -webkit-transition: display 0.5s;
+  transition: display 0.5s;
+  border-radius: 10px;
+  position: relative;
+  display: none;
+}
+.header .menu_bar .menus ul .options-menu .option-main .menu-option::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 35px;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-top: 2px solid rgba(255, 72, 0, 0.5);
+  border-left: 2px solid rgba(255, 72, 0, 0.5);
+}
+.header .menu_bar .menus ul .options-menu .option-main .menu-option a .options {
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.header .menu_bar .menus ul .options-menu .option-main .menu-option a .options:hover {
+  color: #ff4800;
+}
+.header .menu_bar .menus ul .options-menu .option-main .menu-option a .options-active {
+  color: #ff4800;
+}
 .header .menu_bar .menus ul a {
   height: 100%;
 }
@@ -509,7 +564,6 @@ a {
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 3px solid transparent;
-  position: relative;
 }
 .header .menu_bar .menus ul li:hover {
   color: #ff4800;
@@ -529,55 +583,6 @@ a {
 .header .menu_bar .menus ul li .option-head .fa-solid {
   font-size: 2rem;
   margin-left: 5px;
-}
-.header .menu_bar .menus ul li .option-main {
-  display: none;
-  position: absolute;
-  bottom: -150px;
-  left: -20px;
-  z-index: 9999;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 30px;
-}
-.header .menu_bar .menus ul li .option-main .menu-option {
-  background-color: #ffffff;
-  color: #381a1a;
-  height: auto;
-  width: 250px;
-  border: 2px solid rgba(255, 72, 0, 0.5);
-  -webkit-transition: display 0.5s;
-  transition: display 0.5s;
-  border-radius: 10px;
-  position: relative;
-  display: none;
-}
-.header .menu_bar .menus ul li .option-main .menu-option::before {
-  content: "";
-  position: absolute;
-  top: -9px;
-  left: 35px;
-  height: 15px;
-  width: 15px;
-  background-color: #fff;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  border-top: 2px solid rgba(255, 72, 0, 0.5);
-  border-left: 2px solid rgba(255, 72, 0, 0.5);
-}
-.header .menu_bar .menus ul li .option-main .menu-option a .options {
-  margin: 10px 0;
-  padding: 0 10px;
-}
-.header .menu_bar .menus ul li .option-main .menu-option a .options:hover {
-  color: #ff4800;
 }
 .header .menu_bar .menus ul .active {
   color: #ff4800;

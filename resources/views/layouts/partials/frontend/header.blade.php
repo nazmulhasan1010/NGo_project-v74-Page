@@ -15,11 +15,11 @@
         <input type="hidden" name="lanStatus" id="lanStatus" value="0" hidden>
         <button type="button" class="lan_cng_btn" id="lanBtn">
             @php
-               if (session()->has('language')){
-                   $lan = session()->get('language');
-               }else{
-                   $lan = App::currentLocale();
-               }
+                if (session()->has('language')){
+                    $lan = session()->get('language');
+                }else{
+                    $lan = App::currentLocale();
+                }
             @endphp
             <label class="lanEnOn {{$lan=='en'?'on':'off'}}">EN</label>
             <label class="lanBnOn {{$lan=='bn'?'on':'off'}}">BN</label>
@@ -55,67 +55,109 @@
             </div>
 
             <ul>
-                <li class="active">
+                <a href="{{url('/')}}">
+                    <li class="{{ Request::is('/')? 'active' : ''}}">
+                        <div class="option-head">{{__('front.home')}}</div>
+                    </li>
+                </a>
+
+                @if (Request::is('overview')||Request::is('goal')||Request::is('mission')||Request::is('entrepreneurs')||Request::is('stories')||Request::is('faq'))
+                    @php
+                        $aboutSta = 'active';
+                    @endphp
+                @else
+                    @php
+                        $aboutSta = '';
+                    @endphp
+                @endif
+
+                <li class="options-menu {{$aboutSta}}">
                     <div class="option-head">{{__('front.about')}}<i class="fa-solid fa-caret-right"></i></div>
                     <div class="option-main">
                         <div class="menu-option">
                             <a href="{{url('overview')}}">
-                                <div class="options">{{__('front.overview')}}</div>
+                                <div class="options {{ Request::is('overview')? 'options-active' : ''}}">{{__('front.overview')}}</div>
                             </a>
                             <a href="{{url('goal')}}">
-                                <div class="options">{{__('front.goal')}}</div>
-                            </a>
-                            <a href="{{url('workingarea')}}">
-                                <div class="options">{{__('front.area')}}</div>
+                                <div class="options {{ Request::is('goal')? 'options-active' : ''}}">{{__('front.goal')}}</div>
                             </a>
                             <a href="{{url('mission')}}">
-                                <div class="options">{{__('front.mission')}}</div>
+                                <div class="options {{ Request::is('mission')? 'options-active' : ''}}">{{__('front.mission')}}</div>
                             </a>
-                            <a href="{{url('gallery/photos')}}">
-                                <div class="options">{{__('front.imgG')}}</div>
+                            <a href="{{url('entrepreneurs')}}">
+                                <div class="options {{ Request::is('entrepreneurs')? 'options-active' : ''}}">{{__('front.entre')}}</div>
+                            </a>
+                            <a href="{{url('stories')}}">
+                                <div class="options {{ Request::is('stories')? 'options-active' : ''}}">{{__('front.stories')}} </div>
+                            </a>
+                            <a href="{{url('faq')}}">
+                                <div class="options {{ Request::is('faq')? 'options-active' : ''}}">FAQ</div>
                             </a>
                         </div>
                     </div>
                 </li>
-                <a href="{{url('entrepreneurs')}}">
-                    <li>
-                        <div class="option-head">{{__('front.entre')}}</div>
+                <a href="{{url('gallery/photos')}}">
+                    <li class="{{ Request::is('gallery/photos')? 'active' : ''}}">
+                        <div class="option-head">{{__('front.imgG')}}</div>
                     </li>
                 </a>
-
-                <a href="{{url('stories')}}">
-                    <li>
-                        <div class="option-head">{{__('front.stories')}} </div>
-                    </li>
-                </a>
-
-                <a href="{{url('/faq')}}">
-                    <li>
-                        <div class="option-head">FAQ</div>
+{{--                <a href="{{url('workingarea')}}">--}}
+{{--                    <li class="{{ Request::is('knowledge')? 'active' : ''}}">--}}
+{{--                        <div class="option-head">Knowledge</div>--}}
+{{--                    </li>--}}
+{{--                </a>--}}
+                <li class="options-menu">
+                    <div class="option-head">{{__('front.knowledge')}}<i class="fa-solid fa-caret-right"></i></div>
+                    <div class="option-main">
+                        <div class="menu-option">
+                            <a href="{{url('overview')}}">
+                                <div class="options">{{__('front.brochure')}}</div>
+                            </a>
+                            <a href="{{url('goal')}}">
+                                <div class="options">{{__('front.publication')}}</div>
+                            </a>
+                            <a href="{{url('mission')}}">
+                                <div class="options">{{__('front.policyG')}}</div>
+                            </a>
+                            <a href="{{url('entrepreneurs')}}">
+                                <div class="options">{{__('front.others')}}</div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <a href="{{url('capacity')}}">
+                    <li class="{{ Request::is('capacity')? 'active' : ''}}">
+                        <div class="option-head">{{__('front.activity')}} </div>
                     </li>
                 </a>
                 <a href="{{url('/products')}}">
-                    <li>
-                        <div class="option-head">products</div>
+                    <li class="{{ Request::is('products')? 'active' : ''}}">
+                        <div class="option-head">{{__('front.product')}}</div>
                     </li>
                 </a>
+                <a href="{{url('workingarea')}}">
+                    <li class="{{ Request::is('workingarea')? 'active' : ''}}">
+                        <div class="option-head">GIS</div>
+                    </li>
+                </a>
+
                 <a href="{{url('events')}}">
-                    <li>
+                    <li class="{{ Request::is('events')? 'active' : ''}}{{Request::is('events/')? 'active' : ''}}">
                         <div class="option-head">{{__('front.events')}}</div>
                     </li>
                 </a>
-                <a href="{{url('newses')}}">
-                    <li>
-                        <div class="option-head">{{__('front.news')}}</div>
-                    </li>
-                </a>
+                {{--                <a href="{{url('newses')}}">--}}
+                {{--                    <li>--}}
+                {{--                        <div class="option-head">{{__('front.news')}}</div>--}}
+                {{--                    </li>--}}
+                {{--                </a>--}}
                 <a href="{{url('blogs')}}">
-                    <li>
+                    <li class="{{ Request::is('blogs')? 'active' : ''}}">
                         <div class="option-head">{{__('front.blog')}}</div>
                     </li>
                 </a>
                 <a href="{{url('notices')}}">
-                    <li>
+                    <li class="{{ Request::is('notices')? 'active' : ''}}">
                         <div class="option-head">{{__('front.notice')}}</div>
                     </li>
                 </a>
