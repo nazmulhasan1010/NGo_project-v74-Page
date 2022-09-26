@@ -1,0 +1,95 @@
+@import 'color';
+@import 'mixin';
+
+.content-body {
+    .container-fluid {
+        .messages {
+            align-items: flex-start;
+
+            .message {
+                &:nth-child(2) {
+                    .card {
+                        padding: 0;
+                        background-color: #f7f7f7;
+                        border: 0;
+                        transform: scale(.9);
+
+
+
+                        table {
+                            border-collapse: collapse;
+
+                            tr,
+                            th,
+                            td {
+                                border: 1px solid $blue-gray-50;
+                                padding: 10px;
+                                color: $textColor-50;
+                            }
+
+                            th {
+                                display: flex;
+                                align-items: flex-start;
+                                border: none;
+                                color: $textColor-70;
+                            }
+                        }
+                    }
+                }
+
+                .card {
+                    background-color: $blue-gray;
+                    padding: 10px 20px;
+                    margin: 10px 0;
+
+                    &:nth-child(1) {
+                        transform: scale(1.05);
+                    }
+
+                    h2 {
+                        color: $bgWhite-70;
+                        font-size: 1rem;
+                    }
+
+                    p {
+                        color: $bgWhite-50;
+                        font-size: .8rem;
+                    }
+
+                    .time {
+                        text-align: right;
+                        margin-top: -35px;
+                        color: $bgWhite-50;
+                    }
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        // active pagination ----------------------------------
+
+        .page-item {
+            .page-link {
+                color: $blue-gray;
+                background-color: $bgWhite-50;
+                span{
+                    color: $blue-gray;
+                }
+            }
+
+        }
+
+        .page-item.active-pagi {
+            .page-link {
+                color: $bgWhite-70;
+                font-weight: bold;
+                background-color: $blue-gray;
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,49 @@
+.content-body .container-fluid .messages {
+  align-items: flex-start; }
+  .content-body .container-fluid .messages .message:nth-child(2) .card {
+    padding: 0;
+    background-color: #f7f7f7;
+    border: 0;
+    transform: scale(0.9); }
+    .content-body .container-fluid .messages .message:nth-child(2) .card table {
+      border-collapse: collapse; }
+      .content-body .container-fluid .messages .message:nth-child(2) .card table tr,
+      .content-body .container-fluid .messages .message:nth-child(2) .card table th,
+      .content-body .container-fluid .messages .message:nth-child(2) .card table td {
+        border: 1px solid rgba(41, 45, 62, 0.5);
+        padding: 10px;
+        color: rgba(52, 52, 52, 0.5); }
+      .content-body .container-fluid .messages .message:nth-child(2) .card table th {
+        display: flex;
+        align-items: flex-start;
+        border: none;
+        color: rgba(52, 52, 52, 0.7); }
+  .content-body .container-fluid .messages .message .card {
+    background-color: #292d3e;
+    padding: 10px 20px;
+    margin: 10px 0; }
+    .content-body .container-fluid .messages .message .card:nth-child(1) {
+      transform: scale(1.05); }
+    .content-body .container-fluid .messages .message .card h2 {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem; }
+    .content-body .container-fluid .messages .message .card p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: .8rem; }
+    .content-body .container-fluid .messages .message .card .time {
+      text-align: right;
+      margin-top: -35px;
+      color: rgba(255, 255, 255, 0.5); }
+    .content-body .container-fluid .messages .message .card:hover {
+      transform: scale(1.05); }
+.content-body .container-fluid .page-item .page-link {
+  color: #292d3e;
+  background-color: rgba(255, 255, 255, 0.5); }
+  .content-body .container-fluid .page-item .page-link span {
+    color: #292d3e; }
+.content-body .container-fluid .page-item.active-pagi .page-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+  background-color: #292d3e; }
+
+/*# sourceMappingURL=backendMain.css.map */
