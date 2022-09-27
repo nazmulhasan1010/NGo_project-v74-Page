@@ -98,9 +98,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('activity.index')}}" class="ai-icon" aria-expanded="false">
+                <a href="{{route('knowledge.index')}}" class="ai-icon" aria-expanded="false">
                     <i class="fa-solid fa-chart-line"></i>
-                    <span class="nav-text">Project Activities</span>
+                    <span class="nav-text">Knowledge</span>
                 </a>
             </li>
             <li>

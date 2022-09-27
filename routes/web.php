@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\foodDemandController;
 use App\Http\Controllers\Backend\foodsController;
 use App\Http\Controllers\Backend\foodValueController;
 use App\Http\Controllers\Backend\imageGalleryController;
+use App\Http\Controllers\Backend\knowledgeController;
 use App\Http\Controllers\Backend\linksController;
 use App\Http\Controllers\Backend\logoController;
 use App\Http\Controllers\Backend\newsController;
@@ -101,6 +102,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('event', eventController::class);
     Route::resource('beneficiaryLocations', beneficiaryLocationsController::class);
     Route::resource('activity', activityController::class);
+    Route::resource('knowledge', knowledgeController::class);
     Route::resource('notice', noticeController::class);
     Route::resource('foodValue', foodValueController::class);
     Route::resource('foodDemand', foodDemandController::class);
