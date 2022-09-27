@@ -32,12 +32,12 @@
     <div class="header_content left">
         @php
             $logo = getLogo('primary');
-            $logoImg ='assets/frontend/img-icon/pksf.jpeg';
+            $logoImg ='';
             if (count($logo)>0){
                 $logoImg = 'storage/'. $logo[0]->image;
             }
             $logo_2 = getLogo('secondary');
-            $logoImg_2 ='assets/frontend/img-icon/ngf_logo.jpg';
+            $logoImg_2 ='';
             if (count($logo_2)>0){
                 $logoImg_2 = 'storage/'. $logo_2[0]->image;
             }
@@ -76,19 +76,24 @@
                     <div class="option-main">
                         <div class="menu-option">
                             <a href="{{url('overview')}}">
-                                <div class="options {{ Request::is('overview')? 'options-active' : ''}}">{{__('front.overview')}}</div>
+                                <div
+                                    class="options {{ Request::is('overview')? 'options-active' : ''}}">{{__('front.overview')}}</div>
                             </a>
                             <a href="{{url('goal')}}">
-                                <div class="options {{ Request::is('goal')? 'options-active' : ''}}">{{__('front.goal')}}</div>
+                                <div
+                                    class="options {{ Request::is('goal')? 'options-active' : ''}}">{{__('front.goal')}}</div>
                             </a>
                             <a href="{{url('mission')}}">
-                                <div class="options {{ Request::is('mission')? 'options-active' : ''}}">{{__('front.mission')}}</div>
+                                <div
+                                    class="options {{ Request::is('mission')? 'options-active' : ''}}">{{__('front.mission')}}</div>
                             </a>
                             <a href="{{url('entrepreneurs')}}">
-                                <div class="options {{ Request::is('entrepreneurs')? 'options-active' : ''}}">{{__('front.entre')}}</div>
+                                <div
+                                    class="options {{ Request::is('entrepreneurs')? 'options-active' : ''}}">{{__('front.entre')}}</div>
                             </a>
                             <a href="{{url('stories')}}">
-                                <div class="options {{ Request::is('stories')? 'options-active' : ''}}">{{__('front.stories')}} </div>
+                                <div
+                                    class="options {{ Request::is('stories')? 'options-active' : ''}}">{{__('front.stories')}} </div>
                             </a>
                             <a href="{{url('faq')}}">
                                 <div class="options {{ Request::is('faq')? 'options-active' : ''}}">FAQ</div>
@@ -101,11 +106,11 @@
                         <div class="option-head">{{__('front.imgG')}}</div>
                     </li>
                 </a>
-{{--                <a href="{{url('workingarea')}}">--}}
-{{--                    <li class="{{ Request::is('knowledge')? 'active' : ''}}">--}}
-{{--                        <div class="option-head">Knowledge</div>--}}
-{{--                    </li>--}}
-{{--                </a>--}}
+                {{--                <a href="{{url('workingarea')}}">--}}
+                {{--                    <li class="{{ Request::is('knowledge')? 'active' : ''}}">--}}
+                {{--                        <div class="option-head">Knowledge</div>--}}
+                {{--                    </li>--}}
+                {{--                </a>--}}
                 <li class="options-menu">
                     <div class="option-head">{{__('front.knowledge')}}<i class="fa-solid fa-caret-right"></i></div>
                     <div class="option-main">
@@ -125,8 +130,8 @@
                         </div>
                     </div>
                 </li>
-                <a href="{{url('capacity')}}">
-                    <li class="{{ Request::is('capacity')? 'active' : ''}}">
+                <a href="#capacityBuilding">
+                    <li class="{{ Request::is('#capacityBuilding')? 'active' : ''}}">
                         <div class="option-head">{{__('front.activity')}} </div>
                     </li>
                 </a>

@@ -76,7 +76,7 @@ p {
 }
 .bg-white-cu.success .successes .latest-post-links:hover .lp-links h2,
 .bg-white-cu .success .successes .latest-post-links:hover .lp-links h2 {
-  color: #ff5800;
+  color: #0eb129;
 }
 .bg-white-cu.success .successes .latest-post-links .lp-links .date span:nth-child(2),
 .bg-white-cu .success .successes .latest-post-links .lp-links .date span:nth-child(2) {
@@ -100,7 +100,7 @@ p {
   content: "";
   height: 4px;
   width: 100%;
-  background-color: #ff4800;
+  background-color: #008f19;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -109,7 +109,7 @@ p {
   margin-bottom: -5px;
 }
 .heading .heading-2 {
-  color: #ff4800;
+  color: #008f19;
 }
 
 .coll-heading {
@@ -133,15 +133,15 @@ p {
   margin-top: 10px;
 }
 .coll-heading .counter span:nth-child(1) {
-  color: #ff3700;
+  color: #02af1f;
   margin-right: 5px;
 }
 .coll-heading .right {
   font-size: 3rem;
-  color: rgba(255, 72, 0, 0.7);
+  color: rgba(0, 143, 24, 0.7);
 }
 .coll-heading:hover .right {
-  color: #ff4800;
+  color: #008f19;
 }
 
 .bg-dark-cu {
@@ -193,8 +193,8 @@ p {
 .more-button {
   border: 1px solid rgba(52, 52, 52, 0.3);
   outline: none;
-  background: -webkit-gradient(linear, left top, right top, from(red), to(#ff5800));
-  background: linear-gradient(to right, red, #ff5800);
+  background: -webkit-gradient(linear, left top, right top, from(#08801c), to(#0eb129));
+  background: linear-gradient(to right, #08801c, #0eb129);
   font-size: 1.5rem;
   padding: 5px 25px;
   border-radius: 20px;
@@ -311,7 +311,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #ff4800;
+  background-color: #008f19;
   font-size: 1.5rem;
   padding: 4px 0;
   font-family: "Poppins", sans-serif;
@@ -516,7 +516,7 @@ a {
   color: #381a1a;
   height: auto;
   width: 250px;
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
   -webkit-transition: display 0.5s;
   transition: display 0.5s;
   border-radius: 10px;
@@ -533,18 +533,18 @@ a {
   background-color: #fff;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  border-top: 2px solid rgba(255, 72, 0, 0.5);
-  border-left: 2px solid rgba(255, 72, 0, 0.5);
+  border-top: 2px solid rgba(0, 143, 24, 0.5);
+  border-left: 2px solid rgba(0, 143, 24, 0.5);
 }
 .header .menu_bar .menus ul .options-menu .option-main .menu-option a .options {
   margin: 10px 0;
   padding: 0 10px;
 }
 .header .menu_bar .menus ul .options-menu .option-main .menu-option a .options:hover {
-  color: #ff4800;
+  color: #008f19;
 }
 .header .menu_bar .menus ul .options-menu .option-main .menu-option a .options-active {
-  color: #ff4800;
+  color: #008f19;
 }
 .header .menu_bar .menus ul a {
   height: 100%;
@@ -566,8 +566,8 @@ a {
   border-bottom: 3px solid transparent;
 }
 .header .menu_bar .menus ul li:hover {
-  color: #ff4800;
-  border-bottom: 3px solid #ff4800;
+  color: #008f19;
+  border-bottom: 3px solid #008f19;
 }
 .header .menu_bar .menus ul li .option-head {
   display: -webkit-box;
@@ -585,8 +585,8 @@ a {
   margin-left: 5px;
 }
 .header .menu_bar .menus ul .active {
-  color: #ff4800;
-  border-bottom: 3px solid #ff4800;
+  color: #008f19;
+  border-bottom: 3px solid #008f19;
 }
 
 .carousel .carousel-inner {
@@ -643,8 +643,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-size: 2rem;
-  background-image: -webkit-gradient(linear, left top, right top, from(red), to(#ff5800));
-  background-image: linear-gradient(to right, red, #ff5800);
+  background-image: -webkit-gradient(linear, left top, right top, from(#08801c), to(#0eb129));
+  background-image: linear-gradient(to right, #08801c, #0eb129);
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -659,7 +659,7 @@ a {
   background-color: rgb(203, 228, 240);
   margin-left: 30px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 72, 0, 0.5);
+  border: 1px solid rgba(0, 143, 24, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -748,7 +748,7 @@ a {
   width: 100%;
 }
 .working-area:nth-child(2) {
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
   padding: 50px 0 0 20px;
 }
 .working-area:nth-child(2) h2 {
@@ -763,7 +763,7 @@ a {
   font-size: 1.5rem;
   margin: 20px 0;
   padding-right: 10px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .working-area-12 {
@@ -772,7 +772,7 @@ a {
 .working-area-12 img {
   width: 100%;
   height: 60vh;
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
   border-bottom: none;
 }
 .working-area-12:nth-child(2) {
@@ -842,8 +842,8 @@ a {
   padding: 5px;
 }
 .event-notices .event-notice .notice .notices .date {
-  background: -webkit-gradient(linear, left top, right top, from(#ff3300), to(#ff5800));
-  background: linear-gradient(to right, #ff3300, #ff5800);
+  background: -webkit-gradient(linear, left top, right top, from(#08801c), to(#0eb129));
+  background: linear-gradient(to right, #08801c, #0eb129);
   padding: 3px 7px;
   color: rgba(255, 255, 255, 0.7);
   font-family: "Montserrat", sans-serif;
@@ -938,7 +938,7 @@ a {
 }
 
 .activity .activities {
-  border: 2px solid rgba(255, 72, 0, 0.3);
+  border: 2px solid rgba(0, 143, 24, 0.3);
   margin: 0 10px;
   width: 30%;
   padding: 0 0 5px 0;
@@ -950,6 +950,12 @@ a {
 .activity .activities img {
   width: 100%;
   border-radius: 4px 4px 0 0;
+}
+.activity .activities .info-field.home ul,
+.activity .activities .info-field.home ol {
+  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 .activity .activities .info-field.home ul li:nth-child(n+5),
 .activity .activities .info-field.home ol li:nth-child(n+5) {
@@ -973,7 +979,7 @@ a {
 }
 
 .enterprise .enterprises {
-  border: 2px solid rgba(255, 72, 0, 0.3);
+  border: 2px solid rgba(0, 143, 24, 0.3);
   border-radius: 5px;
   padding: 0;
   margin: 0 10px;
@@ -997,9 +1003,6 @@ a {
   background-position: center center;
   background-size: cover;
   background-blend-mode: saturation;
-  background-image: url("../img-icon/dot-bg-2.png"), -webkit-gradient(linear, left bottom, left top, from(#292d3e), to(rgba(255, 72, 0, 0.2)));
-  background-image: url("../img-icon/dot-bg-2.png"), linear-gradient(to top, #292d3e, rgba(255, 72, 0, 0.2));
-  background-position: left center;
 }
 .en-partners .partner .partners {
   text-align: center;
@@ -1014,7 +1017,7 @@ a {
   width: 30%;
   padding: 0;
   margin: 10px;
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
 }
 .gallery .photos .col-md-4:hover,
 .gallery .photos .col-md-3:hover {
@@ -1030,7 +1033,7 @@ a {
 }
 .gallery .videos .row {
   margin: 10px 0;
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
   padding: 0;
 }
 .gallery .videos .row iframe {
@@ -1050,7 +1053,7 @@ a {
 .active-gallery .phptos .col-md-3 {
   padding: 0;
   margin: 5px;
-  border: 2px solid rgba(255, 72, 0, 0.5);
+  border: 2px solid rgba(0, 143, 24, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1172,8 +1175,8 @@ a {
   font-size: 1.5rem;
   border: none;
   outline: none;
-  background: -webkit-gradient(linear, left top, right top, from(red), to(#ff5800));
-  background: linear-gradient(to right, red, #ff5800);
+  background: -webkit-gradient(linear, left top, right top, from(#08801c), to(#0eb129));
+  background: linear-gradient(to right, #08801c, #0eb129);
   color: #ffffff;
   cursor: pointer;
   padding: 10px 15px;
@@ -1215,7 +1218,7 @@ a {
   text-transform: uppercase;
 }
 .page-title .page-titles a:hover {
-  color: #ff4800;
+  color: #008f19;
 }
 .page-title .page-titles a::after {
   content: " / ";
@@ -1223,7 +1226,7 @@ a {
   font-size: 1.5rem;
 }
 .page-title .page-titles a:nth-last-child(1) {
-  color: #ff4800;
+  color: #008f19;
 }
 .page-title .page-titles a:nth-last-child(1)::after {
   content: "  ";
@@ -1343,7 +1346,7 @@ a {
   font-size: 1.6rem;
 }
 .success .successes .date span:nth-child(1) {
-  color: #ff3700;
+  color: #02af1f;
 }
 .success .successes .date span:nth-child(2) {
   margin-left: 10px;
@@ -1373,7 +1376,7 @@ a {
   font-weight: 600;
 }
 .success .successes .latest-post-links:hover .lp-links h2 {
-  color: #ff5800;
+  color: #0eb129;
 }
 .success .successes .latest-post-links .lp-links {
   cursor: pointer;

@@ -10,7 +10,7 @@
     @include('frontend.components.slider')
     @include('frontend.components.projectSummary')
     @include('frontend.components.workingArea')
-    @include('frontend.components.projectActivities')
+{{--    @include('frontend.components.projectActivities')--}}
     @include('frontend.components.projectObjective')
     @include('frontend.components.event_Notice')
     @include('frontend.components.enterPrises')

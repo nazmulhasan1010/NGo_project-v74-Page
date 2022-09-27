@@ -56,7 +56,7 @@ class sliderController extends Controller
         ]);
 
         try {
-            $fileName = imageUploadWithCustomSize($request->sliderImage, "1200", "800", "slider");
+            $fileName = imageUploadWithCustomSize($request->sliderImage, "1350", "435", "slider");
 
             $category = new Slider();
             $category->title = $request->sliderTitle;
