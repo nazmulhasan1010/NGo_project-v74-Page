@@ -2,6 +2,7 @@
 
 
 use App\Models\Contacts;
+use App\Models\Knowledge;
 use App\Models\Links;
 use App\Models\ImageGallery;
 use App\Models\Privacy;
@@ -80,7 +81,7 @@ if (!function_exists('getFaq')) {
 }
 
 if (!function_exists('success')) {
-    function success($start,$limit,$sta)
+    function success($start, $limit, $sta)
     {
         if ($sta === 'all') {
             return SuccessStories::latest()->get();
@@ -109,9 +110,9 @@ if (!function_exists('getEvents')) {
     {
         if ($sta === 'all') {
             return Event::get();
-        }elseif ($sta === 'spe') {
+        } elseif ($sta === 'spe') {
             return Event::where('id', '>', $start)->take($limit)->get();
-        }else {
+        } else {
             return Event::where('id', '=', $start)->get();
         }
 
@@ -137,7 +138,7 @@ if (!function_exists('getBlogs')) {
             return Blog::get();
         } elseif ($sta === 'spe') {
             return Blog::where('id', '>', $start)->take($limit)->get();
-        }else {
+        } else {
             return Blog::where('id', '=', $start)->get();
         }
 
@@ -148,7 +149,7 @@ if (!function_exists('getNotices')) {
     {
         if ($sta === 'all') {
             return Notice::get();
-        }elseif ($sta === 'spe') {
+        } elseif ($sta === 'spe') {
             return Notice::where('id', '>', $start)->take($limit)->get();
         } else {
             return Notice::where('id', '=', $start)->get();
@@ -162,24 +163,48 @@ if (!function_exists('getLogo')) {
     }
 }
 
-if (!function_exists('getTerms')){
-    function getTerms(){
+if (!function_exists('getTerms')) {
+    function getTerms()
+    {
         return Terms::where('status', '=', 1)->take(1)->get();
     }
 }
 if (!function_exists('getPrivacy')) {
-    function getPrivacy()    {
+    function getPrivacy()
+    {
         return Privacy::where('status', '=', 1)->take(1)->get();
     }
 }
-if (!function_exists('getMessage')){
-    function getMessage($start, $limit, $sta){
+if (!function_exists('getMessage')) {
+    function getMessage($start, $limit, $sta)
+    {
         if ($sta === 'all') {
             return Message::get();
-        }elseif ($sta === 'spe') {
+        } elseif ($sta === 'spe') {
             return Message::where('id', '>', $start)->take($limit)->get();
         } else {
             return Message::where('id', '=', $start)->get();
+        }
+    }
+}
+
+if (!function_exists('getKnowledge')) {
+    function getKnowledge($id, $category, $start, $limit)
+    {
+        if ($category === 'all') {
+            return Knowledge::get();
+        } elseif ($category === 'categoryStAll') {
+            return Knowledge::where('category', '=', $id)->get();
+        } elseif ($category === 'id') {
+            return Knowledge::where('id', '=', $id)->take($limit)->get();
+        } elseif ($category === 'catName') {
+            return Knowledge::select('category')->distinct()->get();
+        } elseif ($category === 'category') {
+            return Knowledge::where('category', '=', $id)->take($limit)->get();
+        } elseif ($start > 0) {
+            return Knowledge::where('id', '>', $start)->take($limit)->get();
+        } elseif ($category === 'all-5') {
+            return Knowledge::take($limit)->get();
         }
     }
 }

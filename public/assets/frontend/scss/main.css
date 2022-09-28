@@ -1338,6 +1338,43 @@ a {
   color: rgba(52, 52, 52, 0.7);
 }
 
+.success .successes .categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.success .successes .categories ul a {
+  text-decoration: none;
+}
+.success .successes .categories ul a li {
+  border: 1px solid rgba(0, 143, 24, 0.5);
+  padding: 2px 10px 2px 20px;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  text-transform: capitalize;
+  position: relative;
+}
+.success .successes .categories ul a li::before {
+  content: "#";
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+}
+.success .successes .categories ul a li:nth-child(n+1) {
+  margin-top: 10px;
+}
+.success .successes .categories ul a li:nth-last-child(1) {
+  margin-bottom: 20px;
+}
+.success .successes .categories ul a li:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.success .successes .categories ul a .active {
+  background-color: rgba(0, 143, 24, 0.5);
+}
 .success .successes .date {
   margin-top: 10px;
 }
@@ -1352,6 +1389,30 @@ a {
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+}
+.success .successes .date span:nth-child(3) {
+  background-color: rgba(0, 143, 24, 0.5);
+  cursor: pointer;
+  margin-left: 50px;
+  text-transform: capitalize;
+  position: relative;
+  padding: 2px 5px 2px 20px;
+  border-radius: 5px;
+}
+.success .successes .date span:nth-child(3) a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+.success .successes .date span:nth-child(3)::before {
+  content: "#";
+  position: absolute;
+  top: -2.5px;
+  left: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+}
+.success .successes .date span:nth-child(3):hover a {
+  color: rgba(255, 255, 255, 0.7);
 }
 .success .successes img {
   width: 100%;

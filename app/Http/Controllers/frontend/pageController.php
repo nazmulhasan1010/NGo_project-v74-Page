@@ -129,7 +129,9 @@ class pageController extends Controller
     {
         return view('frontend.pages.termsConditions');
     }
-    public function products(){
+
+    public function products()
+    {
         return view('frontend.pages.product.products');
     }
 
@@ -138,4 +140,23 @@ class pageController extends Controller
         return view('frontend.pages.product.product');
     }
 
+    public function knowledgeAll()
+    {
+        $category = 'all';
+        $knowledge = getKnowledge('', 'all', '', '');
+        return view('frontend.pages.knowledge.knowledges', compact('knowledge', 'category'));
+    }
+
+    public function knowledgeCat($category)
+    {
+        $knowledge = getKnowledge($category, 'category', '', '');
+        return view('frontend.pages.knowledge.knowledges', compact('knowledge', 'category'));
+    }
+
+    public function knowledge($id)
+    {
+        $category = $id;
+        $knowledge = getKnowledge($id, 'id', '', '');
+        return view('frontend.pages.knowledge.knowledges', compact('knowledge','category'));
+    }
 }

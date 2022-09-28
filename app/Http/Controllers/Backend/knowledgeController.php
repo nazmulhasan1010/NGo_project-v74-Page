@@ -127,14 +127,14 @@ class knowledgeController extends Controller
             $category = $request->knowledgeEditCategory;
         }
 
-        if ($request->old_file==='change'){
+        if ($request->old_file === 'change') {
             Storage::delete('public/knowledge/' . Knowledge::findOrFail($request->old_id)->attachment);
             if ($request->editKnowAttachment->extension() === 'pdf') {
                 $file = anyTypeFileUpload($request->editKnowAttachment, 'knowledge');
             } else {
                 $file = imageUploadWithCustomSize($request->editKnowAttachment, "1200", "800", "knowledge");
             }
-        }else{
+        } else {
             $file = $request->old_file;
         }
 //return $request->all();

@@ -32,18 +32,18 @@
     <div class="header_content left">
         @php
             $logo = getLogo('primary');
-            $logoImg ='';
-            if (count($logo)>0){
-                $logoImg = 'storage/'. $logo[0]->image;
-            }
             $logo_2 = getLogo('secondary');
-            $logoImg_2 ='';
-            if (count($logo_2)>0){
-                $logoImg_2 = 'storage/'. $logo_2[0]->image;
-            }
         @endphp
-        <a href="{{url('/')}}"><img src="{{asset($logoImg)}}" alt="" class="logo"></a>
-        <a href="#"><img src="{{asset($logoImg_2)}}" alt="" class="logo logo-2"></a>
+        @if (count($logo)>0)
+            @if($logo[0]->status===1)
+                <a href="{{url('/')}}"><img src="{{asset('storage/'. $logo[0]->image)}}" alt="" class="logo"></a>
+            @endif
+        @endif
+        @if (count($logo_2)>0)
+            @if($logo_2[0]->status===1)
+                <a href="#"><img src="{{asset('storage/'. $logo_2[0]->image)}}" alt="" class="logo logo-2"></a>
+            @endif
+        @endif
     </div>
     <div class="header_content menu_bar" id="menuBar">
         <i class="fa-solid fa-bars menu-ico-more" id="menuShow"></i>
@@ -111,24 +111,19 @@
                 {{--                        <div class="option-head">Knowledge</div>--}}
                 {{--                    </li>--}}
                 {{--                </a>--}}
-                <li class="options-menu">
+                <li class="options-menu {{ Request::is('knowledge*')? 'active' : ''}}">
                     <div class="option-head">{{__('front.knowledge')}}<i class="fa-solid fa-caret-right"></i></div>
-                    <div class="option-main">
-                        <div class="menu-option">
-                            <a href="{{url('overview')}}">
-                                <div class="options">{{__('front.brochure')}}</div>
-                            </a>
-                            <a href="{{url('goal')}}">
-                                <div class="options">{{__('front.publication')}}</div>
-                            </a>
-                            <a href="{{url('mission')}}">
-                                <div class="options">{{__('front.policyG')}}</div>
-                            </a>
-                            <a href="{{url('entrepreneurs')}}">
-                                <div class="options">{{__('front.others')}}</div>
-                            </a>
+                    @if(count(getKnowledge('','catName','',''))>0)
+                        <div class="option-main">
+                            <div class="menu-option">
+                                @foreach(getKnowledge('','catName','','') as $category)
+                                    <a href="{{url('knowledge/'.$category->category)}}">
+                                        <div class="options {{ Request::is('knowledge/'.$category->category)? 'options-active' : ''}}">{{$category->category}}</div>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </li>
                 <a href="#capacityBuilding">
                     <li class="{{ Request::is('#capacityBuilding')? 'active' : ''}}">

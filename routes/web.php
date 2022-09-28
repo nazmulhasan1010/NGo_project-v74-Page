@@ -71,6 +71,9 @@ Route::get('terms', [pageController::class, 'terms']);
 Route::post('language', [lanController::class,'language']);
 Route::get('products', [pageController::class,'products']);
 Route::get('product/{id}', [pageController::class,'product']);
+Route::get('knowledge', [pageController::class,'knowledgeAll']);
+Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
+Route::get('knowledge/{id}', [pageController::class,'knowledge']);
 
 
 
