@@ -47,7 +47,7 @@
                     justify-content: left;
                     height: auto;
 
-                    li {
+                   .options-menu {
                         color: $bgWhite-50;
                         text-align: center;
                         margin: 15px 0;
@@ -212,7 +212,7 @@
 
     .project_summary {
         .summary {
-            height: 250px;
+            height: auto;
             padding: 20px;
 
             .icon {
@@ -245,9 +245,10 @@
                     flex-direction: column-reverse;
                     align-items: flex-start;
                     justify-content: space-around;
-                     .more-button {
-                         margin-top: 10px;
-                     }
+
+                    .more-button {
+                        margin-top: 10px;
+                    }
                 }
             }
 
@@ -267,6 +268,20 @@
 
     .content-80 {
         @include disFlexCol;
+    }
+
+    .objective {
+        .objectives {
+            ul {
+                font-size: 2rem;
+                width: 100%;
+                 li {
+                     text-align: center;
+                     word-wrap: break-word;
+                 }
+
+            }
+        }
     }
 
     .carousel {
@@ -303,7 +318,7 @@
 
     .project_summary {
         .summary {
-            height: 300px;
+            height: auto;
             width: 80%;
             margin: 15px 0 0 0;
 
@@ -473,8 +488,8 @@
             width: 20%;
 
             img {
-                width: auto;
-                height: 100px;
+                width: 50px;
+                height: 50px;
             }
         }
     }
@@ -509,6 +524,7 @@
             width: 10%;
         }
     }
+
     .products {
         justify-content: left;
 
@@ -536,7 +552,15 @@
 }
 
 /* ------------------------------662px-------------------------- */
-@media screen and (max-width: 662px) {}
+@media screen and (max-width: 662px) {
+    .objective {
+        .objectives {
+            ul {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
 
 /* ------------------------------600px-------------------------- */
 @media screen and (max-width: 600px) {
@@ -590,14 +614,7 @@
         }
     }
 
-    .en-partners .partner {
-        .partners {
-
-            img {
-                height: 60px;
-            }
-        }
-    }
+    
 }
 
 /* ------------------------------410px-------------------------- */
@@ -711,7 +728,7 @@
 
     .project_summary {
         .summary {
-            height: 200px;
+            height: auto;
             padding: 20px;
 
             .icon {
@@ -731,6 +748,18 @@
 
 /* ------------------------------350px-------------------------- */
 @media screen and (max-width: 380px) {
+    .objective {
+        .objectives {
+            ul {
+                font-size: 1.5rem;
+
+                li {
+                    text-align: center;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
 
     .header {
         .left {
@@ -812,7 +841,7 @@
             width: 22%;
 
             img {
-                width: auto;
+                width: 40px;
                 height: 40px;
             }
         }

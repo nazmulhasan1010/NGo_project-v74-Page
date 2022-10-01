@@ -56,7 +56,7 @@
 
             <ul>
                 <a href="{{url('/')}}">
-                    <li class="{{ Request::is('/')? 'active' : ''}}">
+                    <li class="options-menu {{ Request::is('/')? 'active' : ''}}">
                         <div class="option-head">{{__('front.home')}}</div>
                     </li>
                 </a>
@@ -102,7 +102,7 @@
                     </div>
                 </li>
                 <a href="{{url('gallery/photos')}}">
-                    <li class="{{ Request::is('gallery/photos')? 'active' : ''}}">
+                    <li class="options-menu {{ Request::is('gallery/photos')? 'active' : ''}}">
                         <div class="option-head">{{__('front.imgG')}}</div>
                     </li>
                 </a>
@@ -126,23 +126,23 @@
                     @endif
                 </li>
                 <a href="#capacityBuilding">
-                    <li class="{{ Request::is('#capacityBuilding')? 'active' : ''}}">
+                    <li class=" options-menu {{ Request::is('#capacityBuilding')? 'active' : ''}}">
                         <div class="option-head">{{__('front.activity')}} </div>
                     </li>
                 </a>
                 <a href="{{url('/products')}}">
-                    <li class="{{ Request::is('products')? 'active' : ''}}">
+                    <li class=" options-menu {{ Request::is('products')? 'active' : ''}}">
                         <div class="option-head">{{__('front.product')}}</div>
                     </li>
                 </a>
                 <a href="{{url('workingarea')}}">
-                    <li class="{{ Request::is('workingarea')? 'active' : ''}}">
+                    <li class=" options-menu {{ Request::is('workingarea')? 'active' : ''}}">
                         <div class="option-head">GIS</div>
                     </li>
                 </a>
 
                 <a href="{{url('events')}}">
-                    <li class="{{ Request::is('events')? 'active' : ''}}{{Request::is('events/')? 'active' : ''}}">
+                    <li class=" options-menu {{ Request::is('events')? 'active' : ''}}{{Request::is('events/')? 'active' : ''}}">
                         <div class="option-head">{{__('front.events')}}</div>
                     </li>
                 </a>
@@ -152,12 +152,12 @@
                 {{--                    </li>--}}
                 {{--                </a>--}}
                 <a href="{{url('blogs')}}">
-                    <li class="{{ Request::is('blogs')? 'active' : ''}}">
+                    <li class=" options-menu {{  Request::is('blogs')? 'active' : ''}}">
                         <div class="option-head">{{__('front.blog')}}</div>
                     </li>
                 </a>
                 <a href="{{url('notices')}}">
-                    <li class="{{ Request::is('notices')? 'active' : ''}}">
+                    <li class=" options-menu {{ Request::is('notices')? 'active' : ''}}">
                         <div class="option-head">{{__('front.notice')}}</div>
                     </li>
                 </a>

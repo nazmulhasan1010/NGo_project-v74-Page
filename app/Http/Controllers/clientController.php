@@ -28,8 +28,8 @@ class clientController extends Controller
 
     }
 
-    public function download($path): \Symfony\Component\HttpFoundation\StreamedResponse
+    public function download($file,$path): \Symfony\Component\HttpFoundation\StreamedResponse
     {
-        return Storage::download('public/notice/' . $path);
+        return Storage::download('public/'.$file.'/' . $path);
     }
 }

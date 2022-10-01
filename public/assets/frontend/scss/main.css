@@ -59,6 +59,40 @@ p {
   border-top: 2px solid rgba(52, 52, 52, 0.5);
   margin-bottom: 20px;
 }
+.bg-white-cu .content-80 .successes .categories ul a li {
+  color: rgba(52, 52, 52, 0.7);
+}
+.bg-white-cu .content-80 .successes .categories ul a li:hover {
+  color: #381a1a;
+}
+.bg-white-cu .content-80 .successes .categories ul a .active {
+  background-color: rgba(0, 143, 24, 0.7);
+  color: #381a1a;
+}
+.bg-white-cu .content-80 .knowledge .info-field {
+  border: 2px solid rgba(0, 143, 24, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 h2 {
+  color: rgba(52, 52, 52, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .date span {
+  color: rgba(52, 52, 52, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .date span:nth-child(1) {
+  color: rgba(0, 143, 24, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .category-preview {
+  background-color: rgba(0, 143, 24, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .category-preview a {
+  color: rgba(52, 52, 52, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .category-preview::before {
+  color: rgba(52, 52, 52, 0.7);
+}
+.bg-white-cu .content-80 .knowledge .info-field .others-info .col-md-4 .category-preview:hover a {
+  color: #381a1a;
+}
 
 .bg-white-cu.border-bottom- {
   border-bottom: 2px solid rgba(52, 52, 52, 0.5);
@@ -654,7 +688,7 @@ a {
 .project_summary .summary {
   -webkit-transition: 0.5s linear;
   transition: 0.5s linear;
-  height: 330px;
+  height: auto;
   width: 30%;
   background-color: rgb(203, 228, 240);
   margin-left: 30px;
@@ -673,6 +707,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 10px;
 }
 .project_summary .summary:nth-child(1) {
   margin-left: 0;
@@ -717,8 +752,8 @@ a {
   padding: 40px;
 }
 .project_summary .project-summary-more .summary-more img {
-  height: 50%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 .project_summary .project-summary-more .summary-more p {
   font-size: 2rem;
@@ -930,11 +965,85 @@ a {
   background-image: url("../img-icon/dot-bg-2.png"), linear-gradient(to top, #292d3e, #292d3e);
   background-position: left center;
 }
+.objective .objectives {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
 .objective .objectives ul {
+  width: 50%;
   font-size: 2rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
+  list-style: none;
+}
+.objective .objectives ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(52, 52, 52, 0.7);
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding: 0 10px;
+  height: 70px;
+  border-radius: 20px;
+  text-align: left;
+}
+.objective .objectives ul li:nth-child(n+1) {
+  margin-bottom: 10px;
+}
+.objective .objectives ul li i {
+  background-color: #008f19;
+  color: rgba(255, 255, 255, 0.7);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+.objective .objectives ul li p {
+  margin-top: 10px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .activity .activities {
@@ -1339,7 +1448,8 @@ a {
 }
 
 .success .successes .categories ul {
-  list-style: none;
+  list-style: circle;
+  list-style-position: inside;
   padding: 0;
   margin: 0;
 }
@@ -1348,20 +1458,12 @@ a {
 }
 .success .successes .categories ul a li {
   border: 1px solid rgba(0, 143, 24, 0.5);
-  padding: 2px 10px 2px 20px;
+  padding: 2px 10px 2px 10px;
   font-size: 2rem;
   color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   text-transform: capitalize;
   position: relative;
-}
-.success .successes .categories ul a li::before {
-  content: "#";
-  position: absolute;
-  top: 3px;
-  left: 5px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 2rem;
 }
 .success .successes .categories ul a li:nth-child(n+1) {
   margin-top: 10px;
@@ -1374,9 +1476,10 @@ a {
 }
 .success .successes .categories ul a .active {
   background-color: rgba(0, 143, 24, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 .success .successes .date {
-  margin-top: 10px;
+  margin-top: -2px;
 }
 .success .successes .date span {
   color: rgba(255, 255, 255, 0.5);
@@ -1389,30 +1492,6 @@ a {
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-}
-.success .successes .date span:nth-child(3) {
-  background-color: rgba(0, 143, 24, 0.5);
-  cursor: pointer;
-  margin-left: 50px;
-  text-transform: capitalize;
-  position: relative;
-  padding: 2px 5px 2px 20px;
-  border-radius: 5px;
-}
-.success .successes .date span:nth-child(3) a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-}
-.success .successes .date span:nth-child(3)::before {
-  content: "#";
-  position: absolute;
-  top: -2.5px;
-  left: 5px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 2rem;
-}
-.success .successes .date span:nth-child(3):hover a {
-  color: rgba(255, 255, 255, 0.7);
 }
 .success .successes img {
   width: 100%;
@@ -1451,6 +1530,80 @@ a {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
+}
+.success .knowledge .info-field {
+  border: 2px solid rgba(0, 143, 24, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+}
+.success .knowledge .info-field:nth-child(n+1) {
+  margin-bottom: 10px;
+}
+.success .knowledge .info-field .others-info .col-md-4 h2 {
+  font-size: 1.5rem;
+  margin: 5px;
+  margin-top: 10px;
+}
+.success .knowledge .info-field .others-info .col-md-4 .date {
+  margin-bottom: 5px;
+}
+.success .knowledge .info-field .others-info .col-md-4 .category-preview {
+  background-color: rgba(0, 143, 24, 0.5);
+  cursor: pointer;
+  text-transform: capitalize;
+  position: relative;
+  padding: 2px 5px 2px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.success .knowledge .info-field .others-info .col-md-4 .category-preview a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+.success .knowledge .info-field .others-info .col-md-4 .category-preview::before {
+  content: "#";
+  position: absolute;
+  top: -2.5px;
+  left: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+}
+.success .knowledge .info-field .others-info .col-md-4 .category-preview:hover a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.success .knowledge .info-field .others-info .attachPreview object {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 52%;
+  height: 20vh;
+}
+.success .knowledge .info-field .others-info .attachPreview object::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+.success .knowledge .info-field .others-info .attachPreview a img {
+  width: 52%;
+  height: 20vh;
+}
+.success .knowledge .info-field .others-info .actionBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+.success .knowledge .info-field .others-info .actionBtn a .more-button {
+  margin: 2px;
 }
 
 .content-100 .page-item .page-link {

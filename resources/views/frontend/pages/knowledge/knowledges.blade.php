@@ -26,30 +26,59 @@
     <div class="project_summary bg-dark-cu content-100 success">
         @include('frontend.pages.component.themeChanger')
         <div class="row content-80 border-bottom-">
-            <div class="col-md-8 successes">
+            <div class="col-md-8 successes knowledge">
                 @foreach($knowledge as $know)
                     @if($know->status===1)
                         <div class="info-field">
                             @php
-                                if (strlen($know->description)>500){
-                                   $description = substr($know->description,0,500).'...';
+                                if (strlen($know->title)>50){
+                                   $title = substr($know->title,0,50).'...';
                                 }else{
-                                    $description = $know->description ;
+                                    $title = $know->title ;
                                 }
                             @endphp
-                            <div class="date">
-                                <span><i class="fa-regular fa-clock"></i></span>
-                                <span>{{date("d", strtotime($know->updated_at)).' '.substr(date("F", strtotime($know->updated_at)),0,3).'  '.date("Y", strtotime($know->updated_at)) }}</span>
-                                <span><a href="{{url('knowledge/'.$know->category)}}">{{$know->category}}</a></span>
+
+                            <div class="row others-info">
+                                <div class="col-md-4">
+                                    <div class="date">
+                                        <span><i class="fa-regular fa-clock"></i></span>
+                                        <span>{{date("d", strtotime($know->updated_at)).' '.substr(date("F", strtotime($know->updated_at)),0,3).'  '.date("Y", strtotime($know->updated_at)) }}</span>
+
+                                    </div>
+                                    <span class="category-preview"><a href="{{url('knowledge/'.$know->category)}}">{{$know->category}}</a></span>
+                                    <h2>{{$title}}</h2>
+                                </div>
+                                <div class="col-md-4 attachPreview">
+                                    @php
+                                        $file = explode('.',$know->attachment);
+                                        $ext = $file[count($file)-1];
+
+                                    @endphp
+                                    @if($ext === 'pdf')
+                                        <object data="{{asset('storage/knowledge/'.$know->attachment)}}" >
+                                        </object>
+
+                                    @else
+                                        <a href="{{asset('storage/knowledge/'.$know->attachment)}}">
+                                            <img src="{{asset('storage/knowledge/'.$know->attachment)}}" alt="knowledge"
+                                                 width="100%">
+                                        </a>
+
+                                    @endif
+                                </div>
+                                <div class="col-md-4 actionBtn">
+                                    <a href="{{url('knowledge/show/'.$know->id)}}">
+                                        <button type="button" class="more-button ">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </a>
+                                    <a href="{{url('download/knowledge/'.$know->attachment)}}">
+                                        <button type="button" class="more-button ">
+                                            <i class="fa-solid fa-download"></i>
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                            <h2>{{$know->title}}</h2>
-                            <p>{{$description}}</p>
-                            <p>{{$know->address}}</p>
-                            <a href="{{url('blog/'.$know->id)}}">
-                                <button type="button" class="more-button ">
-                                    Read More
-                                </button>
-                            </a>
                         </div>
                     @endif
                 @endforeach

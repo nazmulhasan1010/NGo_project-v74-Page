@@ -153,10 +153,10 @@ class pageController extends Controller
         return view('frontend.pages.knowledge.knowledges', compact('knowledge', 'category'));
     }
 
-    public function knowledge($id)
+    public function knowledgeShow($id)
     {
         $category = $id;
         $knowledge = getKnowledge($id, 'id', '', '');
-        return view('frontend.pages.knowledge.knowledges', compact('knowledge','category'));
+        return view('frontend.pages.knowledge.knowledge', compact('knowledge','category'));
     }
 }

@@ -5,9 +5,6 @@
         <span class="heading-2">Summary</span>
     </div>
     <div class="row content-80">
-
-        {{--        project overview      --}}
-
         @php
             $row = count(json_decode($abouts, true));
             $overView = $goal = $mission ='';

@@ -52,6 +52,74 @@ p {
         border-top: 2px solid $textColor-50;
         margin-bottom: 20px;
     }
+
+    .content-80 {
+        .successes {
+            .categories {
+                ul {
+
+                    a {
+
+                        li {
+                            color: $textColor-70;
+
+                            &:hover {
+                                color: $textColor;
+                            }
+                        }
+
+                        .active {
+                            background-color: $mainbg-70;
+                            color: $textColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .knowledge {
+
+            .info-field {
+                border: 2px solid $mainbg-70;
+
+                .others-info {
+                    .col-md-4 {
+                        h2 {
+                            color: $textColor-70;
+                        }
+
+                        .date {
+                            span {
+                                color: $textColor-70;
+
+                                &:nth-child(1) {
+                                    color: $mainbg-70;
+                                }
+                            }
+
+                        }
+
+                        .category-preview {
+                            background-color: $mainbg-70;
+
+                            a {
+                                color: $textColor-70;
+                            }
+
+                            &::before {
+                                color: $textColor-70;
+                            }
+
+                            &:hover a {
+                                color: $textColor;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }
 
 .bg-white-cu.border-bottom- {
@@ -635,13 +703,14 @@ a {
 
     .summary {
         transition: .5s linear;
-        height: 330px;
+        height: auto;
         width: 30%;
         background-color: $cardBg;
         margin-left: 30px;
         border-radius: 10px;
         border: 1px solid $mainbg-50;
         @include disFlexCol;
+        padding-bottom: 10px;
 
         &:nth-child(1) {
             margin-left: 0;
@@ -682,8 +751,8 @@ a {
 
             img {
 
-                height: 50%;
-                width: auto;
+                height: auto;
+                width: 100%;
 
             }
 
@@ -917,10 +986,50 @@ a {
     background-position: left center;
 
     .objectives {
+        @include disFlexCol;
+        align-items: left;
+
         ul {
+            width: 50%;
             font-size: 2rem;
             @include montserrat(600);
             color: $bgWhite-70;
+            list-style: none;
+
+            li {
+
+                @include disFlex;
+                background-color: $bgWhite-70;
+                color: $textColor-70;
+                justify-content: left;
+                padding: 0 10px;
+                height: 70px;
+                border-radius: 20px;
+                text-align: left;
+
+                &:nth-child(n+1) {
+                    margin-bottom: 10px;
+                }
+
+                i {
+                    background-color: $mainbg;
+                    color: $bgWhite-70;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    @include disFlex;
+                    font-size: 1.5rem;
+                    margin-right: 10px;
+                }
+
+                p {
+                    margin-top: 10px;
+                    height: 70px;
+                    @include disFlex;
+
+
+                }
+            }
         }
     }
 }
@@ -1402,7 +1511,9 @@ a {
     .successes {
         .categories {
             ul {
-                list-style: none;
+                list-style: circle;
+                list-style-position: inside;
+
                 padding: 0;
                 margin: 0;
 
@@ -1411,21 +1522,12 @@ a {
 
                     li {
                         border: 1px solid $mainbg-50;
-                        padding: 2px 10px 2px 20px;
+                        padding: 2px 10px 2px 10px;
                         font-size: 2rem;
                         color: $bgWhite-50;
                         border-radius: 5px;
                         text-transform: capitalize;
                         position: relative;
-
-                        &::before {
-                            content: "#";
-                            position: absolute;
-                            top: 3px;
-                            left: 5px;
-                            color: $bgWhite-70;
-                            font-size: 2rem;
-                        }
 
                         &:nth-child(n+1) {
                             margin-top: 10px;
@@ -1442,13 +1544,14 @@ a {
 
                     .active {
                         background-color: $mainbg-50;
+                        color: $bgWhite-70;
                     }
                 }
             }
         }
 
         .date {
-            margin-top: 10px;
+            margin-top: -2px;
 
             span {
                 color: $bgWhite-50;
@@ -1461,34 +1564,6 @@ a {
                 &:nth-child(2) {
                     margin-left: 10px;
                     @include montserrat(600);
-                }
-
-                &:nth-child(3) {
-                    background-color: $mainbg-50;
-                    cursor: pointer;
-                    margin-left: 50px;
-                    text-transform: capitalize;
-                    position: relative;
-                    padding: 2px 5px 2px 20px;
-                    border-radius: 5px;
-
-                    a {
-                        text-decoration: none;
-                        color: $bgWhite-50;
-                    }
-
-                    &::before {
-                        content: "#";
-                        position: absolute;
-                        top: -2.5px;
-                        left: 5px;
-                        color: $bgWhite-70;
-                        font-size: 2rem;
-                    }
-
-                    &:hover a {
-                        color: $bgWhite-70;
-                    }
                 }
             }
         }
@@ -1548,6 +1623,93 @@ a {
                 }
             }
         }
+    }
+
+    .knowledge {
+        .info-field {
+            border: 2px solid $mainbg-50;
+            border-radius: 10px;
+            padding: 10px;
+
+            &:nth-child(n+1) {
+                margin-bottom: 10px;
+            }
+
+            .others-info {
+                .col-md-4 {
+                    h2 {
+                        font-size: 1.5rem;
+                        margin: 5px;
+                        margin-top: 10px;
+                    }
+
+                    .date {
+                        margin-bottom: 5px;
+                    }
+
+                    .category-preview {
+                        background-color: $mainbg-50;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        position: relative;
+                        padding: 2px 5px 2px 20px;
+                        border-radius: 5px;
+                        font-size: 1.2rem;
+                        @include montserrat(600);
+
+                        a {
+                            text-decoration: none;
+                            color: $bgWhite-50;
+                        }
+
+                        &::before {
+                            content: "#";
+                            position: absolute;
+                            top: -2.5px;
+                            left: 5px;
+                            color: $bgWhite-70;
+                            font-size: 1.5rem;
+                        }
+
+                        &:hover a {
+                            color: $bgWhite-70;
+                        }
+                    }
+                }
+
+                .attachPreview {
+                    object {
+                        display: flex;
+                        width: 52%;
+                        height: 20vh;
+
+                        &::-webkit-scrollbar {
+                            width: 0 !important;
+                            display: none;
+                        }
+                    }
+
+                    a {
+                        img {
+                            width: 52%;
+                            height: 20vh;
+                        }
+                    }
+                }
+
+                .actionBtn {
+                    @include disFlex;
+                    justify-content: right;
+
+                    a {
+                        .more-button {
+                            margin: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 

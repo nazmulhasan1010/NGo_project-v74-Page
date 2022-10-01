@@ -46,7 +46,7 @@
                                 </a>
 
                             @endif
-                            <a href="{{url('download/'.$notices->attachment)}}" class="p-4">
+                            <a href="{{url('download/notice/'.$notices->attachment)}}" class="p-4">
                                 <button type="button" class="more-button ">
                                     Download
                                 </button>

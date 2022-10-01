@@ -65,7 +65,7 @@ Route::get('capacity/{id}', [pageController::class, 'activity']);
 Route::get('stories', [pageController::class, 'stories']);
 Route::get('story/{id}', [pageController::class, 'story']);
 Route::post('message', [clientController::class, 'message']);
-Route::get('download/{path}', [clientController::class, 'download']);
+Route::get('download/{file}/{path}', [clientController::class, 'download']);
 Route::get('privacy', [pageController::class, 'privacy']);
 Route::get('terms', [pageController::class, 'terms']);
 Route::post('language', [lanController::class,'language']);
@@ -73,7 +73,8 @@ Route::get('products', [pageController::class,'products']);
 Route::get('product/{id}', [pageController::class,'product']);
 Route::get('knowledge', [pageController::class,'knowledgeAll']);
 Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
-Route::get('knowledge/{id}', [pageController::class,'knowledge']);
+Route::get('knowledge/show/{id}', [pageController::class,'knowledgeShow']);
+Route::get('knowledge/download/{id}', [pageController::class,'knowledgeDownload']);
 
 
 

@@ -5,23 +5,24 @@
         <span class="heading-2">Building</span>
     </div>
     <div class="row content-80">
-        <div class="col-md-6 objectives">
-            <ul class="fa-ul ">
-                <li><span class="fa-li"><i class="fa-solid fa-1"> .</i> </span>
-                    Safe Vegetable Production.
+        <div class="col-md-12 objectives">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-1">.</i>
+                    <p>Safe Vegetable Production.</p>
                 </li>
-                <li><span class="fa-li"><i class="fa-solid fa-2"> .</i> </span>
-                    Ecological farming.
+                <li>
+                    <i class="fa-solid fa-2">.</i>
+                    <p>Ecological farming.</p>
                 </li>
-            </ul>
-        </div>
-        <div class="col-md-6 objectives">
-            <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fa-solid fa-3"> .</i> </span>
-                    Safe Vegetable marketing.
+                <li>
+
+                    <i class="fa-solid fa-3"> .</i>
+                    <p>Safe Vegetable marketing.</p>
                 </li>
-                <li><span class="fa-li"><i class="fa-solid fa-4"> .</i> </span>
-                    Environment improvement practice
+                <li>
+                    <i class="fa-solid fa-4"> .</i>
+                    <p>Environment improvement practice</p>
                 </li>
             </ul>
         </div>
