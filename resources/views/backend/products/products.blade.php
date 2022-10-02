@@ -1,12 +1,36 @@
 @extends('layouts.backend')
-@section('title','Component')
+@section('title','Product')
 
 @push('vendor-css')
     <!-- Datatable -->
     <link href="{{ asset('assets/backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 @endpush
 @push('onpage-css')
+    <style>
+        .category-modal {
+            display: none;
+        }
 
+        .modal-body {
+            display: flex;
+        }
+
+        .modal-body .inputs {
+            width: 50%;
+        }
+
+        .modal-body .inputs:nth-child(2) {
+            margin-left: 20px;
+        }
+
+        .modal-content {
+            width: 100%;
+        }
+
+        .modal-dialog {
+            width: 800px;
+        }
+    </style>
 @endpush
 @section('content')
     <div class="content-body">
@@ -43,6 +67,7 @@
                                         <th>#</th>
                                         <th>Title</th>
                                         <th>Image</th>
+                                        <th>Category</th>
                                         <th>Status</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -57,6 +82,7 @@
                                                      width="100px"
                                                      height="60px">
                                             </td>
+                                            <td>{{ $item->category }}</td>
                                             <td>
                                                 {{ $item->status ==  1 ? 'Active' : 'Inactive'}}
                                             </td>
@@ -76,7 +102,7 @@
                                                            style="color: #fff;font-size: 14px; "></i>
                                                     </a>
                                                     <form id="delete-form-{{$item->id}}"
-                                                          action="{{ route('imageGallery.destroy',$item->id) }}"
+                                                          action="{{ route('products.destroy',$item->id) }}"
                                                           method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
@@ -96,36 +122,122 @@
 
                 <!--Add New Modal -->
                 <div class="modal fade" id="addNewModal">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document" style="width:800px">
                         <div class="modal-content">
-                            <form action="{{ route('imageGallery.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('products.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Add New Image</h5>
+                                    <h5 class="modal-title">Add New Product</h5>
                                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="imgTitle">Title<span class="req">*</span>
-                                                </label>
-                                                <input type="text" class="form-control" id="imgTitle" name="imgTitle" placeholder="Title">
+                                <div class="modal-body ">
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="productTitle">Product Title<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="productTitle"
+                                                           name="productTitle" placeholder="Title">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="productDes">Description<span class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="productDes" name="productDes"
+                                                              placeholder="Description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="preview-img">
+                                                <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
+                                                     class="imagePreView imagePreViewSelect imagePreViewEmpty">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <div class="choseEditImage">
+                                                        <label for="uploadImage" class="editImageUp btn">Chose a
+                                                            image </label>
+                                                        <input type="file" class="form-control" id="uploadImage"
+                                                               name="productImage" hidden>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="category" class="col-form-label">Category <span
+                                                            class="red">*</span></label>
+                                                    <select name="productCategory" id="category"
+                                                            class="form-control"
+                                                            required>
+                                                        <option value="">Select</option>
+                                                        <option value="food">Food</option>
+                                                        <option value="fashion">Fashion</option>
+                                                        <option value="agricultural">Agricultural</option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row category-modal" id="categoryModal">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="otherC">Category<span
+                                                            class="req"></span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="otherC"
+                                                           name="productOtC" placeholder="Type category name">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="preview-img">
-                                            <img src="{{asset('assets/backend/images/avatar/upload.png')}}" class="imagePreView imagePreViewSelect imagePreViewEmpty">
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="ownerName">Owner Name<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="ownerName"
+                                                           name="ownerName" placeholder="Name">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <div class="choseEditImage">
-                                                    <label for="uploadImage" class="editImageUp btn">Chose a image </label>
-                                                    <input type="file" class="form-control" id="uploadImage" name="albumImage" hidden>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="ownerMail">Owner Email<span class="req">*</span>
+                                                    </label>
+                                                    <input type="email" class="form-control" id="ownerMail"
+                                                           name="ownerMail" placeholder="example@example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="ownerContact">Owner Contact<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="ownerContact"
+                                                           name="ownerContact" placeholder="Contact Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="ownerAddress">Owner Address<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="ownerAddress"
+                                                           name="ownerAddress" placeholder="Address">
                                                 </div>
                                             </div>
                                         </div>
@@ -143,9 +255,10 @@
 
                 <!--Edit Modal -->
                 <div class="modal fade" id="editModal">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                         <div class="modal-content">
-                            <form action="{{ route('imageGallery.update','1')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('products.update','1')}}" method="POST"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 @method("PUT")
                                 <div class="modal-header">
@@ -154,56 +267,149 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" id="row_id" name="old_id" hidden>
-                                                <label for="editAlbumTitle">Title <span
-                                                        class="req">*</span>
-                                                </label>
-                                                <input type="text" class="form-control" id="editAlbumTitle" name="editAlbumTitle"
-                                                       value=""
-                                                       placeholder="Album Title">
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" id="row_id" name="old_id" hidden>
+                                                    <label for="editProductTitle">Title <span
+                                                            class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="editProductTitle"
+                                                           name="editProductTitle"
+                                                           value=""
+                                                           placeholder="Title">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="row_status" class="col-form-label">Status <span class="red">*</span></label>
-                                                <select name="row_status" id="row_status" class="form-control" required>
-                                                    <option value="1" {{old('status')===1 ? 'selected' : ''}}>
-                                                        Active
-                                                    </option>
-                                                    <option value="0" {{old('status')===0 ? 'selected' : ''}}>
-                                                        Inactive
-                                                    </option>
-                                                </select>
-                                                @if ($errors->has('status'))
-                                                    <span class="text-danger">{{ $errors->first('status') }}</span>
-                                                @endif
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editProductDes">Description<span class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="editProductDes"
+                                                              name="editProductDes"
+                                                              placeholder="Description"></textarea>
+                                                    <input type="hidden" id="oldDes" name="oldDes" value="oldDes">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="row_status" class="col-form-label">Status <span
+                                                            class="red">*</span></label>
+                                                    <select name="row_status" id="row_status" class="form-control"
+                                                            required>
+                                                        <option value="1" {{old('status')===1 ? 'selected' : ''}}>
+                                                            Active
+                                                        </option>
+                                                        <option value="0" {{old('status')===0 ? 'selected' : ''}}>
+                                                            Inactive
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class="row">
-                                        <div class="preview-img">
-                                            <img src="" id="imagePreView"
-                                                 class="imagePreView imagePreViewEdit imagePreViewModal">
+                                        <div class="row">
+                                            <div class="preview-img">
+                                                <img src="" id="imagePreView"
+                                                     class="imagePreView imagePreViewEdit imagePreViewModal">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <div class="choseEditImage">
+                                                        <button type="button" class="edit-image" id="restoreImage">
+                                                            Restore
+                                                        </button>
+                                                        <label for="editImage" class="editImageUp btn">Chose a new
+                                                            image </label>
+                                                        <input type="file" class="form-control" id="editImage"
+                                                               name="editProductImage"
+                                                               hidden>
+                                                        <input type="hidden" id="old_image" name="old_image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editCategory" class="col-form-label">Category <span
+                                                            class="red">*</span></label>
+                                                    <select name="productEditCategory" id="editCategory"
+                                                            class="form-control"
+                                                            required>
+                                                        <option value="">Select</option>
+                                                        <option
+                                                            value="food" {{old('category')=='food' ? 'selected' : ''}}>
+                                                            Food
+                                                        </option>
+                                                        <option
+                                                            value="fashion" {{old('category')=='fashion' ? 'selected' : ''}}>
+                                                            Fashion {{old('category')}}</option>
+                                                        <option
+                                                            value="agricultural" {{old('category')=='agricultural' ? 'selected' : ''}}>
+                                                            Agricultural
+                                                        </option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row category-modal" id="categoryModalEdit">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="productEditOtC">Category<span
+                                                            class="req"></span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="productEditOtC"
+                                                           name="productEditOtC" placeholder="Type category name">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <div class="choseEditImage">
-                                                    <button type="button" class="edit-image" id="restoreImage">Restore
-                                                    </button>
-                                                    <label for="editImage" class="editImageUp btn">Chose a new
-                                                        image </label>
-                                                    <input type="file" class="form-control" id="editImage"
-                                                           name="editImage"
-                                                           hidden>
-                                                    <input type="hidden" id="old_image" name="old_image">
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editOwnerName">Owner Name<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="editOwnerName"
+                                                           name="editOwnerName" placeholder="Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editOwnerMail">Owner Email<span class="req">*</span>
+                                                    </label>
+                                                    <input type="email" class="form-control" id="editOwnerMail"
+                                                           name="editOwnerMail" placeholder="example@example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editOwnerContact">Owner Contact<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="editOwnerContact"
+                                                           name="editOwnerContact" placeholder="Contact Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editOwnerAddress">Owner Address<span class="req">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" id="editOwnerAddress"
+                                                           name="editOwnerAddress" placeholder="Address">
                                                 </div>
                                             </div>
                                         </div>
@@ -248,13 +454,20 @@
 
             $.ajax({
                 type: "get",
-                url: "{{ url('admin/imageGallery') }}/" + row_id + "/edit",
+                url: "{{ url('admin/products') }}/" + row_id + "/edit",
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
                     console.log(r_val);
                     $('#row_id').val(r_val.id);
-                    $('#editAlbumTitle').val(r_val.title);
+                    $('#editProductTitle').val(r_val.title);
+                    $('#oldDes').val(r_val.description);
+                    $('#editCategory').val(r_val.category);
+                    $('#editOwnerName').val(r_val.owner_name);
+                    $('#editOwnerMail').val(r_val.owner_email);
+                    $('#editOwnerContact').val(r_val.owner_contact);
+                    $('#editOwnerAddress').val(r_val.owner_address);
+
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
@@ -266,5 +479,7 @@
             });
             e.preventDefault();
         });
+        CKEDITOR.replace('editProductDes');
+        CKEDITOR.replace('productDes');
     </script>
 @endpush

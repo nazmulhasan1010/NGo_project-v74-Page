@@ -20,6 +20,7 @@ use App\Models\Blog;
 use App\Models\Notice;
 use App\Models\Logo;
 use App\Models\Message;
+use App\Models\Product;
 
 if (!function_exists('getCommunication')) {
     function getCommunication(): array
@@ -206,5 +207,16 @@ if (!function_exists('getKnowledge')) {
         } elseif ($category === 'all-5') {
             return Knowledge::take($limit)->get();
         }
+    }
+}
+if (!function_exists('getProduct')) {
+    function getProduct($id)
+    {
+        if ($id === 'all') {
+            return Product::latest()->get();
+        } else {
+            return Product::where('id', '=', $id)->get();
+        }
+
     }
 }

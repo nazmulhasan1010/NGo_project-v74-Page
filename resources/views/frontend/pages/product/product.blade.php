@@ -6,36 +6,24 @@
         <div class="row content-80 border-bottom-">
             <div class="col-md-8 products products-show">
                 <div class="card  product">
-                    <img src="{{asset('assets/test/product-1.png')}}" alt="Shoes"/>
+                    <img src="{{asset('storage/'.$product[0]->image)}}" alt="{{$product[0]->title}}"/>
                     <div class="card-body">
                         <h2 class="card-title">
-                            Special italian coffee beans!
-                            <div class="new-badge">NEW</div>
+                            {{$product[0]->title}}
+                            @if(strtotime($product[0]->updated_at)>strtotime('-3 days'))
+                                <div class="new-badge">new</div>
+                            @endif
                         </h2>
                         <div class="product-card-footer ">
                             <div class="category">
-                                <div class="category-badge ">Fashion</div>
+                                <div class="category-badge ">{{$product[0]->category}}</div>
                                 <div class="category-badge ">Products</div>
                             </div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad amet aspernatur autem deserunt
-                            dolorem doloribus fuga fugit ipsa ipsum labore nemo nisi pariatur praesentium quod sapiente,
-                            voluptas. Ab accusantium aliquid aspernatur beatae consequatur culpa cum deserunt dolorum ea
-                            eum eveniet fuga fugit harum in inventore labore laudantium modi mollitia, nam neque
-                            officia, optio perferendis possimus qui quos reiciendis repellat sequi sit sunt ullam
-                            voluptas voluptate voluptates voluptatum. Adipisci aliquid amet asperiores aspernatur at
-                            commodi distinctio dolorum earum eius eos est excepturi expedita facere id illo incidunt
-                            maxime minus molestias nam odit quae quam quidem, quisquam sapiente tempore temporibus
-                            veniam.</p>
-                        <strong>Product details</strong>
-                        <ul>
-                            <li>Brand : ZARA</li>
-                            <li>Bspernatur at commodi distinctio</li>
-                            <li>Color : Red,Black,Pink,Hot Pink</li>
-                            <li>Stock : 150</li>
-                            <li>Puae quam quidem, quisquam</li>
-                            <li>Wspernatur at commodi</li>
-                        </ul>
+                       <div>
+                           {!! $product[0]->description !!}
+                       </div>
+
                     </div>
                 </div>
             </div>
@@ -45,13 +33,13 @@
                     <span class="heading-2">Information</span>
                 </div>
                 <div class="card owner-info">
-                    <img src="{{asset('assets/test/logo.png')}}" alt="">
+
 
                     <div class="other-info">
-                        <h3>Owner Name : <span>Kamrul Hasan</span></h3>
-                        <p>Email : <span>example@gmail.com</span></p>
-                        <p>Phone : <span>01693898048</span></p>
-                        <p>Address : <span>77/3 Mirpur block D</span></p>
+                        <h3>Owner Name : <span>{{$product[0]->owner_name}}</span></h3>
+                        <p>Email : <span>{{$product[0]->owner_email}}</span></p>
+                        <p>Phone : <span>{{$product[0]->owner_contact}}</span></p>
+                        <p>Address : <span>{{$product[0]->owner_address}}</span></p>
                     </div>
                 </div>
                 <div class="heading heading-">

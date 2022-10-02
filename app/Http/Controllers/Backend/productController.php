@@ -56,12 +56,22 @@ class productController extends Controller
             'productTitle' => 'required',
             'productImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
         ]);
-
+//        return $request->all();
+        if ($request->productCategory === 'others' && $request->productOtC !== null) {
+            $category = $request->productOtC;
+        } else {
+            $category = $request->productCategory;
+        }
         try {
             $fileName = imageUploadWithCustomSize($request->productImage, "1200", "800", "product");
             $product = new Product();
             $product->title = $request->productTitle;
-            $product->description = $request->productDescription;
+            $product->description = $request->productDes;
+            $product->category = $category;
+            $product->owner_name = $request->ownerName;
+            $product->owner_email = $request->ownerMail;
+            $product->owner_contact = $request->ownerContact;
+            $product->owner_address = $request->ownerAddress;
             $product->image = 'product/' . $fileName;
             $product->save();
 
@@ -114,7 +124,7 @@ class productController extends Controller
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-
+//return $request->all();
         try {
             if ($request->old_image === 'change') {
                 $fileName = 'product/' . imageUploadWithCustomSize($request->editProductImage, "1200", "800", "product");
@@ -122,12 +132,26 @@ class productController extends Controller
             } else {
                 $fileName = $request->old_image;
             }
-
+            if ($request->editProductDes == null) {
+                $des = $request->oldDes;
+            } else {
+                $des = $request->editProductDes;
+            }
+            if ($request->productEditCategory === 'others' && $request->productEditOtC !== null) {
+                $category = $request->productEditOtC;
+            } else {
+                $category = $request->productEditCategory;
+            }
             $product = Product::findOrFail($request->old_id);
 
             $product->title = $request->editProductTitle;
-            $product->description = $request->editProductDescription;
+            $product->description = $des;
             $product->image = $fileName;
+            $product->category = $category;
+            $product->owner_name = $request->editOwnerName;
+            $product->owner_email = $request->editOwnerMail;
+            $product->owner_contact = $request->editOwnerContact;
+            $product->owner_address = $request->editOwnerAddress;
             $product->status = $request->row_status;
             $product->update();
 

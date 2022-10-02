@@ -35,7 +35,7 @@
             </div>
             <div class="footer-content">
                 <h4>services</h4>
-                <a href="#">
+                <a href="{{url('products')}}">
                     <p>Our Product</p>
                 </a>
                 <a href="#">

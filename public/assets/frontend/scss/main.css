@@ -1671,9 +1671,16 @@ a {
   border-radius: 10px;
 }
 .products .product img {
-  height: 300px;
+  width: 100%;
+  height: auto;
 }
 .products .product .card-body h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.8rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -1686,6 +1693,7 @@ a {
   padding: 2px 10px;
   border-radius: 20px;
   color: rgba(255, 255, 255, 0.7);
+  margin-left: 10px;
 }
 .products .product .card-body p {
   font-size: 1.4rem;

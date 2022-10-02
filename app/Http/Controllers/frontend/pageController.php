@@ -135,9 +135,10 @@ class pageController extends Controller
         return view('frontend.pages.product.products');
     }
 
-    public function product()
+    public function product($id)
     {
-        return view('frontend.pages.product.product');
+        $product = getProduct($id);
+        return view('frontend.pages.product.product',['product'=>$product]);
     }
 
     public function knowledgeAll()
