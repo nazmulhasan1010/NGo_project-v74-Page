@@ -24,7 +24,7 @@ class termsController extends Controller
     {
         try {
             $terms = Terms::latest()->get();
-            return view('backend.TermsPolicy.Terms', compact('terms'));
+            return view('backend.termsPolicy.terms', compact('terms'));
         } catch (\Exception $e) {
             Toastr::warning($e->getMessage());
             return redirect()->back();
