@@ -232,7 +232,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-
                     $('#row_id').val(r_val.id);
                     $('#editAnswer').val(r_val.answers);
                     $('#editQuestion').val(r_val.questions);

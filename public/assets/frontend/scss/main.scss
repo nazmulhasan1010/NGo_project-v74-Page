@@ -995,9 +995,10 @@ a {
             @include montserrat(600);
             color: $bgWhite-70;
             list-style: none;
+            padding: 0;
 
             li {
-
+                width: 100%;
                 @include disFlex;
                 background-color: $bgWhite-70;
                 color: $textColor-70;
@@ -1006,6 +1007,7 @@ a {
                 height: 70px;
                 border-radius: 20px;
                 text-align: left;
+               
 
                 &:nth-child(n+1) {
                     margin-bottom: 10px;
@@ -1786,14 +1788,15 @@ a {
         border-radius: 10px;
 
         img {
-           width: 100%;
-           height: auto;
+            width: 100%;
+            height: auto;
         }
 
         .card-body {
             h2 {
                 display: flex;
                 align-items: center;
+
                 .new-badge {
                     font-size: 1rem;
                     background-color: rgb(241, 145, 161);

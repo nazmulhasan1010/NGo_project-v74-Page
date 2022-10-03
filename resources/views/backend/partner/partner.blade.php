@@ -171,7 +171,7 @@
                                                         class="req">*</span>
                                                 </label>
                                                 <input type="text" class="form-control" id="companyNameEdit" name="companyNameEdit"
-                                                       value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                       value=""
                                                        placeholder="Company Name">
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger">{{ $errors->first('title') }}</span>
@@ -277,7 +277,7 @@
                     $('#companyNameEdit').val(r_val.companyName);
                     $('#row_status').val(r_val.status);
                     $('#editCompanyWebsite').val(r_val.website);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.companyLogo);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.companyLogo);
                     $('#restoreImage').attr('data-id', r_val.companyLogo);
                     $('#old_image').val(r_val.companyLogo);
                 },

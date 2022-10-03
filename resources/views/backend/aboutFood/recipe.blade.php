@@ -193,7 +193,7 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="editRecipeTitle"
                                                        name="editRecipeTitle"
-                                                       value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                       value=""
                                                        placeholder="Recipe Title">
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger">{{ $errors->first('title') }}</span>
@@ -323,7 +323,7 @@
                     $('#old_RecipeCookingSteps').val(r_val.steps);
                     $('#old_RecipeIngredients').val(r_val.ingredients);
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

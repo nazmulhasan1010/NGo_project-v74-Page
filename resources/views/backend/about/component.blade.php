@@ -247,7 +247,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#editComponentTitle').val(r_val.title);
                     $('#editComponentDescription').val(r_val.description);

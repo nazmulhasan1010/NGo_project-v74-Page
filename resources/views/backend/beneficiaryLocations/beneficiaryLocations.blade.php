@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title','Component')
+@section('title','Beneficiary')
 
 @push('vendor-css')
     <!-- Datatable -->
@@ -291,7 +291,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#beneficiaryEditTitle').val(r_val.title);
                     $('#beneficiaryEditContact').val(r_val.contact);

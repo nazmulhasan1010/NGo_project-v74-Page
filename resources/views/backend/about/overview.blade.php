@@ -172,7 +172,7 @@
                                         </label>
                                         <textarea type="text" class="form-control" id="edit_category_name"
                                                   name="category_name"
-                                                  value="{{old('project_overview', empty($errors->project_overview) ? '' : $errors->project_overview)}}"
+                                                  value=""
                                                   placeholder="Overview">
                                         </textarea>
                                         @if ($errors->has('project_overview'))
@@ -268,7 +268,7 @@
                     $('#row_id').val(response.row_data.id);
                     $('#edit_category_name').val(response.row_data.project_overview);
                     $('#row_status').val(response.row_data.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + response.row_data.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + response.row_data.image);
                     $('#restoreImage').attr('data-id', response.row_data.image);
                     $('#old_image').val(response.row_data.image);
                 },

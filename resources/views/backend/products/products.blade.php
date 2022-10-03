@@ -396,7 +396,8 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="editOwnerContact">Owner Contact<span class="req">*</span>
+                                                    <label for="editOwnerContact">Owner Contact<span
+                                                            class="req">*</span>
                                                     </label>
                                                     <input type="text" class="form-control" id="editOwnerContact"
                                                            name="editOwnerContact" placeholder="Contact Number">
@@ -406,7 +407,8 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="editOwnerAddress">Owner Address<span class="req">*</span>
+                                                    <label for="editOwnerAddress">Owner Address<span
+                                                            class="req">*</span>
                                                     </label>
                                                     <input type="text" class="form-control" id="editOwnerAddress"
                                                            name="editOwnerAddress" placeholder="Address">
@@ -458,7 +460,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#editProductTitle').val(r_val.title);
                     $('#oldDes').val(r_val.description);
@@ -469,7 +470,7 @@
                     $('#editOwnerAddress').val(r_val.owner_address);
 
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

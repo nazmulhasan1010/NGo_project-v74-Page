@@ -185,7 +185,7 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="areaDescription"
                                                        name="description"
-                                                       value="{{old('description', empty($errors->description) ? '' : $errors->description)}}"
+                                                       value=""
                                                        placeholder="Description">
                                                 @if ($errors->has('description'))
                                                     <span class="text-danger">{{ $errors->first('description') }}</span>
@@ -282,7 +282,7 @@
                     $('#editAreaTitle').val(r_val.area);
                     $('#areaDescription').val(r_val.description);
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

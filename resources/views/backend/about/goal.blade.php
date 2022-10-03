@@ -164,7 +164,7 @@
                                         </label>
                                         <input type="text" class="form-control" id="edit_category_name"
                                                name="category_name"
-                                               value="{{old('project_goal', empty($errors->project_goal) ? '' : $errors->project_goal)}}"
+                                               value=""
                                                placeholder="Project goal">
                                         @if ($errors->has('project_goal'))
                                             <span class="text-danger">{{ $errors->first('project_goal') }}</span>
@@ -259,7 +259,7 @@
                     $('#row_id').val(r_val.id);
                     $('#edit_category_name').val(r_val.project_goal);
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

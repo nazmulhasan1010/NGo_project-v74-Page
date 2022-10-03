@@ -552,7 +552,11 @@
     margin-bottom: 5px;
   }
   .objective .objectives ul {
+    width: 100%;
     font-size: 1.5rem;
+  }
+  .objective .objectives ul li {
+    width: 100%;
   }
   .heading {
     font-size: 2.5rem;

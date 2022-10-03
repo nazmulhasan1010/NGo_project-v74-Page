@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title','Component')
+@section('title','Notice')
 
 @push('vendor-css')
     <!-- Datatable -->

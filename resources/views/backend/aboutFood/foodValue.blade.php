@@ -157,7 +157,7 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="editFoodValueTitle"
                                                        name="editFoodValueTitle"
-                                                       value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                       value=""
                                                        placeholder="foodValue Title">
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger">{{ $errors->first('title') }}</span>

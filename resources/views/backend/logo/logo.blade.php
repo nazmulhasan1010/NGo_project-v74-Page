@@ -259,7 +259,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#row_status').val(r_val.status);
                     if (r_val.logo_status === 'primary') {
@@ -268,7 +267,7 @@
                         $('#editSecondary').attr("checked", true);
                     }
 
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src',"{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreLogo').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

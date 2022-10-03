@@ -181,7 +181,7 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="editSuccessStoriesTitle"
                                                        name="editSuccessStoriesTitle"
-                                                       value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                       value=""
                                                        placeholder="Title">
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger">{{ $errors->first('title') }}</span>
@@ -288,12 +288,11 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#editSuccessStoriesTitle').val(r_val.title);
                     $('#editSuccessStoriesDescription').val(r_val.description);
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

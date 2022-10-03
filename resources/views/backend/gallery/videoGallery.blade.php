@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title','Component')
+@section('title','Video Gallery')
 
 @push('vendor-css')
     <!-- Datatable -->
@@ -165,7 +165,7 @@
                                                 </label>
                                                 <input type="text" class="form-control" id="editVideoTitle"
                                                        name="editVideoTitle"
-                                                       value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                       value=""
                                                        placeholder="Video Title">
                                                 @if ($errors->has('title'))
                                                     <span class="text-danger">{{ $errors->first('title') }}</span>
@@ -249,7 +249,6 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#editVideoTitle').val(r_val.title);
                     $('#old_video').val(r_val.link);

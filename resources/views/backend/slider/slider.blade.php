@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title','Component')
+@section('title','Slider')
 
 @push('vendor-css')
     <!-- Datatable -->
@@ -177,7 +177,7 @@
                                                 </label>
                                                 <textarea class="form-control" id="editSliderTitle"
                                                           name="editSliderTitle"
-                                                          value="{{old('title', empty($errors->title) ? '' : $errors->title)}}"
+                                                          value=""
                                                           placeholder="Slider Title">
                                                 </textarea>
                                                 @if ($errors->has('title'))
@@ -194,7 +194,7 @@
                                                 </label>
                                                 <textarea class="form-control" id="editComponentDescription"
                                                           name="editComponentDescription"
-                                                          value="{{old('description', empty($errors->description) ? '' : $errors->description)}}"
+                                                          value=""
                                                           placeholder="Slider Description">
                                             </textarea>
                                                 @if ($errors->has('description'))
@@ -288,12 +288,11 @@
                 dataType: "json",
                 success: function (response) {
                     var r_val = response.row_data;
-                    console.log(r_val);
                     $('#row_id').val(r_val.id);
                     $('#editSliderTitle').val(r_val.title);
                     $('#editComponentDescription').val(r_val.description);
                     $('#row_status').val(r_val.status);
-                    $('.imagePreViewEdit').attr('src', window.location.origin + "/storage/" + r_val.image);
+                    $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);
                     $('#old_image').val(r_val.image);
                 },

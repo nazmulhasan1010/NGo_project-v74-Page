@@ -23,7 +23,7 @@
                 }
             @endphp
             <img src="{{asset($logoImg)}}" alt="logo" style="max-height: 55px; width: 200px" >
-            <h2 style="color: rgba(52, 52, 52, 0.50); font-size:3rem">Welcome come to {{config('app.name', 'AASCO') }} Admin</h2>
+{{--            <h2 style="color: rgba(52, 52, 52, 0.50); font-size:3rem">Welcome come to {{config('app.name', 'AASCO') }} Admin</h2>--}}
             <p style="color: #097d3e;font-size:1.5rem">{{date('d-F-y')}}</p>
         </div>
 

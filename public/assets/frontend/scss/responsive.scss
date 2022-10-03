@@ -703,7 +703,11 @@
     .objective {
         .objectives {
             ul {
+                width: 100%;
                 font-size: 1.5rem;
+                li{
+                    width: 100%;
+                }
             }
         }
     }
