@@ -5,7 +5,6 @@
     <div class="project_summary bg-white-cu content-100">
         @include('frontend.pages.component.themeChanger')
         <div class="row content-80 event-notices event-show border-bottom-">
-
             @if($notice)
                 <div class="col-md-12 sub-container event-notice ">
                     <div class="heading">

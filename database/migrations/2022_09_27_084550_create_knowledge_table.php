@@ -18,6 +18,7 @@ class CreateKnowledgeTable extends Migration
             $table->string('title', 1000);
             $table->string('description', 5000);
             $table->string('attachment', 1000);
+            $table->string('category', 100);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

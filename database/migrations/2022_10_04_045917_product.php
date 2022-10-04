@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Products extends Migration
+class Product extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,14 @@ class Products extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title',255)->nullable();
-            $table->string('description',5000)->nullable();
-            $table->string('image',255)->nullable();
+            $table->string('title', 1000);
+            $table->string('description', 5000);
+            $table->string('category', 200);
+            $table->string('owner_name', 200);
+            $table->string('owner_email', 200);
+            $table->string('owner_contact', 200);
+            $table->string('owner_address', 200);
+            $table->string('image', 500);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
