@@ -30,6 +30,49 @@
         .modal-dialog {
             width: 800px;
         }
+
+        .preview-img {
+            position: relative;
+            height: 250px;
+            width: 280px;
+        }
+
+        .imagePreView {
+            height: 180px;
+            width: 250px;
+            position: absolute;
+            top: 0;
+            left: 60px;
+            z-index: 3;
+            border-radius: 10px;
+        }
+
+        .preview-2 {
+            height: 180px;
+            width: 250px;
+            position: absolute;
+            top: 15px;
+            left: 75px;
+            border-radius: 10px;
+            background-color: rgba(51, 51, 51, 0.41);
+        }
+
+        .image-counter {
+            position: absolute;
+            top: 75px;
+            left: 180px;
+            z-index: 9;
+            background-color: rgba(255, 255, 255, 0.70);
+            font-size: 22px;
+            padding: 2px 10px;
+            border-radius: 3px;
+            color: rgba(51, 51, 51, 0.70);
+            font-weight: bold;
+        }
+        .allImageSize{
+            width: 100%;
+            text-align: center;
+        }
     </style>
 @endpush
 @section('content')
@@ -156,8 +199,9 @@
                                         <div class="row">
                                             <div class="preview-img">
                                                 <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
-                                                     class="imagePreView imagePreViewSelect imagePreViewEmpty">
+                                                     class="imagePreView imagePreViewSelect imagePreViewEmpty" alt="">
                                             </div>
+                                            <div class="allImageSize"></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
@@ -166,7 +210,7 @@
                                                         <label for="uploadImage" class="editImageUp btn">Chose a
                                                             image </label>
                                                         <input type="file" class="form-control" id="uploadImage"
-                                                               name="productImage" hidden>
+                                                               name="productImage" hidden multiple>
                                                     </div>
                                                 </div>
                                             </div>
@@ -480,6 +524,28 @@
             });
             e.preventDefault();
         });
+
+        // image preview
+        $('#uploadImage').change(function () {
+            var file = $(this).prop('files')[0],
+                files = $(this).prop('files'),
+                reader = new FileReader(),
+                len = files.length - 1;
+            if (files.length > 1) {
+                $('.preview-img').append('' +
+                    '<div class="preview-2"></div>' +
+                    ' <div class="image-counter">+' + len + '</div>'
+                )
+            }
+            for (var i = 0, j = 0; i < files.length; i++) {
+                j = files[i].size + j;
+                if (i === len) {
+                    let size = (j / (1024 * 1024)).toFixed(2);
+                    $('.allImageSize').html('<p>Total: ' + size + ' mb</p>')
+                    break
+                }
+            }
+        })
         CKEDITOR.replace('editProductDes');
         CKEDITOR.replace('productDes');
     </script>

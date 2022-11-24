@@ -34,6 +34,7 @@ use App\Http\Controllers\clientController;
 use App\Http\Controllers\frontend\frontHomeController;
 use App\Http\Controllers\frontend\pageController;
 use App\Http\Controllers\lanController;
+use App\Http\Controllers\productPageController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -69,12 +70,16 @@ Route::get('download/{file}/{path}', [clientController::class, 'download']);
 Route::get('privacy', [pageController::class, 'privacy']);
 Route::get('terms', [pageController::class, 'terms']);
 Route::post('language', [lanController::class,'language']);
-Route::get('products', [pageController::class,'products']);
-Route::get('product/{id}', [pageController::class,'product']);
+//Route::get('products', [pageController::class,'products']);
+//Route::get('product/{id}', [pageController::class,'product']);
 Route::get('knowledge', [pageController::class,'knowledgeAll']);
 Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
 Route::get('knowledge/show/{id}', [pageController::class,'knowledgeShow']);
 Route::get('knowledge/download/{id}', [pageController::class,'knowledgeDownload']);
+Route::get('product-home', [productPageController::class,'index']);
+Route::get('products', [productPageController::class,'products']);
+Route::get('product-item', [productPageController::class,'productItem']);
+
 
 
 
