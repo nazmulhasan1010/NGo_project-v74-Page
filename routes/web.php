@@ -21,7 +21,10 @@ use App\Http\Controllers\Backend\newsController;
 use App\Http\Controllers\Backend\noticeController;
 use App\Http\Controllers\Backend\partnerController;
 use App\Http\Controllers\Backend\privacyController;
+use App\Http\Controllers\Backend\productCategoryController;
 use App\Http\Controllers\Backend\productController;
+use App\Http\Controllers\Backend\productImageController;
+use App\Http\Controllers\Backend\productSliderController;
 use App\Http\Controllers\Backend\publicationController;
 use App\Http\Controllers\Backend\recipeController;
 use App\Http\Controllers\Backend\sliderController;
@@ -42,7 +45,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 //frontend
-Route::get('/', [frontHomeController::class, 'index']);
+Route::get('home', [frontHomeController::class, 'index']);
 Route::get('faq', [pageController::class, 'faq']);
 Route::get('gallery/photos', [pageController::class, 'photos']);
 Route::get('gallery/videos', [pageController::class, 'videos']);
@@ -69,16 +72,19 @@ Route::post('message', [clientController::class, 'message']);
 Route::get('download/{file}/{path}', [clientController::class, 'download']);
 Route::get('privacy', [pageController::class, 'privacy']);
 Route::get('terms', [pageController::class, 'terms']);
-Route::post('language', [lanController::class,'language']);
+Route::get('language', [lanController::class,'language']);
 //Route::get('products', [pageController::class,'products']);
 //Route::get('product/{id}', [pageController::class,'product']);
 Route::get('knowledge', [pageController::class,'knowledgeAll']);
 Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
 Route::get('knowledge/show/{id}', [pageController::class,'knowledgeShow']);
 Route::get('knowledge/download/{id}', [pageController::class,'knowledgeDownload']);
-Route::get('product-home', [productPageController::class,'index']);
+Route::get('/', [productPageController::class,'index']);
 Route::get('products', [productPageController::class,'products']);
 Route::get('product-item', [productPageController::class,'productItem']);
+Route::get('product-about', [productPageController::class,'productAbout']);
+Route::get('product-contact', [productPageController::class,'productContact']);
+
 
 
 
@@ -126,6 +132,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('terms', termsController::class);
     Route::resource('privacy', privacyController::class);
     Route::resource('products', productController::class);
+    Route::post('productImageGet', [productImageController::class,'getProductImage']);
+    Route::post('deleteProductImage', [productImageController::class,'deleteImage']);
+    Route::post('productImageAdd', [productImageController::class,'productImageAdd'])->name('productImageAdd');
+    Route::resource('products_category', productCategoryController::class);
+    Route::resource('products_slider', productSliderController::class);
     Route::resource('clientMessages', clientMessagesController::class);
 });
 

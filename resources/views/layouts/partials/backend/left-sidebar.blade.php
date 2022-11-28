@@ -91,11 +91,31 @@
                     <span class="nav-text">Sliders</span>
                 </a>
             </li>
-            <li>
-                <a href="{{route('products.index')}}" class="ai-icon" aria-expanded="false">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <span class="nav-text">Products</span>
+            <li><a class="has-arrow ai-icon" aria-expanded="false">
+                    <i class="fa-solid fa-store"></i>
+                    <span class="nav-text">Products Site</span>
                 </a>
+                <ul aria-expanded="false">
+                    <li>
+                        <a href="{{route('products_category.index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="fa-solid fa-tag"></i>
+                            <span class="nav-text">Products Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('products.index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <span class="nav-text">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('products_slider.index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span class="nav-text">Slider</span>
+                        </a>
+                    </li>
+
+                </ul>
             </li>
             <li>
                 <a href="{{route('knowledge.index')}}" class="ai-icon" aria-expanded="false">

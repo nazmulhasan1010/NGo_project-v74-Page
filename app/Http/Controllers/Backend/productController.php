@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Brian2694\Toastr\Facades\Toastr;
 
 use Illuminate\Http\Request;
@@ -52,27 +53,57 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
+//        return $request->all();
+        $product_id = random_int(100000, 999999);
         $this->validate($request, [
             'productTitle' => 'required',
-            'productImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
+            'productTitle_bn' => 'required',
+            'productDes' => 'required',
+            'productDes_bn' => 'required',
+            'productCategory' => 'required',
+            'stock' => 'required',
+            'productPrice' => 'required',
+            'ownerCompanyLogo' => 'image|mimes:jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
-//        return $request->all();
-        if ($request->productCategory === 'others' && $request->productOtC !== null) {
-            $category = $request->productOtC;
+
+        if (count($request->productImage) > 1) {
+            $allImage = array();
+            foreach ($request->productImage as $image) {
+                $fileName = imageUploadWithCustomSize($image, "400", "400", "product");
+
+                $new_data = array('product_id' => $product_id, 'image' => 'product/' . $fileName);
+                array_push($allImage, $new_data);
+            }
+            ProductImage::insert($allImage);
         } else {
-            $category = $request->productCategory;
+            $fileName = imageUploadWithCustomSize($request->productImage[0], "400", "400", "product");
+            $productImage = new ProductImage();
+            $productImage->product_id = $product_id;
+            $productImage->image = 'product/' . $fileName;
+            $productImage->save();
         }
+
         try {
-            $fileName = imageUploadWithCustomSize($request->productImage, "1200", "800", "product");
             $product = new Product();
+            $product->product_id = $product_id;
             $product->title = $request->productTitle;
+            $product->title_bn = $request->productTitle_bn;
             $product->description = $request->productDes;
-            $product->category = $category;
+            $product->description_bn = $request->productDes_bn;
+            $product->category = $request->productCategory;
+            $product->stock = $request->stock;
+            $product->return = $request->returnDays;
+            $product->warranty = $request->warranty;
+            $product->owner_company = $request->ownerCompany;
             $product->owner_name = $request->ownerName;
+            if (isset($request->ownerCompanyLogo)) {
+                $logoFileName = imageUploadWithCustomSize($request->ownerCompanyLogo, "400", "400", "ownerCompanyLogo");
+                $product->owner_company_logo = 'ownerCompanyLogo/' . $logoFileName;
+            }
             $product->owner_email = $request->ownerMail;
             $product->owner_contact = $request->ownerContact;
             $product->owner_address = $request->ownerAddress;
-            $product->image = 'product/' . $fileName;
+            $product->price = $request->productPrice;
             $product->save();
 
             Toastr::success('Product Successfully Added');
@@ -122,39 +153,35 @@ class productController extends Controller
     public function update(Request $request, $cat)
     {
         $this->validate($request, [
-            'old_id' => 'required',
+            'row_id' => 'required',
         ]);
-//return $request->all();
         try {
-            if ($request->old_image === 'change') {
-                $fileName = 'product/' . imageUploadWithCustomSize($request->editProductImage, "1200", "800", "product");
-                Storage::delete('public/' . Product::findOrFail($request->old_id)->image);
-            } else {
-                $fileName = $request->old_image;
-            }
-            if ($request->editProductDes == null) {
-                $des = $request->oldDes;
-            } else {
-                $des = $request->editProductDes;
-            }
-            if ($request->productEditCategory === 'others' && $request->productEditOtC !== null) {
-                $category = $request->productEditOtC;
-            } else {
-                $category = $request->productEditCategory;
-            }
-            $product = Product::findOrFail($request->old_id);
-
+            $product = Product::findOrFail($request->row_id);
             $product->title = $request->editProductTitle;
-            $product->description = $des;
-            $product->image = $fileName;
-            $product->category = $category;
+            $product->title_bn = $request->editProductTitle_bn;
+            if ($request->editProductDes !== null) {
+                $product->description = $request->editProductDes;
+            }
+            if ($request->editProductDes_bn !== null) {
+                $product->description_bn = $request->editProductDes_bn;
+            }
+            $product->category = $request->editProductCategory;
+            $product->stock = $request->editStock;
+            $product->return = $request->editReturnDays;
+            $product->warranty = $request->editWarranty;
+            $product->owner_company = $request->editOwnerCompany;
             $product->owner_name = $request->editOwnerName;
+            if (isset($request->editOwnerCompanyLogo)) {
+                $logoFileName = imageUploadWithCustomSize($request->editOwnerCompanyLogo, "400", "400", "ownerCompanyLogo");
+                $product->owner_company_logo = 'ownerCompanyLogo/' . $logoFileName;
+                Storage::delete('public/' . Product::findOrFail($request->row_id)->owner_company_logo);
+            }
             $product->owner_email = $request->editOwnerMail;
             $product->owner_contact = $request->editOwnerContact;
             $product->owner_address = $request->editOwnerAddress;
+            $product->price = $request->editProductPrice;
             $product->status = $request->row_status;
             $product->update();
-
 
             Toastr::success('Product Successfully Update');
             return redirect()->back();
@@ -173,8 +200,14 @@ class productController extends Controller
     public function destroy($id)
     {
         try {
-            Storage::delete('public/' . Product::findOrFail($id)->image);
+            $product_id = Product::where('id', '=', $id)->get()[0]->product_id;
+            $images = ProductImage::where('product_id', '=', $product_id)->get();
+            foreach ($images as $image) {
+                Storage::delete('public/' . $image->image);
+            }
+            Storage::delete('public/' . Product::findOrFail($id)->owner_company_logo);
             Product::Find($id)->delete();
+            ProductImage::where('product_id', '=', $product_id)->delete();
             Toastr::success('Product Successfully Deleted');
             return redirect()->back();
         } catch (\Exception $e) {
@@ -182,4 +215,5 @@ class productController extends Controller
             return redirect()->back();
         }
     }
+
 }

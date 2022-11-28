@@ -39,5 +39,10 @@ return[
     'development'=>'Development',
     'partner'=>'Partner',
     'services'=>'services',
-    'others'=>'others'
+    'others'=>'others',
+    'vendors'=>'Vendors',
+    'contact'=>'Contact',
+    'categories'=>'Categories',
+    'show_more'=>'Show more..',
+    'shop_now'=>'Shop Now',
 ];

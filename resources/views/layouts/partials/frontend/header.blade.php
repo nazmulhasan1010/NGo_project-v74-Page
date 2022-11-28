@@ -13,7 +13,7 @@
     <form action="" class="right d-flex justify-content-end" method="post" role="form">
         @csrf
         <input type="hidden" name="lanStatus" id="lanStatus" value="0" hidden>
-        <button type="button" class="lan_cng_btn" id="lanBtn">
+        <a href="{{url('language')}}" class="lan_cng_btn" id="lanBtn">
             @php
                 if (session()->has('language')){
                     $lan = session()->get('language');
@@ -23,7 +23,7 @@
             @endphp
             <label class="lanEnOn {{$lan=='en'?'on':'off'}}">EN</label>
             <label class="lanBnOn {{$lan=='bn'?'on':'off'}}">BN</label>
-        </button>
+        </a>
     </form>
 </div><!-- contact modal end -->
 
@@ -55,7 +55,7 @@
             </div>
 
             <ul>
-                <a href="{{url('/')}}">
+                <a href="{{url('home')}}">
                     <li class="options-menu {{ Request::is('/')? 'active' : ''}}">
                         <div class="option-head">{{__('front.home')}}</div>
                     </li>

@@ -1,13 +1,13 @@
 
-$('#lanBtn').click(function () {
-    axios.post('language').then(function (response) {
-        if (response.status === 200 ) {
-            window.location.reload();
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-});
+// $('#lanBtn').click(function () {
+//     axios.post('language').then(function (response) {
+//         if (response.status === 200 ) {
+//             window.location.reload();
+//         }
+//     }).catch(function (error) {
+//         console.log(error);
+//     });
+// });
 
 
 // top button And  sticky nav

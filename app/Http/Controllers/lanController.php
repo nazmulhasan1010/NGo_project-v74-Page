@@ -16,5 +16,6 @@ class lanController extends Controller
         }
         $lanC = $lan == 'en' ? 'bn' : 'en';
         session()->put('language', $lanC);
+        return redirect()->back();
     }
 }

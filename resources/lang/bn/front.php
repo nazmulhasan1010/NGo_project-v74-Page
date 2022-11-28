@@ -39,5 +39,10 @@ return[
     'development'=>'উন্নয়ন',
     'partner'=>'অংশীদার',
     'services'=>'সেবা',
-    'others'=>'অন্যান্য'
+    'others'=>'অন্যান্য',
+    'vendors'=>'বিক্রেতারা',
+    'contact'=>'যোগাযোগ',
+    'categories'=>'ক্যাটাগরি',
+    'show_more'=>'আরো দেখুন..',
+    'shop_now'=>'এখনই কিনুন',
 ];

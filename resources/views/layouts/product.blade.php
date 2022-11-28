@@ -17,6 +17,9 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/product/css/plugins/animate.main.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/frontend/product/css/main.css')}}" />
+    <link href="{{ asset('assets/frontend/scss/main.css') }}" rel="stylesheet">
+    {{--    <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('assets/frontend/scss/responsive.css') }}" rel="stylesheet">
     @stack('vendor-css')
     @stack('onPage-css')
 </head>

@@ -6,6 +6,9 @@ use App\Models\Knowledge;
 use App\Models\Links;
 use App\Models\ImageGallery;
 use App\Models\Privacy;
+use App\Models\ProductCategory;
+use App\Models\ProductImage;
+use App\Models\ProductSlider;
 use App\Models\Terms;
 use App\Models\VideoGallery;
 use App\Models\Beneficiary;
@@ -220,3 +223,44 @@ if (!function_exists('getProduct')) {
 
     }
 }
+function getCategories($id, $ins)
+{
+    if ($ins === 'all') {
+        return ProductCategory::get();
+    }
+
+    if ($ins === 'spe') {
+        return ProductCategory::where('id', '=', $id)->get();
+    }
+}
+
+function getProductImage($id)
+{
+   return ProductImage::where('product_id', '=', $id)->get();
+}
+ function getProductSlider($id, $inst){
+    if($inst === 'all'){
+         return ProductSlider::get();
+    }
+     if ($inst === 'spe') {
+         return ProductSlider::where('id', '=', $id)->get();
+     }
+ }
+ function getProduct($data,$ist){
+    if($ist === 'all'){
+        return Product::get();
+//        return $data = Product::select('products.*','product_images.*')
+//                ->join('product_images','products.product_id','=','product_images.product_id')
+//                ->get();
+
+    }
+     if($ist === 'category'){
+         return Product::where('category','=',$data)->get();
+     }
+     if($ist === 'spe'){
+         return Product::where('id','=',$data)->get();
+     }
+     if($ist === 'pid'){
+         return Product::where('product_id','=',$data)->get();
+     }
+ }

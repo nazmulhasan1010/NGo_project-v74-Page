@@ -15,14 +15,22 @@ class Product extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('product_id', 1000);
             $table->string('title', 1000);
-            $table->string('description', 5000);
+            $table->string('title_bn', 1000);
+            $table->longText('description');
+            $table->longText('description_bn');
             $table->string('category', 200);
-            $table->string('owner_name', 200);
-            $table->string('owner_email', 200);
-            $table->string('owner_contact', 200);
-            $table->string('owner_address', 200);
-            $table->string('image', 500);
+            $table->string('stock');
+            $table->string('return')->nullable();
+            $table->string('warranty')->nullable();
+            $table->string('owner_company', 200)->nullable();
+            $table->string('owner_name', 200)->nullable();
+            $table->string('owner_company_logo', 200)->nullable();
+            $table->string('owner_email', 200)->nullable();
+            $table->string('owner_contact', 200)->nullable();
+            $table->string('owner_address', 200)->nullable();
+            $table->string('price');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
