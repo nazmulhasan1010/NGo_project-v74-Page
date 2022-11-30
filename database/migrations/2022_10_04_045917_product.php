@@ -24,6 +24,7 @@ class Product extends Migration
             $table->string('stock');
             $table->string('return')->nullable();
             $table->string('warranty')->nullable();
+            $table->longText('additional_info');
             $table->string('owner_company', 200)->nullable();
             $table->string('owner_name', 200)->nullable();
             $table->string('owner_company_logo', 200)->nullable();

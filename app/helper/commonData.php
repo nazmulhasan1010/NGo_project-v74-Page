@@ -236,31 +236,37 @@ function getCategories($id, $ins)
 
 function getProductImage($id)
 {
-   return ProductImage::where('product_id', '=', $id)->get();
+    return ProductImage::where('product_id', '=', $id)->get();
 }
- function getProductSlider($id, $inst){
-    if($inst === 'all'){
-         return ProductSlider::get();
-    }
-     if ($inst === 'spe') {
-         return ProductSlider::where('id', '=', $id)->get();
-     }
- }
- function getProduct($data,$ist){
-    if($ist === 'all'){
-        return Product::get();
-//        return $data = Product::select('products.*','product_images.*')
-//                ->join('product_images','products.product_id','=','product_images.product_id')
-//                ->get();
 
+function getProductSlider($id, $inst)
+{
+    if ($inst === 'all') {
+        return ProductSlider::get();
     }
-     if($ist === 'category'){
-         return Product::where('category','=',$data)->get();
-     }
-     if($ist === 'spe'){
-         return Product::where('id','=',$data)->get();
-     }
-     if($ist === 'pid'){
-         return Product::where('product_id','=',$data)->get();
-     }
- }
+    if ($inst === 'spe') {
+        return ProductSlider::where('id', '=', $id)->get();
+    }
+}
+
+function getProduct($data, $ist)
+{
+    if ($ist === 'all') {
+        return Product::get();
+    }
+    if ($ist === 'category') {
+        return Product::where('category', '=', $data)->get();
+    }
+    if ($ist === 'spe') {
+        return Product::where('id', '=', $data)->get();
+    }
+    if ($ist === 'pid') {
+        return Product::where('product_id', '=', $data)->get();
+    }
+    if ($ist === 'new') {
+        return Product::latest()->get();
+    }
+    if ($ist === 'random') {
+        return Product::inRandomOrder()->get();
+    }
+}

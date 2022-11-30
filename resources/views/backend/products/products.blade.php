@@ -4,6 +4,7 @@
 @push('vendor-css')
     <!-- Datatable -->
     <link href="{{ asset('assets/backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 @endpush
 @push('onpage-css')
     <style>
@@ -237,7 +238,7 @@
                                     <div class="col-md-9">
                                         <div id="productImages"></div>
                                     </div>
-                                    <div class="col-md-3 ">
+                                    <div class="col-md-3">
                                         <div class="row">
                                             <div class="preview-img previewInCanvas" style="width: 100%">
                                                 <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
@@ -385,6 +386,17 @@
                                                     </label>
                                                     <input type="number" class="form-control" id="warranty"
                                                            name="warranty" placeholder="Warranty (Days)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="additionalInfo">Additional Info<span
+                                                            class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="additionalInfo"
+                                                              name="additionalInfo"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -605,6 +617,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editAdditionalInfo">Additional Info<span
+                                                            class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="editAdditionalInfo"
+                                                              name="editAdditionalInfo"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="inputs">
                                         <div class="row">
@@ -716,6 +739,7 @@
     <!-- Datatable -->
     <script src="{{ asset('assets/backend/vendor/datatables/js/jquery.dataTables.min.js')}} "></script>
     <script src="{{ asset('assets/backend/js/plugins-init/datatables.init.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/summernote-lite.min.js')}}"></script>
     <script src="{{ asset('assets/frontend/javascript/axios.min.js')}}"></script>
 @endpush
 @push('onpage-js')
@@ -754,6 +778,7 @@
 
             })
         });
+
         function productImageShow(data) {
             $('#productImages').empty();
             $.each(data, function (key, item) {
@@ -814,6 +839,7 @@
                     $('#editStock').val(r_val.stock);
                     $('#editReturnDays').val(r_val.return);
                     $('#editWarranty').val(r_val.warranty);
+                    $("#editAdditionalInfo").summernote("code", r_val.additional_info);
                     $('#editOwnerCompany').val(r_val.owner_company);
                     $('#editOwnerName').val(r_val.owner_name);
                     $('#editOwnerMail').val(r_val.owner_email);
@@ -870,9 +896,36 @@
                 }
             }
         })
-        CKEDITOR.replace('editProductDes');
-        CKEDITOR.replace('editProductDes_bn');
-        CKEDITOR.replace('productDes_bn');
-        CKEDITOR.replace('productDes');
+        // summer note
+        $('#additionalInfo').summernote({
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+        $('#editAdditionalInfo').summernote({
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+        // CKEDITOR.replace('editProductDes');
+        // CKEDITOR.replace('editProductDes_bn');
+        // CKEDITOR.replace('productDes_bn');
+        // CKEDITOR.replace('productDes');
     </script>
 @endpush

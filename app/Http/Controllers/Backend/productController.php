@@ -94,6 +94,7 @@ class productController extends Controller
             $product->stock = $request->stock;
             $product->return = $request->returnDays;
             $product->warranty = $request->warranty;
+            $product->additional_info = $request->additionalInfo;
             $product->owner_company = $request->ownerCompany;
             $product->owner_name = $request->ownerName;
             if (isset($request->ownerCompanyLogo)) {
@@ -169,6 +170,7 @@ class productController extends Controller
             $product->stock = $request->editStock;
             $product->return = $request->editReturnDays;
             $product->warranty = $request->editWarranty;
+            $product->additional_info = $request->editAdditionalInfo;
             $product->owner_company = $request->editOwnerCompany;
             $product->owner_name = $request->editOwnerName;
             if (isset($request->editOwnerCompanyLogo)) {

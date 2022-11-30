@@ -43,7 +43,8 @@
                                         @endphp
 
                                         <li>
-                                            <a href="shop-grid-right.html" style="text-transform: capitalize"> <img
+                                            <a href="{{route('products',['catName'=>$category->title,'catId'=>encrypt($category->id)])}}"
+                                               style="text-transform: capitalize"> <img
                                                     src="{{asset('storage/'.$category->image)}}"
                                                     alt=""/>{{$title}}</a>
                                         </li>
@@ -65,7 +66,7 @@
                                                     }
                                                 @endphp
                                                 <li>
-                                                    <a href="shop-grid-right.html" style="text-transform: capitalize">
+                                                    <a href="{{route('products',['catName'=>$category->title,'catId'=>encrypt($category->id)])}}" style="text-transform: capitalize">
                                                         <img
                                                             src="{{asset('storage/'.$category->image)}}"
                                                             alt=""/>{{$title}}</a>
@@ -279,18 +280,17 @@
             @foreach($categories as $key=>$category)
                 @php
                     $products = getProduct($category->id,'category');
+                     if (App::isLocale('bn')) {
+                         $catTitle = $category->title_bn;
+                     }else{
+                         $catTitle = $category->title;
+                     }
                 @endphp
-                @php
-                    if (App::isLocale('bn')) {
-                         $title = $category->title_bn;
-                    }else{
-                        $title = $category->title;
-                    }
-                @endphp
+
                 @if(count($products)>0)
                     <div class="container">
                         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                            <h3 style="text-transform: capitalize;">{{$title}}</h3>
+                            <h3 style="text-transform: capitalize;">{{$catTitle}}</h3>
                         </div>
                         <!--End nav-tabs-->
                         <div class="tab-content" id="myTabContent">
@@ -300,6 +300,12 @@
                                     @foreach($products as $product)
                                         @php
                                             $image =  getProductImage($product->product_id);
+
+                                            if (App::isLocale('bn')) {
+                                                $title = $product->title_bn;
+                                            }else{
+                                                $title = $product->title;
+                                            }
                                         @endphp
                                         {{-- product card--}}
                                         <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -307,7 +313,7 @@
                                                  data-wow-delay=".1s">
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
-                                                        <a href="shop-product-right.html">
+                                                        <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">
                                                             <img class="default-img"
                                                                  src="{{asset('storage/'.$image[0]->image)}}"
                                                                  alt=""/>
@@ -322,38 +328,27 @@
                                                            data-bs-target="#quickViewModal"><i
                                                                 class="fi-rs-eye"></i></a>
                                                     </div>
-                                                    <div
-                                                        class="product-badges product-badges-position product-badges-mrg">
-                                                        <span class="hot">Hot</span>
-                                                    </div>
                                                 </div>
                                                 <div class="product-content-wrap">
                                                     <div class="product-category">
-                                                        <a href="shop-grid-right.html">{{$title}}</a>
+                                                        <a href="{{route('products',['catName'=>$category->title,'catId'=>encrypt($category->id)])}}">{{$catTitle}}</a>
                                                     </div>
-                                                    <h2><a href="shop-product-right.html">Seeds of Change Organic
-                                                            Quinoa,
-                                                            Brown, &
-                                                            Red
-                                                            Rice</a></h2>
-                                                    <div class="product-rate-cover">
-                                                        <div class="product-rate d-inline-block">
-                                                            <div class="product-rating" style="width: 90%"></div>
-                                                        </div>
-                                                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                                                    </div>
+                                                    <h2>
+                                                        <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">{{$title}}</a>
+                                                    </h2>
                                                     <div>
-                                                <span class="font-small text-muted">By <a
-                                                href="vendor-details-1.html">NestFood</a></span>
+                                                <span class="font-small text-muted">By
+                                                    <a role="button">{{$product->owner_company}}</a></span>
                                                     </div>
                                                     <div class="product-card-bottom">
                                                         <div class="product-price">
-                                                            <span>$28.85</span>
-                                                            <span class="old-price">$32.8</span>
+                                                            <span>{{__('front.tk')}} {{$product->price}} </span>
+                                                            <span
+                                                                class="old-price">{{__('front.tk')}} {{$product->price+50}} </span>
                                                         </div>
                                                         <div class="add-cart">
-                                                            <a class="add" href="shop-cart.html"><i
-                                                                    class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                            <a class="add" href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}"><i
+                                                                    class="fa-solid fa-eye"></i> View </a>
                                                         </div>
                                                     </div>
                                                 </div>

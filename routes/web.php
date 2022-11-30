@@ -80,8 +80,8 @@ Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
 Route::get('knowledge/show/{id}', [pageController::class,'knowledgeShow']);
 Route::get('knowledge/download/{id}', [pageController::class,'knowledgeDownload']);
 Route::get('/', [productPageController::class,'index']);
-Route::get('products', [productPageController::class,'products']);
-Route::get('product-item', [productPageController::class,'productItem']);
+Route::get('products/{catName}/{catId}', [productPageController::class,'products'])->name('products');
+Route::get('product-item/{product}/{productId}', [productPageController::class,'productItem'])->name('productItem');
 Route::get('product-about', [productPageController::class,'productAbout']);
 Route::get('product-contact', [productPageController::class,'productContact']);
 
