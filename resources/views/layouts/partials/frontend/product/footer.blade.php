@@ -6,13 +6,13 @@
                     <div class="position-relative newsletter-inner">
                         <div class="newsletter-content">
                             <h2 class="mb-20">
-                                Stay home & get your daily <br />
-                                needs from our shop
+                                {{__('front.slogan')}} <br />
+                                {{__('front.slogan2')}}
                             </h2>
-                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span></p>
+                            <p class="mb-45"> {{__('front.yourNeed')}} <span class="text-brand"> DSK</span></p>
                             <form class="form-subcriber d-flex">
-                                <input type="email" placeholder="Your emaill address" />
-                                <button class="btn" type="submit">Subscribe</button>
+                                <input type="email" placeholder="{{__('front.yourEmail')}}" />
+                                <button class="btn" type="submit">{{__('front.subscribe')}}</button>
                             </form>
                         </div>
                         <img src="{{asset('assets/frontend/product/imgs/banner/banner-9.png')}}" alt="newsletter" />
@@ -30,8 +30,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-1.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Best prices & offers</h3>
-                            <p>Orders $50 or more</p>
+                            <h3 class="icon-box-title">{{__('front.bestPrice')}}</h3>
+                            <p>{{__('front.order')}} {{__('front.tk')}}500 {{__('front.or')}} {{__('front.more')}}</p>
                         </div>
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-2.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Free delivery</h3>
-                            <p>24/7 amazing services</p>
+                            <h3 class="icon-box-title">{{__('front.freeDeliver')}}</h3>
+                            <p>{{__('front.24/7service')}}</p>
                         </div>
                     </div>
                 </div>
@@ -52,8 +52,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-3.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Great daily deal</h3>
-                            <p>When you sign up</p>
+                            <h3 class="icon-box-title">{{__('front.greatDeal')}}</h3>
+                            <p>{{__('front.whenSignUp')}}</p>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-4.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Wide assortment</h3>
-                            <p>Mega Discounts</p>
+                            <h3 class="icon-box-title">{{__('front.wideAssortment')}}</h3>
+                            <p>{{__('front.discounts')}}</p>
                         </div>
                     </div>
                 </div>
@@ -74,8 +74,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-5.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Easy returns</h3>
-                            <p>Within 30 days</p>
+                            <h3 class="icon-box-title">{{__('front.easyReturns')}}</h3>
+                            <p>{{__('front.within30Days')}}</p>
                         </div>
                     </div>
                 </div>
@@ -85,8 +85,8 @@
                             <img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-6.svg')}}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Safe delivery</h3>
-                            <p>Within 30 days</p>
+                            <h3 class="icon-box-title">{{__('front.safeDelivery')}}</h3>
+                            <p>{{__('front.within30Days')}}</p>
                         </div>
                     </div>
                 </div>
@@ -100,24 +100,23 @@
                 <div class="footer-bottom"></div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6">
-                <p class="font-sm mb-0">&copy; 2021, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
+                <p class="font-sm mb-0">Copyright © Designed & Developed by <strong class="text-brand">USS</strong> 2022</p>
             </div>
             <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
                 <div class="hotline d-lg-inline-flex mr-30">
-                    <img src="{{asset('assets/frontend/product/imgs/theme/icons/phone-call.svg')}}" alt="hotline" />
-                    <p>1900 - 6666<span>Working 8:00 - 22:00</span></p>
+
                 </div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
+                @php
+                    $link = getCommunication()['links'];
+                @endphp
                 <div class="mobile-social-icon">
-                    <h6 class="mb-15">Follow Us</h6>
-                    <a href="#"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-facebook-white.svg')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-twitter-white.svg')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-instagram-white.svg')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-pinterest-white.svg')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-youtube-white.svg')}}" alt=""/></a>
+                    <a href="{{$link[0]->facebookLinks}}"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-facebook-white.svg')}}" alt=""/></a>
+                    <a href="{{$link[0]->twitterLinks}}"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-twitter-white.svg')}}" alt=""/></a>
+                    <a href=""{{$link[0]->linkedInLinks}}><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-instagram-white.svg')}}" alt=""/></a>
+                    <a href="{{$link[0]->youtubeLinks}}"><img src="{{asset('assets/frontend/product/imgs/theme/icons/icon-youtube-white.svg')}}" alt=""/></a>
                 </div>
-                <p class="font-sm">Up to 15% discount on your first subscribe</p>
             </div>
         </div>
     </div>

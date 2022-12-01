@@ -13,9 +13,16 @@
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
+                @php
+                    if (App::isLocale('bn')) {
+                        $tagTitle =substr($products[0]->title,0,10);
+                    }else{
+                        $tagTitle = substr($products[0]->title,0,10);
+                    }
+                @endphp
                 <div class="breadcrumb">
-                    <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="">Product</a> <span></span> {{substr($products[0]->title,0,10)}}
+                    <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>{{__('front.home')}}</a>
+                    <span></span> <a href="">{{__('front.product')}}</a> <span></span> {{$tagTitle}}
                 </div>
             </div>
         </div>
@@ -68,7 +75,7 @@
                                     @endphp
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <div class="detail-info pr-30 pl-30">
-                                            <span class="stock-status out-stock"> Sale Off </span>
+{{--                                            <span class="stock-status out-stock"> Sale Off </span>--}}
                                             <h2 class="title-detail">{{$title}}</h2>
                                             <div class="clearfix product-price-cover">
                                                 <div class="product-price primary-color float-left">
@@ -87,8 +94,8 @@
                                             </div>
                                             <div class="font-xs">
                                                 <ul class="mr-50 float-start">
-                                                    <li>Stock:
-                                                        <span class="in-stock text-brand ml-5">{{$products[0]->stock}} Items In Stock</span>
+                                                    <li>{{__('front.stock')}}:
+                                                        <span class="in-stock text-brand ml-5">{{$products[0]->stock}}{{__('front.itemInStock')}}</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -96,12 +103,12 @@
                                                 <div class="product-extra-link2">
                                                     <button type="submit"
                                                             class="button button-add-to-cart callNowButton">
-                                                        <i class="fa-solid fa-phone"></i>Call Now
+                                                        <i class="fa-solid fa-phone"></i>{{__('front.callNow')}}
                                                     </button>
                                                     <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                       href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                       href=""><i class="fi-rs-heart"></i></a>
                                                     <a aria-label="Compare" class="action-btn hover-up"
-                                                       href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                                       href=""><i class="fi-rs-shuffle"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,15 +120,15 @@
                                         <ul class="nav nav-tabs text-uppercase">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="Description-tab" data-bs-toggle="tab"
-                                                   href="#Description">Description</a>
+                                                   href="#Description">{{__('front.description')}}</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab"
-                                                   href="#Additional-info">Additional info</a>
+                                                   href="#Additional-info">{{__('front.addiInfo')}}</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab"
-                                                   href="#Vendor-info">Vendor</a>
+                                                   href="#Vendor-info">{{__('front.vendor')}}</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content shop_info_tab entry-main-content">
@@ -141,37 +148,37 @@
                                                         <p>Best seller</p>
                                                     </div>
                                                 </div>
-                                                <h5>Call to buy this product</h5>
+                                                <h5>{{__('front.callForBuy')}}</h5>
                                                 <br>
                                                 <table>
                                                     <tr>
-                                                        <th><h6>Owner Name</h6></th>
+                                                        <th><h6>{{__('front.ownerName')}}</h6></th>
                                                         <td>{{$products[0]->owner_name}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th><h6>Address</h6></th>
+                                                        <th><h6>{{__('front.address')}}</h6></th>
                                                         <td>{{$products[0]->owner_address}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th><h6>Contact Seller</h6></th>
+                                                        <th><h6>{{__('front.sellerContact')}}</h6></th>
                                                         <td>{{$products[0]->owner_contact}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th><h6>Seller Email</h6></th>
+                                                        <th><h6>{{__('front.sellerEmail')}}</h6></th>
                                                         <td>{{$products[0]->owner_email}}</td>
                                                     </tr>
                                                 </table>
                                                 <div class="d-flex mb-55">
                                                     <div class="mr-30">
-                                                        <p class="text-brand font-xs">Rating</p>
+                                                        <p class="text-brand font-xs">{{__('front.rating')}}</p>
                                                         <h4 class="mb-0">92%</h4>
                                                     </div>
                                                     <div class="mr-30">
-                                                        <p class="text-brand font-xs">Ship on time</p>
+                                                        <p class="text-brand font-xs">{{__('front.shipOnTime')}}</p>
                                                         <h4 class="mb-0">100%</h4>
                                                     </div>
                                                     <div>
-                                                        <p class="text-brand font-xs">Chat response</p>
+                                                        <p class="text-brand font-xs">{{__('front.chatResponse')}}</p>
                                                         <h4 class="mb-0">89%</h4>
                                                     </div>
                                                 </div>
@@ -184,7 +191,7 @@
                                 @endphp
                                 <div class="row mt-60">
                                     <div class="col-12">
-                                        <h2 class="section-title style-1 mb-30">Related products</h2>
+                                        <h2 class="section-title style-1 mb-30">{{__('front.relatedProducts')}}</h2>
                                     </div>
                                     <div class="col-12">
                                         <div class="row related-products">
@@ -203,7 +210,8 @@
                                                         <div class="product-cart-wrap hover-up">
                                                             <div class="product-img-action-wrap">
                                                                 <div class="product-img product-img-zoom">
-                                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}" tabindex="0">
+                                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}"
+                                                                       tabindex="0">
                                                                         <img class="default-img"
                                                                              src="{{asset('storage/'.$image[0]->image)}}"
                                                                              alt=""/>
@@ -214,10 +222,13 @@
                                                                 </div>
                                                             </div>
                                                             <div class="product-content-wrap">
-                                                                <h2><a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}" tabindex="0">{{$title}}</a></h2>
+                                                                <h2>
+                                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}"
+                                                                       tabindex="0">{{$title}}</a></h2>
                                                                 <div class="product-price">
                                                                     <span>{{__('front.tk')}} {{$product->price}}</span>
-                                                                    <span class="old-price">{{__('front.tk')}} {{$product->price+40}}</span>
+                                                                    <span
+                                                                        class="old-price">{{__('front.tk')}} {{$product->price+40}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -234,7 +245,7 @@
                         @endphp
                         <div class="col-xl-3 primary-sidebar sticky-sidebar mt-30">
                             <div class="sidebar-widget widget-category-2 mb-30">
-                                <h5 class="section-title style-1 mb-30">Category</h5>
+                                <h5 class="section-title style-1 mb-30">{{__('front.categories')}}</h5>
                                 <ul>
                                     @foreach($categories as $category)
                                         @php
@@ -264,11 +275,16 @@
                             @endphp
                                 <!-- Product sidebar Widget -->
                             <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
-                                <h5 class="section-title style-1 mb-30">New products</h5>
+                                <h5 class="section-title style-1 mb-30">{{__('front.newProduct')}}</h5>
                                 @foreach($newProduct as $key=>$product)
                                     @if($key<3)
                                         @php
                                             $image =  getProductImage($product->product_id);
+                                            if (App::isLocale('bn')) {
+                                                $productTitle = $product->title_bn;
+                                            }else{
+                                                $productTitle = $product->title;
+                                            }
                                         @endphp
                                             <!-- new product -->
                                         <div class="single-post clearfix">
@@ -276,8 +292,9 @@
                                                 <img src="{{asset('storage/'.$image[0]->image)}}" alt="#"/>
                                             </div>
                                             <div class="content pt-10">
-                                                <h5><a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">Chen Cardigan</a></h5>
-                                                <p class="price mb-0 mt-5">{{$product->price}} BDT</p>
+                                                <h5>
+                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">{{$productTitle}}</a></h5>
+                                                <p class="price mb-0 mt-5">{{__('front.tk')}} {{$product->price}}</p>
                                             </div>
                                         </div><!-- new product end -->
                                     @endif

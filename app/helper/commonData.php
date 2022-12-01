@@ -269,4 +269,7 @@ function getProduct($data, $ist)
     if ($ist === 'random') {
         return Product::inRandomOrder()->get();
     }
+    if ($ist === 'catCount') {
+        return Product::where('category', '=', $data)->get()->count();
+    }
 }

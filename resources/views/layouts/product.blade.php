@@ -20,8 +20,17 @@
     <link href="{{ asset('assets/frontend/scss/main.css') }}" rel="stylesheet">
     {{--    <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('assets/frontend/scss/responsive.css') }}" rel="stylesheet">
+    <link href="https://fonts.maateen.me/siyam-rupali/font.css" rel="stylesheet">
+    <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
     @stack('vendor-css')
     @stack('onPage-css')
+    @if(App::isLocale('bn'))
+        <style>
+            body {
+                font-family: 'SiyamRupali', Arial, sans-serif !important;
+            }
+        </style>
+    @endif
 </head>
 <body>
 @php
