@@ -3,33 +3,37 @@
 @section('content')
     @include('layouts.partials.frontend.pageTitle')
     @php
-        $enterprises = getEnterprise();
+        $enterprises = getEnterprise('','all');
     @endphp
 
     <div class="project_summary bg-dark-cu content-100">
         <div class="row content-80 enterprise">
             @foreach($enterprises as $enterprise)
                 @if($enterprise->status==1)
-                    <div class="col-md-4 enterprises">
-                        <div class="en-location-map">
-                            {!! $enterprise->mapLink !!}
+                    @if($enterprise->mapLink !== null)
+                        <div class="col-md-4 enterprises">
+                            <div class="en-location-map">
+                                {!! $enterprise->mapLink !!}
+                            </div>
+                            <div class="info-field">
+                                @php
+                                    if (strlen($enterprise->title)>22){
+                                       $title = substr($enterprise->title,0,22);
+                                    }else{
+                                        $title = $enterprise->title ;
+                                    }
+                                @endphp
+                                <h2>{{$title}}</h2>
+                                <p class="contact-num">{{$enterprise->contact}}</p>
+                                <p>{{$enterprise->address}}</p>
+                                <a href="#">
+                                    <button type="button" data-link="{{ $enterprise->mapLink }}"
+                                            class="more-button mapShow">View Map
+                                    </button>
+                                </a>
+                            </div>
                         </div>
-                        <div class="info-field">
-                            @php
-                                if (strlen($enterprise->title)>22){
-                                   $title = substr($enterprise->title,0,22);
-                                }else{
-                                    $title = $enterprise->title ;
-                                }
-                            @endphp
-                            <h2>{{$title}}</h2>
-                            <p class="contact-num">{{$enterprise->contact}}</p>
-                            <p>{{$enterprise->address}}</p>
-                            <a href="#">
-                                <button type="button"  data-link="{{ $enterprise->mapLink }}" class="more-button mapShow">View Map</button>
-                            </a>
-                        </div>
-                    </div>
+                    @endif
                 @endif
             @endforeach
             <!-- map show modal -->

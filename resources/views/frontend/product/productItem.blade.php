@@ -38,7 +38,7 @@
                                             <!-- MAIN SLIDES -->
                                             <div class="product-image-slider">
                                                 @foreach($productImages as $productImage)
-                                                    <figure class="border-radius-10">
+                                                    <figure class="border-radius-10 " >
                                                         <img src="{{asset('storage/'.$productImage->image)}}"
                                                              alt="product image"/>
                                                     </figure>
@@ -75,7 +75,7 @@
                                     @endphp
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                         <div class="detail-info pr-30 pl-30">
-{{--                                            <span class="stock-status out-stock"> Sale Off </span>--}}
+                                            {{--                                            <span class="stock-status out-stock"> Sale Off </span>--}}
                                             <h2 class="title-detail">{{$title}}</h2>
                                             <div class="clearfix product-price-cover">
                                                 <div class="product-price primary-color float-left">
@@ -95,7 +95,8 @@
                                             <div class="font-xs">
                                                 <ul class="mr-50 float-start">
                                                     <li>{{__('front.stock')}}:
-                                                        <span class="in-stock text-brand ml-5">{{$products[0]->stock}}{{__('front.itemInStock')}}</span>
+                                                        <span
+                                                            class="in-stock text-brand ml-5">{{$products[0]->stock}}{{__('front.itemInStock')}}</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -139,49 +140,56 @@
                                                 {!! $products[0]->additional_info !!}
                                             </div>
                                             <div class="tab-pane fade" id="Vendor-info">
-                                                <div class="vendor-logo d-flex mb-30">
-                                                    <img style="height: 30px; width: 30px"
-                                                         src="{{asset('storage/'.$products[0]->owner_company_logo)}}"
-                                                         alt=""/>
-                                                    <div class="vendor-name ml-15">
-                                                        <h6><a href="#">{{$products[0]->owner_company}}</a></h6>
-                                                        <p>Best seller</p>
+                                                @if($products[0]->owner !== null)
+                                                    @php
+                                                        $owner = getEnterprise($products[0]->owner, 'spe');
+                                                    @endphp
+                                                    <div class="vendor-logo d-flex mb-30">
+                                                        <img style="height: 30px; width: 30px"
+                                                             src="{{asset('storage/'.$owner[0]->owner_company_logo)}}"
+                                                             alt=""/>
+                                                        <div class="vendor-name ml-15">
+                                                            <h6><a href="#">{{$owner[0]->owner_company}}</a></h6>
+                                                            <p>Best seller</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <h5>{{__('front.callForBuy')}}</h5>
-                                                <br>
-                                                <table>
-                                                    <tr>
-                                                        <th><h6>{{__('front.ownerName')}}</h6></th>
-                                                        <td>{{$products[0]->owner_name}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><h6>{{__('front.address')}}</h6></th>
-                                                        <td>{{$products[0]->owner_address}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><h6>{{__('front.sellerContact')}}</h6></th>
-                                                        <td>{{$products[0]->owner_contact}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><h6>{{__('front.sellerEmail')}}</h6></th>
-                                                        <td>{{$products[0]->owner_email}}</td>
-                                                    </tr>
-                                                </table>
-                                                <div class="d-flex mb-55">
-                                                    <div class="mr-30">
-                                                        <p class="text-brand font-xs">{{__('front.rating')}}</p>
-                                                        <h4 class="mb-0">92%</h4>
+                                                    <h5>{{__('front.callForBuy')}}</h5>
+                                                    <br>
+                                                    <table>
+                                                        <tr>
+                                                            <th><h6>{{__('front.ownerName')}}</h6></th>
+                                                            <td>{{$owner[0]->owner_name}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th><h6>{{__('front.address')}}</h6></th>
+                                                            <td>{{$owner[0]->owner_address}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th><h6>{{__('front.sellerContact')}}</h6></th>
+                                                            <td>{{$owner[0]->owner_contact}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th><h6>{{__('front.sellerEmail')}}</h6></th>
+                                                            <td>{{$owner[0]->owner_email}}</td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="d-flex mb-55">
+                                                        <div class="mr-30">
+                                                            <p class="text-brand font-xs">{{__('front.rating')}}</p>
+                                                            <h4 class="mb-0">92%</h4>
+                                                        </div>
+                                                        <div class="mr-30">
+                                                            <p class="text-brand font-xs">{{__('front.shipOnTime')}}</p>
+                                                            <h4 class="mb-0">100%</h4>
+                                                        </div>
+                                                        <div>
+                                                            <p class="text-brand font-xs">{{__('front.chatResponse')}}</p>
+                                                            <h4 class="mb-0">89%</h4>
+                                                        </div>
                                                     </div>
-                                                    <div class="mr-30">
-                                                        <p class="text-brand font-xs">{{__('front.shipOnTime')}}</p>
-                                                        <h4 class="mb-0">100%</h4>
-                                                    </div>
-                                                    <div>
-                                                        <p class="text-brand font-xs">{{__('front.chatResponse')}}</p>
-                                                        <h4 class="mb-0">89%</h4>
-                                                    </div>
-                                                </div>
+                                                @else
+                                                    <h6>Owner information not found !</h6>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -293,7 +301,8 @@
                                             </div>
                                             <div class="content pt-10">
                                                 <h5>
-                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">{{$productTitle}}</a></h5>
+                                                    <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">{{$productTitle}}</a>
+                                                </h5>
                                                 <p class="price mb-0 mt-5">{{__('front.tk')}} {{$product->price}}</p>
                                             </div>
                                         </div><!-- new product end -->

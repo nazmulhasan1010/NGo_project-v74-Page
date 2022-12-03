@@ -143,9 +143,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('beneficiaryLocations.index')}}" class="ai-icon" aria-expanded="false">
-                    <i class="fa-solid fa-map-location"></i>
-                    <span class="nav-text">Enterprise Location</span>
+                <a href="{{route('entrepreneurs.index')}}" class="ai-icon" aria-expanded="false">
+                    <i class="fa-solid fa-person-booth"></i>
+                    <span class="nav-text">Entrepreneurs</span>
                 </a>
             </li>
             <li><a class="has-arrow ai-icon" aria-expanded="false">

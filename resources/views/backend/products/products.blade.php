@@ -343,7 +343,6 @@
                                                             <option
                                                                 value="{{$category->id}}">{{$category->title}}</option>
                                                         @endforeach
-                                                        {{--                                                        <option value="others">Others</option>--}}
                                                     </select>
                                                 </div>
                                             </div>
@@ -372,6 +371,19 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
+                                                    <label for="additionalInfo">Additional Info<span
+                                                            class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="additionalInfo"
+                                                              name="additionalInfo"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
                                                     <label for="returnDays">Return Days<span class="req"></span>
                                                     </label>
                                                     <input type="number" class="form-control" id="returnDays"
@@ -392,85 +404,64 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="additionalInfo">Additional Info<span
-                                                            class="req">*</span>
-                                                    </label>
-                                                    <textarea class="form-control" id="additionalInfo"
-                                                              name="additionalInfo"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="inputs">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerCompany">Owner Company<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="ownerCompany"
-                                                           name="ownerCompany" placeholder="Owner Company">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerName">Owner Name<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="ownerName"
-                                                           name="ownerName" placeholder="Owner Name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerCompanyLogo">Owner Company Logo<span
-                                                            class="req"></span>
-                                                    </label>
-                                                    <input type="file" class="form-control" id="ownerCompanyLogo"
-                                                           name="ownerCompanyLogo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerMail">Owner Email<span class="req"></span>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="ownerMail"
-                                                           name="ownerMail" placeholder="example@example.com">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerContact">Owner Contact<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="ownerContact"
-                                                           name="ownerContact" placeholder="Contact Number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="ownerAddress">Owner Address<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="ownerAddress"
-                                                           name="ownerAddress" placeholder="Address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
                                                     <label for="productPrice">Price<span class="req">*</span>
                                                     </label>
                                                     <input type="number" class="form-control" id="productPrice"
                                                            name="productPrice" placeholder="Price (BDT)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php
+                                            $enterprises = getEnterprise('', 'all');
+                                        @endphp
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="productOwner">Product Owner<span class="req"></span>
+                                                    </label>
+                                                    <select name="productOwner" id="productOwner"
+                                                            class="form-control"
+                                                            required>
+                                                        <option value="">Select product owner</option>
+                                                        @foreach($enterprises as $enterprise)
+                                                            <option
+                                                                value="{{$enterprise->id}}">{{$enterprise->owner_company}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="ownerInfoShow" style="display: none;">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group" style="height: auto">
+                                                    <label for="ownerCompany">Owner Information<span class="req"></span>
+                                                    </label>
+                                                    <div class="form-control" style="height: auto">
+                                                        <table style="border-collapse: collapse;"
+                                                               id="ownerInfoShowTable">
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Name </strong></th>
+                                                                <td class="ownerShowName"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Company </strong></th>
+                                                                <td class="ownerShowCompany"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Contact </strong></th>
+                                                                <td class="ownerShowContact"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Email </strong></th>
+                                                                <td class="ownerShowEmail"></td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -590,6 +581,19 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
+                                                    <label for="editAdditionalInfo">Additional Info<span
+                                                            class="req">*</span>
+                                                    </label>
+                                                    <textarea class="form-control" id="editAdditionalInfo"
+                                                              name="editAdditionalInfo"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inputs">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
                                                     <label for="editStock">Stock<span class="req">*</span>
                                                     </label>
                                                     <input type="number" class="form-control" id="editStock"
@@ -620,81 +624,6 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12">
                                                 <div class="form-group">
-                                                    <label for="editAdditionalInfo">Additional Info<span
-                                                            class="req">*</span>
-                                                    </label>
-                                                    <textarea class="form-control" id="editAdditionalInfo"
-                                                              name="editAdditionalInfo"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="inputs">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerCompany">Owner Company<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="editOwnerCompany"
-                                                           name="editOwnerCompany" placeholder="Owner Company">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerName">Owner Name<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="editOwnerName"
-                                                           name="editOwnerName" placeholder="Owner Name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerCompanyLogo">Owner Company Logo<span
-                                                            class="req"></span>
-                                                    </label>
-                                                    <input type="file" class="form-control" id="editOwnerCompanyLogo"
-                                                           name="editOwnerCompanyLogo">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerMail">Owner Email<span class="req"></span>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="editOwnerMail"
-                                                           name="editOwnerMail" placeholder="example@example.com">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerContact">Owner Contact<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="editOwnerContact"
-                                                           name="editOwnerContact" placeholder="Contact Number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label for="editOwnerAddress">Owner Address<span class="req"></span>
-                                                    </label>
-                                                    <input type="text" class="form-control" id="editOwnerAddress"
-                                                           name="editOwnerAddress" placeholder="Address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12">
-                                                <div class="form-group">
                                                     <label for="editProductPrice">Price<span class="req">*</span>
                                                     </label>
                                                     <input type="number" class="form-control" id="editProductPrice"
@@ -716,6 +645,60 @@
                                                             Inactive
                                                         </option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php
+                                            $enterprises = getEnterprise('', 'all');
+                                        @endphp
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="editProductOwner">Product Owner<span class="req"></span>
+                                                    </label>
+                                                    <select name="editProductOwner" id="editProductOwner"
+                                                            class="form-control"
+                                                            required>
+                                                        <option value="">Select product owner</option>
+                                                        @foreach($enterprises as $enterprise)
+                                                            <option
+                                                                value="{{$enterprise->id}}">{{$enterprise->owner_company}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="editOwnerInfoShow" style="display: none;">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group" style="height: auto">
+                                                    <label for="ownerCompany">Owner Information<span class="req"></span>
+                                                    </label>
+                                                    <div class="form-control" style="height: auto">
+                                                        <table style="border-collapse: collapse;"
+                                                               id="editOwnerInfoShowTable">
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Name </strong></th>
+                                                                <td class="ownerShowName"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Company </strong></th>
+                                                                <td class="ownerShowCompany"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Contact </strong></th>
+                                                                <td class="ownerShowContact"></td>
+                                                            </tr>
+                                                            <tr style="border-bottom: 1px solid rgba(51,51,51,0.24)">
+                                                                <th style="padding-right: 10px"><strong>Owner
+                                                                        Email </strong></th>
+                                                                <td class="ownerShowEmail"></td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -840,13 +823,17 @@
                     $('#editReturnDays').val(r_val.return);
                     $('#editWarranty').val(r_val.warranty);
                     $("#editAdditionalInfo").summernote("code", r_val.additional_info);
-                    $('#editOwnerCompany').val(r_val.owner_company);
-                    $('#editOwnerName').val(r_val.owner_name);
-                    $('#editOwnerMail').val(r_val.owner_email);
-                    $('#editOwnerContact').val(r_val.owner_contact);
-                    $('#editOwnerAddress').val(r_val.owner_address);
+                    $('#editProductOwner').val(r_val.owner);
                     $('#editProductPrice').val(r_val.price);
                     $('#row_status').val(r_val.status);
+                    if (r_val.owner) {
+                        let id = r_val.owner,
+                            field = $('#editOwnerInfoShow'),
+                            table = $('#editOwnerInfoShowTable tr');
+                        getProductOwner(id, field, table);
+                    }else{
+                        $('#editOwnerInfoShow').css('display', 'none');
+                    }
                 },
                 error: function (response) {
                     alert("Error")
@@ -923,6 +910,37 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+        $('#productOwner').change(function () {
+            let id = $(this).val(),
+                field = $('#ownerInfoShow'),
+                table = $('#ownerInfoShowTable tr');
+            getProductOwner(id, field, table);
+        });
+        $('#editProductOwner').change(function () {
+            let id = $(this).val(),
+                field = $('#editOwnerInfoShow'),
+                table = $('#editOwnerInfoShowTable tr');
+            getProductOwner(id, field, table);
+        });
+
+        function getProductOwner(id, field, table) {
+            console.log(table[0])
+            axios.post('getEnterprise', {
+                'id': id
+            }).then(function (response) {
+                if (response.status === 200) {
+                    field.css('display', 'block');
+                    let data = response.data;
+                    table.find('.ownerShowName').html(data[0].owner_name);
+                    table.find('.ownerShowCompany').html(data[0].owner_company);
+                    table.find('.ownerShowContact').html(data[0].owner_contact);
+                    table.find('.ownerShowEmail').html(data[0].owner_email);
+                }
+            }).catch(function (error) {
+                alert(error.message)
+            })
+        }
+
         // CKEDITOR.replace('editProductDes');
         // CKEDITOR.replace('editProductDes_bn');
         // CKEDITOR.replace('productDes_bn');

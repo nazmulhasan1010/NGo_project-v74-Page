@@ -2,6 +2,7 @@
 
 
 use App\Models\Contacts;
+use App\Models\Entrepreneurs;
 use App\Models\Knowledge;
 use App\Models\Links;
 use App\Models\ImageGallery;
@@ -49,9 +50,14 @@ if (!function_exists('getVideo')) {
     }
 }
 if (!function_exists('getEnterprise')) {
-    function getEnterprise()
+    function getEnterprise($id, $inst)
     {
-        return Beneficiary::latest()->get();
+        if ($inst === 'all') {
+            return Entrepreneurs::latest()->get();
+        }
+        if ($inst === 'spe') {
+            return Entrepreneurs::where('id', '=', $id)->get();
+        }
     }
 }
 if (!function_exists('getAbout')) {

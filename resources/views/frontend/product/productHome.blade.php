@@ -179,17 +179,20 @@
                                 }
                             @endphp
                             <div class="col-lg-4 col-md-6">
-                                <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0" style="position: relative">
+                                <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0"
+                                     style="position: relative">
                                     <img src="{{asset('assets/frontend/product/imgs/banner/banner-2.png')}}"
                                          alt=""/>
                                     <div class="banner-text">
                                         <h4 style="text-transform: capitalize">{{$title}}</h4>
                                         <p>{{__('front.total')}} {{count($catProduct)}}</p>
                                         <a href="{{route('products',['catName'=>$category->title,'catId'=>encrypt($category->id)])}}"
-                                           class="btn btn-xs">{{__('front.shop_now')}} <i class="fi-rs-arrow-small-right"></i></a>
+                                           class="btn btn-xs">{{__('front.shop_now')}} <i
+                                                class="fi-rs-arrow-small-right"></i></a>
                                     </div>
-                                    <img style="height:150px; width: 150px; position: absolute; bottom:20px; right: 20px"
-                                         src="{{asset('storage/'.$category->image)}}" alt="">
+                                    <img
+                                        style="height:150px; width: 150px; position: absolute; bottom:20px; right: 20px"
+                                        src="{{asset('storage/'.$category->image)}}" alt="">
                                 </div>
                             </div>
                         @endif
@@ -222,13 +225,13 @@
                                     @foreach($products as $product)
                                         @php
                                             $image =  getProductImage($product->product_id);
-
                                             if (App::isLocale('bn')) {
                                                 $title = $product->title_bn;
                                             }else{
                                                 $title = $product->title;
                                             }
                                         @endphp
+
                                         {{-- product card--}}
                                         <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                             <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn"
@@ -236,12 +239,19 @@
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
                                                         <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">
-                                                            <img class="default-img"
-                                                                 src="{{asset('storage/'.$image[0]->image)}}"
-                                                                 alt=""/>
-                                                            <img class="hover-img"
-                                                                 src="{{asset('storage/'.$image[0]->image)}}"
-                                                                 alt=""/>
+                                                            @foreach($image as $key=>$images)
+                                                                @if($key=1)
+                                                                    @php
+                                                                        $pImage = $images->image;
+                                                                    @endphp
+                                                                @endif
+                                                            @endforeach
+                                                                <img class="default-img"
+                                                                     src="{{asset('storage/'.$pImage)}}"
+                                                                     alt=""/>
+                                                                <img class="hover-img"
+                                                                     src="{{asset('storage/'.$pImage)}}"
+                                                                     alt=""/>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -265,7 +275,8 @@
                                                         <div class="add-cart">
                                                             <a class="add"
                                                                href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}"><i
-                                                                    class="fa-solid fa-eye"></i> {{__('front.view')}} </a>
+                                                                    class="fa-solid fa-eye"></i> {{__('front.view')}}
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>

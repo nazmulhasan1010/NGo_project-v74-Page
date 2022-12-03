@@ -95,15 +95,7 @@ class productController extends Controller
             $product->return = $request->returnDays;
             $product->warranty = $request->warranty;
             $product->additional_info = $request->additionalInfo;
-            $product->owner_company = $request->ownerCompany;
-            $product->owner_name = $request->ownerName;
-            if (isset($request->ownerCompanyLogo)) {
-                $logoFileName = imageUploadWithCustomSize($request->ownerCompanyLogo, "400", "400", "ownerCompanyLogo");
-                $product->owner_company_logo = 'ownerCompanyLogo/' . $logoFileName;
-            }
-            $product->owner_email = $request->ownerMail;
-            $product->owner_contact = $request->ownerContact;
-            $product->owner_address = $request->ownerAddress;
+            $product->owner = $request->productOwner;
             $product->price = $request->productPrice;
             $product->save();
 
@@ -171,16 +163,7 @@ class productController extends Controller
             $product->return = $request->editReturnDays;
             $product->warranty = $request->editWarranty;
             $product->additional_info = $request->editAdditionalInfo;
-            $product->owner_company = $request->editOwnerCompany;
-            $product->owner_name = $request->editOwnerName;
-            if (isset($request->editOwnerCompanyLogo)) {
-                $logoFileName = imageUploadWithCustomSize($request->editOwnerCompanyLogo, "400", "400", "ownerCompanyLogo");
-                $product->owner_company_logo = 'ownerCompanyLogo/' . $logoFileName;
-                Storage::delete('public/' . Product::findOrFail($request->row_id)->owner_company_logo);
-            }
-            $product->owner_email = $request->editOwnerMail;
-            $product->owner_contact = $request->editOwnerContact;
-            $product->owner_address = $request->editOwnerAddress;
+            $product->owner = $request->editProductOwner;
             $product->price = $request->editProductPrice;
             $product->status = $request->row_status;
             $product->update();
@@ -207,7 +190,6 @@ class productController extends Controller
             foreach ($images as $image) {
                 Storage::delete('public/' . $image->image);
             }
-            Storage::delete('public/' . Product::findOrFail($id)->owner_company_logo);
             Product::Find($id)->delete();
             ProductImage::where('product_id', '=', $product_id)->delete();
             Toastr::success('Product Successfully Deleted');

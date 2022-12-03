@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Backend\aboutController;
 use App\Http\Controllers\Backend\activityController;
-use App\Http\Controllers\Backend\beneficiaryLocationsController;
+use App\Http\Controllers\Backend\entrepreneursController;
 use App\Http\Controllers\Backend\blogController;
 use App\Http\Controllers\Backend\clientMessagesController;
 use App\Http\Controllers\Backend\contactController;
@@ -72,21 +72,18 @@ Route::post('message', [clientController::class, 'message']);
 Route::get('download/{file}/{path}', [clientController::class, 'download']);
 Route::get('privacy', [pageController::class, 'privacy']);
 Route::get('terms', [pageController::class, 'terms']);
-Route::get('language', [lanController::class,'language']);
+Route::get('language', [lanController::class, 'language']);
 //Route::get('products', [pageController::class,'products']);
 //Route::get('product/{id}', [pageController::class,'product']);
-Route::get('knowledge', [pageController::class,'knowledgeAll']);
-Route::get('knowledge/{category}', [pageController::class,'knowledgeCat']);
-Route::get('knowledge/show/{id}', [pageController::class,'knowledgeShow']);
-Route::get('knowledge/download/{id}', [pageController::class,'knowledgeDownload']);
-Route::get('/', [productPageController::class,'index']);
-Route::get('products/{catName}/{catId}', [productPageController::class,'products'])->name('products');
-Route::get('product-item/{product}/{productId}', [productPageController::class,'productItem'])->name('productItem');
-Route::get('product-about', [productPageController::class,'productAbout']);
-Route::get('product-contact', [productPageController::class,'productContact']);
-
-
-
+Route::get('knowledge', [pageController::class, 'knowledgeAll']);
+Route::get('knowledge/{category}', [pageController::class, 'knowledgeCat']);
+Route::get('knowledge/show/{id}', [pageController::class, 'knowledgeShow']);
+Route::get('knowledge/download/{id}', [pageController::class, 'knowledgeDownload']);
+Route::get('/', [productPageController::class, 'index']);
+Route::get('products/{catName}/{catId}', [productPageController::class, 'products'])->name('products');
+Route::get('product-item/{product}/{productId}', [productPageController::class, 'productItem'])->name('productItem');
+Route::get('product-about', [productPageController::class, 'productAbout']);
+Route::get('product-contact', [productPageController::class, 'productContact']);
 
 
 //Backend
@@ -115,7 +112,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('publication', publicationController::class);
     Route::resource('news', newsController::class);
     Route::resource('event', eventController::class);
-    Route::resource('beneficiaryLocations', beneficiaryLocationsController::class);
+    Route::resource('entrepreneurs', entrepreneursController::class);
     Route::resource('activity', activityController::class);
     Route::resource('knowledge', knowledgeController::class);
     Route::resource('notice', noticeController::class);
@@ -132,12 +129,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('terms', termsController::class);
     Route::resource('privacy', privacyController::class);
     Route::resource('products', productController::class);
-    Route::post('productImageGet', [productImageController::class,'getProductImage']);
-    Route::post('deleteProductImage', [productImageController::class,'deleteImage']);
-    Route::post('productImageAdd', [productImageController::class,'productImageAdd'])->name('productImageAdd');
+    Route::post('productImageGet', [productImageController::class, 'getProductImage']);
+    Route::post('deleteProductImage', [productImageController::class, 'deleteImage']);
+    Route::post('productImageAdd', [productImageController::class, 'productImageAdd'])->name('productImageAdd');
     Route::resource('products_category', productCategoryController::class);
     Route::resource('products_slider', productSliderController::class);
     Route::resource('clientMessages', clientMessagesController::class);
+    Route::post('getEnterprise', function (Request $request) {
+        $id = $request->input('id');
+        return getEnterprise($id, 'spe');
+    });
 });
 
 //storage clear

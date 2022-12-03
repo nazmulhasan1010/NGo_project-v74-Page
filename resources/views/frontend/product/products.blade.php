@@ -76,13 +76,20 @@
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn"
                                      data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
+                                        @foreach($image as $key=>$images)
+                                            @if($key=1)
+                                                @php
+                                                    $pImage = $images->image;
+                                                @endphp
+                                            @endif
+                                        @endforeach
                                         <div class="product-img product-img-zoom">
                                             <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">
                                                 <img class="default-img"
-                                                     src="{{asset('storage/'.$image[0]->image)}}"
+                                                     src="{{asset('storage/'.$pImage)}}"
                                                      alt=""/>
                                                 <img class="hover-img"
-                                                     src="{{asset('storage/'.$image[0]->image)}}"
+                                                     src="{{asset('storage/'.$pImage)}}"
                                                      alt=""/>
                                             </a>
                                         </div>
@@ -149,10 +156,17 @@
                                     <!-- deal product -->
                                     <div class="col-xl-3 col-lg-4 col-md-6">
                                         <div class="product-cart-wrap style-2">
+                                            @foreach($image as $key=>$images)
+                                                @if($key=1)
+                                                    @php
+                                                        $pImage = $images->image;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img">
                                                     <a href="{{route('productItem',['product'=>$product->title,'productId'=>encrypt($product->id)])}}">
-                                                        <img src="{{asset('storage/'.$image[0]->image)}}" alt=""/>
+                                                        <img src="{{asset('storage/'.$pImage)}}" alt=""/>
                                                     </a>
                                                 </div>
                                             </div>
