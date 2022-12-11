@@ -4,6 +4,10 @@
     @include('layouts.partials.frontend.pageTitle')
     @php
         $faq = getFaq();
+         if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
     @endphp
 
     <!-- FAQ -->
@@ -19,7 +23,6 @@
                             <div class="faq-qu"><span>{{$faqs->questions}}</span> <i
                                     class="fa-solid fa-plus"></i>
                             </div>
-
                             <div class="faq-ans">{{$faqs->answers}}</div>
                         </div>
                     @endif
@@ -27,25 +30,25 @@
             </div>
             <div class="col-md-6 faq-fields sub-container input">
                 <div class="heading">
-                    <span class="heading-1">Have a</span>
-                    <span class="heading-2">Questions?</span>
+                    <span class="heading-1">{{__('front.haveQuestion1')}}</span>
+                    <span class="heading-2">{{__('front.haveQuestion2')}}</span>
                 </div>
                 <form action="{{url('message')}}" method="post" role="form">
                     @csrf
                     <div class="faq-input">
-                        <label for="userName" class="form-label">Your Name</label>
-                        <input type="text" name="clientName" class="form-control" id="userName" placeholder="Your name">
+                        <label for="userName" class="form-label">{{__('front.yourName')}}</label>
+                        <input type="text" name="clientName" class="form-control" id="userName" placeholder="{{__('front.yourName')}}">
                     </div>
                     <div class="faq-input">
-                        <label for="userEmail" class="form-label">Your Email address</label>
-                        <input type="email" name="clientMail" class="form-control" id="userEmail" placeholder="Email">
+                        <label for="userEmail" class="form-label">{{__('front.yourEmail')}}</label>
+                        <input type="email" name="clientMail" class="form-control" id="userEmail" placeholder="{{__('front.yourEmail')}}">
                     </div>
                     <div class="faq-input">
-                        <label for="userMsg" class="form-label">Your Message</label>
+                        <label for="userMsg" class="form-label">{{__('front.yourKnow')}}</label>
                         <textarea class="form-control" name="clientMessage" id="userMsg" rows="4"></textarea>
                     </div>
                     <div class="faq-input">
-                        <button type="submit" class="more-button">Send</button>
+                        <button type="submit" class="more-button">{{__('front.send')}}</button>
                     </div>
                 </form>
             </div>

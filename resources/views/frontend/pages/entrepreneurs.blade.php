@@ -4,6 +4,10 @@
     @include('layouts.partials.frontend.pageTitle')
     @php
         $enterprises = getEnterprise('','all');
+        if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
     @endphp
 
     <div class="project_summary bg-dark-cu content-100">
@@ -28,7 +32,7 @@
                                 <p>{{$enterprise->address}}</p>
                                 <a href="#">
                                     <button type="button" data-link="{{ $enterprise->mapLink }}"
-                                            class="more-button mapShow">View Map
+                                            class="more-button mapShow">{{__('front.viewMap')}}
                                     </button>
                                 </a>
                             </div>

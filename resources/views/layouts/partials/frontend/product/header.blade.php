@@ -4,6 +4,7 @@
             @php
                 $logo = getLogo('primary');
                 $logo_2 = getLogo('secondary');
+                $enterprises = getEnterprise('', 'all');
             @endphp
             <div class="header-wrap header-space-between position-relative ">
                 <div class="header-nav d-none d-lg-flex">
@@ -25,14 +26,14 @@
                                 <li>
                                     <a href="{{url('product-about')}}">{{__('front.about')}}</a>
                                 </li>
-                                @php
-                                    $enterprises = getEnterprise('', 'all');
-                                @endphp
+
                                 <li>
                                     <a href="#">{{__('front.vendors')}} <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         @foreach($enterprises as $enterprise)
-                                            <li><a href="{{route('products',['catName'=>$enterprise->owner_company,'catId'=>encrypt($enterprise->id)])}}">{{$enterprise->owner_company}}</a></li>
+                                            <li>
+                                                <a href="{{route('vendorProducts',['vendorCompany'=>$enterprise->owner_company,'vendorId'=>encrypt($enterprise->id)])}}">{{$enterprise->owner_company}}</a>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -95,7 +96,7 @@
             <div class="mobile-header-logo">
                 @if (count($logo)>0)
                     @if($logo[0]->status===1)
-                        <a href="index.html"><img src="{{asset('storage/'. $logo[0]->image)}}" alt="logo"/></a>
+                        <a href="{{url('/')}}"><img src="{{asset('storage/'. $logo[0]->image)}}" alt="logo"/></a>
                     @endif
                 @endif
             </div>
@@ -123,12 +124,9 @@
                         <li class="menu-item-has-children">
                             <a href="#">{{__('front.vendors')}}</a>
                             <ul class="dropdown">
-                                <li><a href="vendors-grid.html">Vendors Grid</a></li>
-                                <li><a href="vendors-list.html">Vendors List</a></li>
-                                <li><a href="vendor-details-1.html">Vendor Details 01</a></li>
-                                <li><a href="vendor-details-2.html">Vendor Details 02</a></li>
-                                <li><a href="vendor-dashboard.html">Vendor Dashboard</a></li>
-                                <li><a href="vendor-guide.html">Vendor Guide</a></li>
+                                @foreach($enterprises as $enterprise)
+                                    <li><a href="{{route('vendorProducts',['vendorCompany'=>$enterprise->owner_company,'vendorId'=>encrypt($enterprise->id)])}}">{{$enterprise->owner_company}}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li>

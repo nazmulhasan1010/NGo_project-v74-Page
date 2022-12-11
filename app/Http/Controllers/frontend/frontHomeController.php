@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Activity;
 use App\Models\Beneficiary;
 use App\Models\Contacts;
+use App\Models\Entrepreneurs;
 use App\Models\Event;
 use App\Models\ImageGallery;
 use App\Models\Links;
@@ -28,7 +29,7 @@ class frontHomeController extends Controller
         $activities = Activity::latest()->take(3)->get();
         $event = Event::latest()->take(3)->get();
         $notice = Notice::latest()->take(4)->get();
-        $enterprises = Beneficiary::latest()->take(3)->get();
+        $enterprises = Entrepreneurs::latest()->take(3)->get();
         $photos = ImageGallery::latest()->take(9)->get();
         $videos = VideoGallery::latest()->take(3)->get();
         $partners = Partner::latest()->get();

@@ -36,7 +36,7 @@
         @endphp
         @if (count($logo)>0)
             @if($logo[0]->status===1)
-                <a href="{{url('/')}}"><img src="{{asset('storage/'. $logo[0]->image)}}" alt="" class="logo"></a>
+                <a href="{{url('/home')}}"><img src="{{asset('storage/'. $logo[0]->image)}}" alt="" class="logo"></a>
             @endif
         @endif
         @if (count($logo_2)>0)
@@ -125,12 +125,12 @@
                         </div>
                     @endif
                 </li>
-                <a href="#capacityBuilding">
+                <a href="{{url('/home')}}#capacityBuilding">
                     <li class=" options-menu {{ Request::is('#capacityBuilding')? 'active' : ''}}">
                         <div class="option-head">{{__('front.activity')}} </div>
                     </li>
                 </a>
-                <a href="{{url('/products')}}">
+                <a href="{{url('/')}}">
                     <li class=" options-menu {{ Request::is('products')? 'active' : ''}}">
                         <div class="option-head">{{__('front.product')}}</div>
                     </li>

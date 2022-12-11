@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 @section('title','Blog')
 @section('content')
+    @php
+        if (session()->has('language')) {
+               $lanCode = session()->get('language');
+               App::setLocale($lanCode);
+           }
+    @endphp
     @include('layouts.partials.frontend.pageTitle')
     <div class="project_summary bg-dark-cu content-100">
         @include('frontend.pages.component.themeChanger')
@@ -23,8 +29,8 @@
             </div>
             <div class="col-md-4 sub-container successes">
                 <div class="heading">
-                    <span class="heading-1">Latest</span>
-                    <span class="heading-2">Post</span>
+                    <span class="heading-1">{{__('front.latestPost1')}}</span>
+                    <span class="heading-2">{{__('front.latestPost2')}}</span>
                 </div>
                 @include('frontend.pages.component.latestPost')
             </div>

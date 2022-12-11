@@ -6,16 +6,19 @@
 
     if (in_array('blogs', $uri)||in_array('blog', $uri)||in_array('/blogs', $uri_)||in_array('blogs',$uri_2c)){
          $latest = getLatest()['blog'];
+        $url_1 = 'blog';
     }elseif (in_array('newses', $uri)||in_array('newse', $uri)||in_array('/newses', $uri_)||in_array('newses',$uri_2c)){
          $latest = getLatest()['news'];
-    }elseif (in_array('stories', $uri)||in_array('storie', $uri)||in_array('/stories', $uri_)||in_array('stories',$uri_2c)){
+         $url_1 = 'news';
+    }elseif (in_array('stories', $uri)||in_array('storie', $uri)||in_array('/stories', $uri_)||in_array('stories',$uri_2c)||in_array('story', $uri) ){
         $latest = getLatest()['story'];
+        $url_1 = 'story';
     }
 
 @endphp
 @foreach($latest as $latestStory)
     @if($latestStory->status === 1)
-        <a href="{{url('blog/'.$latestStory->id)}}" class="row latest-post-links">
+        <a href="{{url($url_1.'/'.$latestStory->id)}}" class="row latest-post-links">
             <div class="col-md-6 lp-links ">
                 <img src="{{asset('storage/'.$latestStory->image)}}" alt="">
             </div>

@@ -3,17 +3,21 @@
 @section('content')
     @include('layouts.partials.frontend.pageTitle')
     @php
-         $start = 0;
-        $pages = 5;
-        $clickPage = 0;
-        $stories = success($start, $pages, 'all');
-        $item = count($stories);
-        $page = ceil($item/5);
-        if (isset($_GET['page'])){
-            $clickPage = $_GET['page'];
-            $start = ($clickPage-1)*$pages;
-        }
-        $stories = success($start, $pages, 'spe');
+            if (session()->has('language')) {
+                $lanCode = session()->get('language');
+                App::setLocale($lanCode);
+            }
+            $start = 0;
+            $pages = 5;
+            $clickPage = 0;
+            $stories = success($start, $pages, 'all');
+            $item = count($stories);
+            $page = ceil($item/5);
+            if (isset($_GET['page'])){
+                $clickPage = $_GET['page'];
+                $start = ($clickPage-1)*$pages;
+            }
+            $stories = success($start, $pages, 'spe');
     @endphp
 
     <div class="project_summary bg-dark-cu content-100 success">
@@ -23,7 +27,7 @@
                 @foreach($stories as $stories_)
                     @if($stories_->status===1)
                         <img src="{{asset('storage/'.$stories_->image)}}" alt="">
-                        <div class="info-field">
+                        <div class="info-field mt-3">
                             @php
                                 if (strlen($stories_->description)>500){
                                    $description = substr($stories_->description,0,500).'...';
@@ -40,7 +44,7 @@
                             <p>{{$stories_->address}}</p>
                             <a href="{{url('story/'.$stories_->id)}}">
                                 <button type="button" class="more-button ">
-                                    Read More
+                                    {{__('front.readMore')}}
                                 </button>
                             </a>
                         </div>
@@ -49,8 +53,8 @@
             </div>
             <div class="col-md-4 sub-container successes">
                 <div class="heading">
-                    <span class="heading-1">Latest</span>
-                    <span class="heading-2">Post</span>
+                    <span class="heading-1">{{__('front.latestPost1')}}</span>
+                    <span class="heading-2">{{__('front.latestPost2')}}</span>
                 </div>
                 @include('frontend.pages.component.latestPost')
             </div>

@@ -7,23 +7,27 @@
         @include('frontend.pages.component.themeChanger')
         <div class="row content-80 event-notices event-show border-bottom-">
             @php
-                $start = 0;
-                $pages = 5;
-                $clickPage = 0;
-                $event = getEvents($start, $pages, 'all');
-                $item = count($event);
-                $page = ceil($item/5);
-                if (isset($_GET['page'])){
-                    $clickPage = $_GET['page'];
-                    $start = ($clickPage-1)*$pages;
+                if (session()->has('language')) {
+                    $lanCode = session()->get('language');
+                     App::setLocale($lanCode);
                 }
-                $event = getEvents($start, $pages, 'spe');
+            $start = 0;
+            $pages = 5;
+            $clickPage = 0;
+            $event = getEvents($start, $pages, 'all');
+            $item = count($event);
+            $page = ceil($item/5);
+            if (isset($_GET['page'])){
+                $clickPage = $_GET['page'];
+                $start = ($clickPage-1)*$pages;
+            }
+            $event = getEvents($start, $pages, 'spe');
             @endphp
             @if($event)
                 <div class="col-md-12 sub-container event-notice ">
                     <div class="heading">
-                        <span class="heading-1">Upcoming</span>
-                        <span class="heading-2">Events</span>
+                        <span class="heading-1">{{__('front.upcoming')}}</span>
+                        <span class="heading-2">{{__('front.events')}}</span>
                     </div>
                     @foreach($event as $events)
                         @if($events->status===1)
@@ -54,7 +58,7 @@
                                     @endphp
                                     <p>{{$des}}</p>
                                     <a href="{{url('event/'.$events->id)}}">
-                                        <button type="button" class="more-button">Learn more</button>
+                                        <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                                     </a>
                                 </div>
                             </div>

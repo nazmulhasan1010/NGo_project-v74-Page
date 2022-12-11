@@ -1,8 +1,8 @@
 <!-- project summary -->
 <div class="project_summary bg-white-cu content-100">
     <div class="heading">
-        <span class="heading-1">Project</span>
-        <span class="heading-2">Summary</span>
+        <span class="heading-1">{{__('front.projectSummary1')}}</span>
+        <span class="heading-2">{{__('front.projectSummary2')}}</span>
     </div>
     <div class="row content-80">
         @php
@@ -34,10 +34,10 @@
                 <div class="icon">
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
-                <h2>Project Overview</h2>
+                <h2>{{__('front.projectOverview')}}</h2>
                 <p>{{$overView_}}</p>
                 <a href="{{url('overview')}}">
-                    <button type="button" class="more-button">Learn more</button>
+                    <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>
             </div>
         @endif
@@ -72,10 +72,10 @@
                 <div class="icon">
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
-                <h2>Project Goal</h2>
+                <h2>{{__('front.projectGoal')}}</h2>
                 <p>{{$goal_}}</p>
                 <a href="{{url('goal')}}">
-                    <button type="button" class="more-button">Learn more</button>
+                    <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>
             </div>
         @endif
@@ -110,10 +110,10 @@
                 <div class="icon">
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
-                <h2>Project Mission</h2>
+                <h2>{{__('front.projectMission')}}</h2>
                 <p>{{$mission_}}</p>
                 <a href="{{url('mission')}}">
-                    <button type="button" class="more-button">Learn more</button>
+                    <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>
             </div>
         @endif

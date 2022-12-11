@@ -88,4 +88,45 @@ return [
     'shipOnTime' => 'সময় মত ডেলিভারি',
     'chatResponse' => 'চ্যাট প্রতিক্রিয়া',
     'relatedProducts' => 'রিলেটেড প্রোডাক্ট',
+
+    'projectSummary1'=>'প্রকল্পের',
+    'projectSummary2'=>'সারসংক্ষেপ',
+    'projectOverview'=>'প্রজেক্ট সারসংক্ষেপ',
+    'overView'=>'সারসংক্ষেপ',
+    'goal2'=>'লক্ষ্য',
+    'projectGoal'=>'প্রকল্পের লক্ষ্য',
+    'projectMission'=>'প্রকল্প মিশন',
+
+    'workingArea1'=>'কর্মক্ষেত্রের',
+    'workingArea2'=>'অবস্থান',
+
+    'projectiveObjective1'=>'প্রকল্পের',
+    'projectiveObjective2'=>'উদ্দেশ্য',
+    'objective1'=>'নিরাপদ সবজি উৎপাদন।',
+    'objective2'=>'পরিবেশগত কৃষি।',
+    'objective3'=>'নিরাপদ সবজি বিপণন।',
+    'objective4'=>'পরিবেশ উন্নয়ন অনুশীলন।',
+
+    'photoGallery1'=>'ফটো',
+    'photoGallery2'=>'গ্যালারি',
+    'videoGallery1'=>'ভিডিও',
+
+    'terms'=>'বিধি - নিষেধ এবং শর্তাবলী',
+    'ourProduct'=>'আমাদের পণ্য',
+    'promo'=>'প্রচার কোড',
+    'paymentMethod'=>'মূল্যপরিশোধ পদ্ধতি',
+    'contactUs'=>'যোগাযোগ করুন',
+    'privacyPolicy'=>'গোপনীয়তা নীতি',
+    'help'=>'সাহায্য',
+
+    'latestPost1'=>'সর্বশেষ',
+    'latestPost2'=>'পোস্ট',
+    'readMore'=>'আরও পড়ুন',
+
+    'haveQuestion1'=>'কোনো প্রশ্ন',
+    'haveQuestion2'=>'আছে কি?',
+    'yourName'=>'আপনার নাম',
+    'yourKnow'=>'আপনি কি জানতে চান?',
+    'send'=>'পাঠান',
+    'download'=>'ডাউনলোড',
 ];

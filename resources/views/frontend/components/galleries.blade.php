@@ -4,8 +4,8 @@
         @if($photos)
             <div class="col-md-8 sub-container gallery">
                 <div class="heading">
-                    <span class="heading-1">Photo</span>
-                    <span class="heading-2">Gallery</span>
+                    <span class="heading-1">{{__('front.photoGallery1')}}</span>
+                    <span class="heading-2">{{__('front.photoGallery2')}}</span>
                 </div>
                 @php
                     $rows = count(json_decode($photos, true));
@@ -21,7 +21,7 @@
                 </div>
 
                 <a href="{{url('gallery/photos')}}">
-                    <button type="button" class="more-button see-all">See All <i
+                    <button type="button" class="more-button see-all">{{__('front.seeAll')}}<i
                             class="fa-solid fa-angles-right"></i></button>
                 </a>
             </div>
@@ -29,8 +29,8 @@
         @if($videos)
             <div class="col-md-4 sub-container gallery">
                 <div class="heading">
-                    <span class="heading-1">Video</span>
-                    <span class="heading-2">Gallery</span>
+                    <span class="heading-1">{{__('front.videoGallery1')}}</span>
+                    <span class="heading-2">{{__('front.photoGallery2')}}</span>
                 </div>
                 <div class="row videos">
                     @foreach($videos as $video)
@@ -42,7 +42,7 @@
                     @endforeach
                 </div>
                 <a href="{{url('gallery/videos')}}">
-                    <button type="button" class="more-button see-all">See All <i
+                    <button type="button" class="more-button see-all">{{__('front.seeAll')}}<i
                             class="fa-solid fa-angles-right"></i></button>
                 </a>
             </div>

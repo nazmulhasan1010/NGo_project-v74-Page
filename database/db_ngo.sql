@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2022 at 07:40 AM
+-- Generation Time: Dec 05, 2022 at 05:11 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -74,34 +74,6 @@ INSERT INTO `activities` (`id`, `title`, `description`, `image`, `status`, `crea
 (5, 'Trainings and Workshop', '<ol><li>Workshop on Good Aquaculture Practice</li><li>Training on Soft shell crab farming</li><li>Training on Crab fattening with GAP</li><li>Training on Mud Crab farming with</li></ol>', 'activity/1662354916631585e4d27a1.jpg', 1, '2022-09-04 17:15:17', '2022-09-04 17:15:17'),
 (6, 'Trainings and Workshop', '<ol><li>Workshop on Good Aquaculture Practice</li><li>Training on Soft shell crab farming</li><li>Training on Crab fattening with GAP</li><li>Training on Mud Crab farming with</li></ol>', 'activity/166235234263157bd6aee0d.jpg', 1, '2022-09-04 16:32:23', '2022-09-04 16:32:23'),
 (7, 'Trainings and Workshop', '<ol><li>Workshop on Good Aquaculture Practice</li><li>Training on Soft shell crab farming</li><li>Training on Crab fattening with GAP</li><li>Training on Mud Crab farming with</li></ol>', 'activity/16623553406315878c5e69c.jpg', 1, '2022-09-04 17:22:20', '2022-09-04 17:22:20');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `beneficiaries`
---
-
-CREATE TABLE `beneficiaries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mapLink` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `beneficiaries`
---
-
-INSERT INTO `beneficiaries` (`id`, `title`, `contact`, `address`, `mapLink`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Dhaka Commerce College', '01993737465', 'Academic Building - 2, Commerce College Road, Dhaka 1216', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116834.13673771221!2d90.41928169999998!3d23.780636450000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf51e7aee4ff%3A0x21c88cabfebf5243!2sIBN%20Sina%20Specialized%20Hospital!5e0!3m2!1sen!2sbd!4v1661237278235!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-08-22 18:31:53', '2022-09-04 19:11:40'),
-(3, 'Dhaka Commerce College', '01993737464', 'Gazipur dhaka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-09-04 19:17:43', '2022-09-04 19:17:43'),
-(4, 'Dhaka Commerce College', '01993737464', 'Gazipur dhaka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-09-04 19:17:54', '2022-09-04 19:17:54'),
-(5, 'Dhaka Commerce College', '01993737464', 'Gazipur dhaka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-09-05 22:15:12', '2022-09-05 22:15:12'),
-(6, 'Dhaka Commerce College', '01993737464', 'Gazipur dhaka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-09-05 22:24:21', '2022-09-05 22:24:21');
 
 -- --------------------------------------------------------
 
@@ -187,6 +159,34 @@ CREATE TABLE `contacts` (
 INSERT INTO `contacts` (`id`, `contactNumber`, `contactMail`, `contactAddress`, `status`, `created_at`, `updated_at`) VALUES
 (1, '35367838367', 'example7@gmail.com', 'Boklyn new 7 yeark ,USA', 0, '2022-08-23 22:40:30', '2022-08-23 22:46:40'),
 (3, '01678757674', 'example@gmail.com', 'Boklyn new yeark ,USA', 1, '2022-09-05 17:04:42', '2022-09-05 17:04:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entrepreneurs`
+--
+
+CREATE TABLE `entrepreneurs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `owner_company` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner_name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner_company_logo` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner_email` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner_contact` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `owner_address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mapLink` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `entrepreneurs`
+--
+
+INSERT INTO `entrepreneurs` (`id`, `owner_company`, `owner_name`, `owner_company_logo`, `owner_email`, `owner_contact`, `owner_address`, `mapLink`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Rahman Enterprise', 'Rahman Khan', 'ownerCompanyLogo/1670048019.png', 'rahman1@gmail.com', '01634352627', 'Kapaleswar, Kapasia', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-12-02 23:41:50', '2022-12-03 05:42:48'),
+(3, 'Marah Enterpise', 'Marah Mckee', 'ownerCompanyLogo/1670061347.png', 'marah@gmail.com', '01784884598', 'Dhaka, bangladesh', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223904494!2d90.2791928824347!3d23.780887457317867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661233396211!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, '2022-12-03 03:55:47', '2022-12-03 03:55:47');
 
 -- --------------------------------------------------------
 
@@ -516,7 +516,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2022_08_22_095158_publication', 1),
 (12, '2022_08_22_102238_news', 1),
 (13, '2022_08_22_104746_upcoming_event', 1),
-(14, '2022_08_23_050012_beneficiary', 1),
 (15, '2022_08_23_065652_activity', 1),
 (16, '2022_08_23_093653_notice', 1),
 (17, '2022_08_24_050157_food_value', 1),
@@ -533,7 +532,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2022_09_13_073005_create_terms_table', 1),
 (29, '2022_09_13_073038_create_privacies_table', 1),
 (30, '2022_09_27_084550_create_knowledge_table', 1),
-(31, '2022_10_04_045917_product', 1);
+(32, '2022_11_26_051939_create_product_categories_table', 2),
+(35, '2022_10_04_045917_product', 3),
+(36, '2022_11_26_084220_create_product_images_table', 3),
+(39, '2022_11_28_043334_create_product_sliders_table', 4),
+(40, '2022_12_03_051958_create_entrepreneurs_table', 5);
 
 -- --------------------------------------------------------
 
@@ -561,7 +564,7 @@ INSERT INTO `news` (`id`, `title`, `description`, `image`, `status`, `created_at
 (3, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872542631d6bde40f09.jpg', 1, '2022-09-10 17:02:24', '2022-09-10 17:02:24'),
 (4, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872562631d6bf242df7.jpg', 1, '2022-09-10 17:02:44', '2022-09-10 17:02:44'),
 (5, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872580631d6c0442d5f.jpg', 1, '2022-09-10 17:03:01', '2022-09-10 17:03:01'),
-(6, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872596631d6c1477fe5.jpg', 1, '2022-09-10 17:03:16', '2022-09-10 17:03:16'),
+(6, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872596631d6c1477fe5.jpg', 0, '2022-09-10 17:03:16', '2022-11-29 04:16:24'),
 (7, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872596631d6c1477fe5.jpg', 1, '2022-09-10 17:03:16', '2022-09-10 17:03:16'),
 (8, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662871922631d6972cd5a3.jpg', 1, '2022-09-10 16:52:04', '2022-09-10 16:52:04'),
 (9, 'Best WordPress SEO Plugins to Boost Ranking', 'Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.Search Engine Optimization most and most important for blogging. If you are using WordPress CMS platform, then you must need to install best WordPress SEO plugins. Because it helps to increase your on page score on Google, Yahoo, Bing or other major search engines. But if there has no plugin for SEO, you will miss these facilities and also miss organic traffic.', 'news/1662872513631d6bc1cf086.jpg', 1, '2022-09-10 17:01:56', '2022-09-10 17:01:56'),
@@ -695,14 +698,18 @@ INSERT INTO `privacies` (`id`, `privacy`, `status`, `created_at`, `updated_at`) 
 
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(5000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_bn` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description_bn` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner_email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner_contact` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner_address` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stock` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `return` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `warranty` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `additional_info` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -712,13 +719,135 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `description`, `category`, `owner_name`, `owner_email`, `owner_contact`, `owner_address`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Vintage Background Free Download', '<p>Recently, Apple has removed iCloud Activation Lock status tool from website, so users could not check activation status with IMEI number or serial number. More details about this news, please click&nbsp;<a target=\"_blank\" href=\"http://www.3u.com/news/articles/1130/apple-removes-icloud-activation-locks-status-tool-from-website\">Apple Removes iCloud Activation Lock Status Tool From Website</a>. The only way to check lock status is to check on their own iPhone. However, many users don&rsquo;t know how to check icloud activation lock status hands-on.&nbsp;</p><p>&nbsp;</p><p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'food', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861683.png', 1, '2022-10-03 23:34:43', '2022-10-03 23:34:43'),
-(2, 'Vintage Background Free Download', '<p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'food', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861826.png', 1, '2022-10-03 23:37:06', '2022-10-03 23:37:06'),
-(3, 'Vintage Background Free Download', '<p>Recently, Apple has removed iCloud Activation Lock status tool from website, so users could not check activation status with IMEI number or serial number. More details about this news, please click&nbsp;</p><p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'fashion', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861865.png', 1, '2022-10-03 23:37:45', '2022-10-03 23:37:45'),
-(4, 'Vintage Background Free Download', '<p>Recently, Apple has removed iCloud Activation Lock status tool from website, so users could not check activation status with IMEI number or serial number. More details about this news, please click&nbsp;<a target=\"_blank\" href=\"http://www.3u.com/news/articles/1130/apple-removes-icloud-activation-locks-status-tool-from-website\">Apple Removes iCloud Activation Lock Status Tool From Website</a>. The only way to check lock status is to check on their own iPhone. However, many users don&rsquo;t know how to check icloud activation lock status hands-on.&nbsp;</p><p>&nbsp;</p><p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'food', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861683.png', 1, '2022-10-03 23:34:43', '2022-10-03 23:34:43'),
-(5, 'Vintage Background Free Download', '<p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'food', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861826.png', 1, '2022-10-03 23:37:06', '2022-10-03 23:37:06'),
-(6, 'Vintage Background Free Download', '<p>Recently, Apple has removed iCloud Activation Lock status tool from website, so users could not check activation status with IMEI number or serial number. More details about this news, please click&nbsp;</p><p>Please confirm your network on your iDevice, then head to<strong>&nbsp;Settings &rarr; iCloud &rarr; Find My iPhone</strong>, and check the status.</p><p>&nbsp;</p><p>As the following picture shown, this iDevice&rsquo;s activation lock is on. Users need to enter Apple ID account and password to turn on<strong>&ldquo;Find My iPhone&rdquo;</strong>on a new iDevice or an erased iDevice. If&nbsp;<strong>&ldquo;Find My iPhone&rdquo;&nbsp;</strong>is off or iCloud is not logged in, it means that this iDevice&rsquo;s iCloud activation lock status is off.</p>', 'fashion', 'Rahman Khan', 'rahman@gmail.com', '01634352627', 'Dhaka, bangladesh', 'product/1664861865.png', 1, '2022-10-03 23:37:45', '2022-10-03 23:37:45');
+INSERT INTO `products` (`id`, `product_id`, `title`, `title_bn`, `description`, `description_bn`, `category`, `stock`, `return`, `warranty`, `additional_info`, `owner`, `price`, `status`, `created_at`, `updated_at`) VALUES
+(8, '113244', 'Quaerat et dolorum n', 'Nostrud asperiores e', '<p>Nostrud asperiores e</p>', '<p>Nostrud asperiores e</p>', '7', '7', '27', '71', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '40', 1, '2022-11-28 05:29:17', '2022-11-28 05:29:17'),
+(10, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(11, '780200', 'Et in exercitation v', 'Laborum eius velit a', '<p>Et in exercitation v</p>', '<p>Et in exercitation v</p>', '10', '42', '11', '63', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '864', 1, '2022-11-28 05:38:43', '2022-11-28 05:38:43'),
+(12, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', '1', '427', 1, '2022-11-28 05:45:37', '2022-12-03 05:40:12'),
+(13, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(14, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(15, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '<p>Additional Information</p><table class=\"table table-bordered\"><tbody><tr><td><p>Stand Up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(16, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(17, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(18, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(19, '', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(20, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(21, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(22, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(23, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(24, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(25, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(26, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(27, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(28, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(29, '184098', 'Vitae et labore offi', 'Cillum autem perspic', '<p>Cillum autem perspic</p>', '<p>Cillum autem perspic</p>', '4', '92', '6', '54', '', NULL, '786', 1, '2022-11-28 05:37:48', '2022-11-28 05:37:48'),
+(30, '567770', 'Maxime porro et sapi', 'Saepe ipsum aut ulla bn', '<p>Saepe ipsum aut ulla</p>', '<p>Saepe ipsum aut ulla</p>', '4', '73', '21', '1', '', NULL, '427', 1, '2022-11-28 05:45:37', '2022-11-28 05:45:37'),
+(31, '942031', 'Autem repudiandae qu', 'Obcaecati cillum rec', '<p>Description</p>', '<p>Description</p>', '5', '60', '9', '71', '', NULL, '865', 1, '2022-11-29 03:57:45', '2022-11-29 03:57:45'),
+(32, '657674', 'Sint magna qui aut q', 'Rerum explicabo Qua', 'Text messages are used for personal, family, business and social purposes. Governmental and non-governmental organizations use text messaging for communication between colleagues. In the 2010s, the sending of short informal messages became an accepted part of many cultures, as happened earlier with emailing.[1] This makes texting a quick and easy way to communicate with friends, family and colleagues, including in contexts where a call would be impolite or inappropriate (e.g., calling very late at night or when one knows the other person is busy with family or work activities). Like e-mail and voicemail and unlike calls (in which the caller hopes to speak directly with the recipient), texting does not require the caller and recipient to both be free at the same moment; this permits communication even between busy individuals. Text messages can also be used to interact with automated systems, for example, to order products or services from e-commerce websites, or to participate in online contests. Advertisers and service providers use direct text marketing to send messages to mobile users about promotions, payment due dates, and other notifications instead of using postal mail, email, or voicemail.', 'পাঠ্য বার্তা ব্যক্তিগত, পারিবারিক, ব্যবসায়িক এবং সামাজিক উদ্দেশ্যে ব্যবহার করা হয়। সরকারি এবং বেসরকারি সংস্থাগুলি সহকর্মীদের মধ্যে যোগাযোগের জন্য পাঠ্য বার্তা ব্যবহার করে। 2010-এর দশকে, সংক্ষিপ্ত অনানুষ্ঠানিক বার্তা প্রেরণ অনেক সংস্কৃতির একটি স্বীকৃত অংশ হয়ে ওঠে, যেমনটি আগে ইমেল করার ক্ষেত্রে হয়েছিল। এটি টেক্সট পাঠানোকে বন্ধু, পরিবার এবং সহকর্মীদের সাথে যোগাযোগের একটি দ্রুত এবং সহজ উপায় করে তোলে, যেখানে একটি কল অশ্লীল বা অনুপযুক্ত হবে এমন প্রেক্ষাপট সহ (যেমন, খুব রাতে কল করা বা যখন কেউ জানে যে অন্য ব্যক্তি পরিবার বা কাজের ক্রিয়াকলাপে ব্যস্ত রয়েছে) ) ই-মেইল এবং ভয়েসমেলের মতো এবং কলের বিপরীতে (যেটিতে কলার প্রাপকের সাথে সরাসরি কথা বলার আশা করেন), টেক্সট করার জন্য কলার এবং প্রাপক উভয়কেই একই মুহূর্তে বিনামূল্যে থাকতে হবে না; এটি এমনকি ব্যস্ত ব্যক্তিদের মধ্যে যোগাযোগের অনুমতি দেয়। পাঠ্য বার্তাগুলি স্বয়ংক্রিয় সিস্টেমের সাথে ইন্টারঅ্যাক্ট করতেও ব্যবহার করা যেতে পারে, উদাহরণস্বরূপ, ই-কমার্স ওয়েবসাইটগুলি থেকে পণ্য বা পরিষেবাগুলি অর্ডার করতে বা অনলাইন প্রতিযোগিতায় অংশ নিতে। বিজ্ঞাপনদাতা এবং পরিষেবা প্রদানকারীরা পোস্টাল মেল, ইমেল বা ভয়েসমেইল ব্যবহার করার পরিবর্তে প্রচার, অর্থপ্রদানের শেষ তারিখ এবং অন্যান্য বিজ্ঞপ্তি সম্পর্কে মোবাইল ব্যবহারকারীদের বার্তা পাঠাতে সরাসরি পাঠ্য বিপণন ব্যবহার করে।', '4', '57', '28', '92', '<h4><b>Additional Information</b></h4><h6><b><br></b></h6><table class=\"table table-bordered\"><tbody><tr><td><p>Stand up</p></td><td>35″L x 24″W x 37-45″H(front to back wheel)<br></td></tr><tr><td>Folded (w/o wheels)<br></td><td><p>32.5″L x 18.5″W x 16.5″H</p></td></tr><tr><td>Folded (w/ wheels)<br></td><td>32.5″L x 24″W x 18.5″H<br></td></tr><tr><td>Door Pass Through<br></td><td><p>24</p></td></tr><tr><td>Frame<br></td><td><p>Aluminum</p></td></tr><tr><td>Weight (w/o wheels)<br></td><td>20 LBS<br></td></tr><tr><td>Weight Capacity<br></td><td>60 LBS<br></td></tr><tr><td>Handle height (ground to handle)<br></td><td>37-45″<br></td></tr><tr><td>Wheels<br></td><td>12″ air / wide track slick tread<br></td></tr><tr><td>Color<br></td><td>Black, Blue, Red, White<br></td></tr></tbody></table><p><br></p>', '1', '479', 1, '2022-11-29 04:11:03', '2022-12-03 04:53:57'),
+(33, '503766', 'Cupiditate error eiu', 'Aliquip fugiat odit', 'Optio lorem amet n', 'Qui tempor consequat', '5', '13', '24', '11', '<p>Facilis dolorem labo. additional information<br></p>', '3', '734', 1, '2022-12-03 03:16:04', '2022-12-03 04:49:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_categories`
+--
+
+CREATE TABLE `product_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_bn` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_categories`
+--
+
+INSERT INTO `product_categories` (`id`, `title`, `title_bn`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'leather bag', 'চামড়ার ব্যাগ', 'categories/1669544449.png', 1, '2022-11-25 23:43:40', '2022-11-27 04:46:13'),
+(4, 'Leather wallet', 'চামড়ার মানিব্যাগ', 'categories/1669544461.png', 1, '2022-11-26 00:04:15', '2022-11-27 04:47:36'),
+(5, 'leather shoes', 'চামড়ার জুতা', 'categories/1669544481.png', 1, '2022-11-26 00:05:11', '2022-11-27 04:48:06'),
+(6, 'leather belt', 'চামড়ার বেল্ট', 'categories/1669545800.png', 1, '2022-11-27 04:43:21', '2022-11-27 04:47:01'),
+(7, 'Leather phone cover', 'চামড়ার ফোন কভার', 'categories/1669546649.png', 1, '2022-11-27 04:57:29', '2022-11-27 04:57:29'),
+(8, 'glasses frame', 'চশমার ফ্রেম', 'categories/1669546688.png', 1, '2022-11-27 04:58:09', '2022-11-27 04:58:09'),
+(9, 'school bag', 'স্কুল ব্যাগ', 'categories/1669546724.png', 1, '2022-11-27 04:58:45', '2022-11-27 04:58:45'),
+(10, 't-shirt', 'টি-শার্ট', 'categories/1669546759.png', 1, '2022-11-27 04:59:19', '2022-11-27 04:59:19'),
+(11, 'leather hat', 'চামড়ার টুপি', 'categories/1669546794.png', 1, '2022-11-27 04:59:56', '2022-11-27 04:59:56'),
+(12, 'Water bottle', 'ওয়াটার বোতল', 'categories/1669546831.png', 1, '2022-11-27 05:00:31', '2022-11-27 05:00:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_images`
+--
+
+CREATE TABLE `product_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
+(78, '184098', 'product/1669635468.png', NULL, NULL),
+(84, '184098', 'product/1669635590.jpg', NULL, NULL),
+(85, '184098', 'product/1669635593.jpg', NULL, NULL),
+(89, '567770', 'product/1669635934.png', '2022-11-28 05:45:35', '2022-11-28 05:45:35'),
+(90, '780200', 'product/1669635989.png', '2022-11-28 05:46:29', '2022-11-28 05:46:29'),
+(91, '113244', 'product/1669636031.png', '2022-11-28 05:47:11', '2022-11-28 05:47:11'),
+(92, '567770', 'product/1669715505.png', '2022-11-29 03:51:45', '2022-11-29 03:51:45'),
+(93, '567770', 'product/1669715530.png', '2022-11-29 03:52:10', '2022-11-29 03:52:10'),
+(94, '942031', 'product/1669715857.jpg', NULL, NULL),
+(95, '942031', 'product/1669715859.jpg', NULL, NULL),
+(96, '942031', 'product/1669715861.jpg', NULL, NULL),
+(97, '567770', 'product/1669715894.jpg', NULL, NULL),
+(98, '567770', 'product/1669715897.jpg', NULL, NULL),
+(99, '567770', 'product/1669715899.jpg', NULL, NULL),
+(100, '657674', 'product/1669716655.jpg', NULL, NULL),
+(101, '657674', 'product/1669716657.jpg', NULL, NULL),
+(102, '657674', 'product/1669716658.jpg', NULL, NULL),
+(103, '657674', 'product/1669716660.jpg', NULL, NULL),
+(104, '513239', 'product/1670058882.jpg', NULL, NULL),
+(105, '513239', 'product/1670058885.jpg', NULL, NULL),
+(106, '513239', 'product/1670058888.jpg', NULL, NULL),
+(107, '503766', 'product/1670058954.jpg', NULL, NULL),
+(108, '503766', 'product/1670058957.jpg', NULL, NULL),
+(109, '503766', 'product/1670058960.jpg', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_sliders`
+--
+
+CREATE TABLE `product_sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_bn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_sliders`
+--
+
+INSERT INTO `product_sliders` (`id`, `image`, `title`, `title_bn`, `description`, `description_bn`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'product_slider/1669612081.jpg', 'Don’t miss amazing grocery deals', 'আশ্চর্যজনক মুদির ডিল মিস করবেন না', 'Sign up for the daily newsletter', 'দৈনিক নিউজলেটার জন্য সাইন আপ করুন', 1, '2022-11-27 22:54:30', '2022-11-27 23:08:12'),
+(2, 'product_slider/1669612037.jpg', 'Don’t miss amazing grocery deals ok', 'আশ্চর্যজনক মুদির ডিল মিস করবেন না', NULL, NULL, 1, '2022-11-27 22:54:30', '2022-11-27 23:29:13'),
+(3, 'product_slider/1669612113.jpg', 'Don’t miss amazing grocery deals', 'আশ্চর্যজনক মুদির ডিল মিস করবেন না', 'Sign up for the daily newsletter', 'দৈনিক নিউজলেটার জন্য সাইন আপ করুন', 1, '2022-11-27 22:54:30', '2022-11-27 23:08:49');
 
 -- --------------------------------------------------------
 
@@ -938,12 +1067,6 @@ ALTER TABLE `activities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `beneficiaries`
---
-ALTER TABLE `beneficiaries`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
@@ -959,6 +1082,12 @@ ALTER TABLE `components`
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `entrepreneurs`
+--
+ALTER TABLE `entrepreneurs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1072,6 +1201,24 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_categories`
+--
+ALTER TABLE `product_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_sliders`
+--
+ALTER TABLE `product_sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `publications`
 --
 ALTER TABLE `publications`
@@ -1138,12 +1285,6 @@ ALTER TABLE `activities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `beneficiaries`
---
-ALTER TABLE `beneficiaries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
@@ -1159,6 +1300,12 @@ ALTER TABLE `components`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `entrepreneurs`
+--
+ALTER TABLE `entrepreneurs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -1225,7 +1372,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -1261,7 +1408,25 @@ ALTER TABLE `privacies`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `product_categories`
+--
+ALTER TABLE `product_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `product_images`
+--
+ALTER TABLE `product_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT for table `product_sliders`
+--
+ALTER TABLE `product_sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `publications`

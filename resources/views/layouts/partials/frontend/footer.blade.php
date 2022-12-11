@@ -21,40 +21,40 @@
         </div>
         <div class="commom-links right">
             <div class="footer-content ">
-                <h4>about</h4>
+                <h4>{{__('front.about')}}</h4>
                 <a href="{{url('entrepreneurs')}}">
-                    <p>entrepreneurs</p>
+                    <p>{{__('front.entre')}}</p>
                 </a>
                 <a href="{{url('stories')}}">
-                    <p>success stories</p>
+                    <p>{{__('front.stories')}}</p>
                 </a>
                 <a href="{{url('terms')}}">
-                    <p>Terms & Condition</p>
+                    <p>{{__('front.terms')}}</p>
                 </a>
 
             </div>
             <div class="footer-content">
-                <h4>services</h4>
-                <a href="{{url('products')}}">
-                    <p>Our Product</p>
+                <h4>{{__('front.services')}}</h4>
+                <a href="{{url('/')}}">
+                    <p>{{__('front.ourProduct')}}</p>
                 </a>
                 <a href="#">
-                    <p>Promo</p>
+                    <p>{{__('front.promo')}}</p>
                 </a>
                 <a href="#">
-                    <p>Payment Method</p>
+                    <p>{{__('front.paymentMethod')}}</p>
                 </a>
             </div>
             <div class="footer-content">
-                <h4>others</h4>
+                <h4>{{__('front.others')}}</h4>
                 <a href="{{url('faq')}}">
-                    <p>Contact Us</p>
+                    <p>{{__('front.contactUs')}}</p>
                 </a>
                 <a href="#">
-                    <p>Help</p>
+                    <p>{{__('front.help')}}</p>
                 </a>
                 <a href="{{url('privacy')}}">
-                    <p>Privacy Policy</p>
+                    <p>{{__('front.privacyPolicy')}}</p>
                 </a>
             </div>
         </div>

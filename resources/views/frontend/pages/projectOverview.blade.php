@@ -4,6 +4,11 @@
     @include('layouts.partials.frontend.pageTitle')
     @php
         $abouts = getAbout();
+
+        if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
     @endphp
     <div class="project_summary bg-white-cu content-100">
         <div class="row content-80 bg-dark-cu project-summary-more">
@@ -30,8 +35,8 @@
             </div>
             <div class="col-md-6 summary-more">
                 <div class="heading">
-                    <span class="heading-1">Project</span>
-                    <span class="heading-2">overview</span>
+                    <span class="heading-1">{{__('front.projectSummary1')}}</span>
+                    <span class="heading-2">{{__('front.overView')}}</span>
                 </div>
                 <p>{{$overView}}</p>
             </div>

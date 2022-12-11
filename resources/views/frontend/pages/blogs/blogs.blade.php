@@ -14,6 +14,11 @@
             $start = ($clickPage-1)*$pages;
         }
         $blogs = getBlogs($start, $pages, 'spe');
+
+        if (session()->has('language')) {
+                $lanCode = session()->get('language');
+                App::setLocale($lanCode);
+            }
     @endphp
 
     <div class="project_summary bg-dark-cu content-100 success">
@@ -23,7 +28,7 @@
                 @foreach($blogs as $blog)
                     @if($blog->status===1)
                         <img src="{{asset('storage/'.$blog->image)}}" alt="">
-                        <div class="info-field">
+                        <div class="info-field mt-3">
                             @php
                                 if (strlen($blog->description)>500){
                                    $description = substr($blog->description,0,500).'...';
@@ -40,7 +45,7 @@
                             <p>{{$blog->address}}</p>
                             <a href="{{url('blog/'.$blog->id)}}">
                                 <button type="button" class="more-button ">
-                                    Read More
+                                    {{__('front.readMore')}}
                                 </button>
                             </a>
                         </div>
@@ -49,8 +54,8 @@
             </div>
             <div class="col-md-4 sub-container successes">
                 <div class="heading">
-                    <span class="heading-1">Latest</span>
-                    <span class="heading-2">Post</span>
+                    <span class="heading-1">{{__('front.latestPost1')}}</span>
+                    <span class="heading-2">{{__('front.latestPost2')}}</span>
                 </div>
                 @include('frontend.pages.component.latestPost')
             </div>

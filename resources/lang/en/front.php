@@ -88,4 +88,50 @@ return [
     'shipOnTime' => 'Ship on time',
     'chatResponse' => 'Chat response',
     'relatedProducts' => 'Related products',
+
+    'projectSummary1'=>'Project',
+    'projectSummary2'=>'Summary',
+    'projectOverview'=>'Project Overview',
+    'overView'=>'Overview',
+    'projectGoal'=>'Project Goal',
+    'goal2'=>'Goal',
+    'projectMission'=>'Project Mission',
+
+
+    'workingArea1'=>'Working',
+    'workingArea2'=>'Area',
+
+    'projectiveObjective1'=>'Project',
+    'projectiveObjective2'=>'Objective',
+    'objective1'=>'Safe Vegetable Production.',
+    'objective2'=>'Ecological farming.',
+    'objective3'=>'Safe Vegetable marketing.',
+    'objective4'=>'Environment improvement practice.',
+
+
+    'photoGallery1'=>'Photo',
+    'photoGallery2'=>'Gallery',
+    'videoGallery1'=>'Video',
+
+
+    'terms'=>'Terms & Condition',
+    'ourProduct'=>'Our Product',
+    'promo'=>'Promo code',
+    'paymentMethod'=>'Payment Method',
+    'contactUs'=>'Contact Us',
+    'privacyPolicy'=>'Privacy Policy',
+    'help'=>'Help',
+
+
+    'latestPost1'=>'Latest',
+    'latestPost2'=>'Post',
+    'readMore'=>'Read More',
+
+
+    'haveQuestion1'=>'Have any',
+    'haveQuestion2'=>'Questions?',
+    'yourName'=>'Your Name',
+    'yourKnow'=>'What do you want to know?',
+    'send'=>'Send',
+    'download'=>'Download',
 ];

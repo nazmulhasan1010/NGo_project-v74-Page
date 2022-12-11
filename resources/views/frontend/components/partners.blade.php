@@ -2,8 +2,8 @@
 @if($partners)
     <div class="project_summary bg-white-cu content-100 en-partners">
         <div class="heading">
-            <span class="heading-1">Development</span>
-            <span class="heading-2">Partner</span>
+            <span class="heading-1">{{__('front.development')}}</span>
+            <span class="heading-2">{{__('front.partner')}}</span>
         </div>
         <div class="row content-80 partner ">
             @foreach($partners as $partner)

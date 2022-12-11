@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 @section('title','Events')
 @section('content')
+    @php
+        if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
+    @endphp
     @include('layouts.partials.frontend.pageTitle')
     <!-- event & notice -->
     <div class="project_summary bg-white-cu content-100">
@@ -9,8 +15,8 @@
             @if($event)
                 <div class="col-md-12 sub-container event-notice">
                     <div class="heading">
-                        <span class="heading-1">Upcoming</span>
-                        <span class="heading-2">Events</span>
+                        <span class="heading-1">{{__('front.upcoming')}}</span>
+                        <span class="heading-2">{{__('front.events')}}</span>
                     </div>
                     @foreach($event as $events)
                         @if($events->status===1)

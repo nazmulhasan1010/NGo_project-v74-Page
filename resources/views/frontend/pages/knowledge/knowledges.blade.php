@@ -3,24 +3,28 @@
 @section('content')
     @include('layouts.partials.frontend.pageTitle')
     @php
-        if($category==='all'){
-            $catSt = 'all-5';
-            $catStcat = 'all';
-        } else{
-            $catSt = 'category';
-            $catStcat = 'categoryStAll';
+        if (session()->has('language')) {
+           $lanCode = session()->get('language');
+           App::setLocale($lanCode);
         }
-            $start = 0;
-            $pages = 5;
-            $clickPage = 0;
-            $knowledge = getKnowledge($category,$catStcat,$start,$pages);
-            $item = count($knowledge);
-            $page = ceil($item/5);
-            if (isset($_GET['page'])){
-                $clickPage = $_GET['page'];
-                $start = ($clickPage-1)*$pages;
-            }
-            $knowledge = getKnowledge($category,$catSt,$start,$pages);
+           if($category==='all'){
+               $catSt = 'all-5';
+               $catStcat = 'all';
+           } else{
+               $catSt = 'category';
+               $catStcat = 'categoryStAll';
+           }
+               $start = 0;
+               $pages = 5;
+               $clickPage = 0;
+               $knowledge = getKnowledge($category,$catStcat,$start,$pages);
+               $item = count($knowledge);
+               $page = ceil($item/5);
+               if (isset($_GET['page'])){
+                   $clickPage = $_GET['page'];
+                   $start = ($clickPage-1)*$pages;
+               }
+               $knowledge = getKnowledge($category,$catSt,$start,$pages);
     @endphp
 
     <div class="project_summary bg-dark-cu content-100 success">
@@ -85,7 +89,7 @@
             </div>
             <div class="col-md-4 sub-container successes">
                 <div class="heading">
-                    <span class="heading-1">Categories</span>
+                    <span class="heading-1">{{__('front.categories')}}</span>
                 </div>
                 @php
                     $knowCat = getKnowledge('','catName','','');

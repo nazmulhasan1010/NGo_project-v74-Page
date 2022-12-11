@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 @section('title','Notice')
 @section('content')
+    @php
+        if (session()->has('language')) {
+               $lanCode = session()->get('language');
+               App::setLocale($lanCode);
+           }
+    @endphp
     @include('layouts.partials.frontend.pageTitle')
     <div class="project_summary bg-white-cu content-100">
         @include('frontend.pages.component.themeChanger')
@@ -8,7 +14,7 @@
             @if($notice)
                 <div class="col-md-12 sub-container event-notice ">
                     <div class="heading">
-                        <span class="heading-1">Notice</span>
+                        <span class="heading-1">{{__('front.notice')}}</span>
                     </div>
                     @foreach($notice as $notices)
                         @if($notices->status===1)
@@ -47,7 +53,7 @@
                             @endif
                             <a href="{{url('download/notice/'.$notices->attachment)}}" class="p-4">
                                 <button type="button" class="more-button ">
-                                    Download
+                                    {{__('front.download')}}
                                 </button>
                             </a>
                         @endif

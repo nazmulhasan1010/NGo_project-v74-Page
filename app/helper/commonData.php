@@ -206,7 +206,7 @@ if (!function_exists('getKnowledge')) {
         } elseif ($category === 'categoryStAll') {
             return Knowledge::where('category', '=', $id)->get();
         } elseif ($category === 'id') {
-            return Knowledge::where('id', '=', $id)->take($limit)->get();
+            return Knowledge::where('id', '=', $id)->get();
         } elseif ($category === 'catName') {
             return Knowledge::select('category')->distinct()->get();
         } elseif ($category === 'category') {
@@ -277,5 +277,8 @@ function getProduct($data, $ist)
     }
     if ($ist === 'catCount') {
         return Product::where('category', '=', $data)->get()->count();
+    }
+    if ($ist === 'vendor') {
+        return Product::where('owner', '=', $data)->get();
     }
 }

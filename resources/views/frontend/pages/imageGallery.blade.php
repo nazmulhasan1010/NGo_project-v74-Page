@@ -33,14 +33,18 @@
                 break;
             }
         }
+         if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+         }
     @endphp
 
     @if($image)
         <!-- photos -->
         <div class="project_summary bg-dark-cu content-100 shadow-light">
             <div class="heading">
-                <span class="heading-1">Photo</span>
-                <span class="heading-2">Gallery</span>
+                <span class="heading-1">{{__('front.photoGallery1')}}</span>
+                <span class="heading-2">{{__('front.photoGallery2')}}</span>
             </div>
 
             <div class="row content-80 ">
@@ -49,9 +53,9 @@
                         <div class="heading coll-heading">
                             <div class="left">
                                 <span class="heading-1">2025</span>
-                                <span class="heading-2">Gallery</span>
+                                <span class="heading-2">{{__('front.photoGallery2')}}</span>
                                 <div class="counter">
-                                    <span class="total-photos">30</span><span>Photos</span>
+                                    <span class="total-photos">30</span><span>{{__('front.photoGallery1')}}</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -79,9 +83,9 @@
                         <div class="heading coll-heading">
                             <div class="left">
                                 <span class="heading-1">2024</span>
-                                <span class="heading-2">Gallery</span>
+                                <span class="heading-2">{{__('front.photoGallery2')}}</span>
                                 <div class="counter">
-                                    <span class="total-photos">30</span><span>Photos</span>
+                                    <span class="total-photos">30</span><span>{{__('front.photoGallery1')}}</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -109,9 +113,9 @@
                         <div class="heading coll-heading">
                             <div class="left">
                                 <span class="heading-1">2023</span>
-                                <span class="heading-2">Gallery</span>
+                                <span class="heading-2">{{__('front.photoGallery2')}}</span>
                                 <div class="counter">
-                                    <span class="total-photos">30</span><span>Photos</span>
+                                    <span class="total-photos">30</span><span>{{__('front.photoGallery1')}}</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -139,9 +143,9 @@
                         <div class="heading coll-heading">
                             <div class="left">
                                 <span class="heading-1">2022</span>
-                                <span class="heading-2">Gallery</span>
+                                <span class="heading-2">{{__('front.photoGallery2')}}</span>
                                 <div class="counter">
-                                    <span class="total-photos">30</span><span>Photos</span>
+                                    <span class="total-photos">30</span><span>{{__('front.photoGallery1')}}</span>
                                 </div>
                             </div>
                             <div class="right">

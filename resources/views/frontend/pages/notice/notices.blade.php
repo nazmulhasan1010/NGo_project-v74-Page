@@ -18,11 +18,15 @@
                     $start = ($clickPage-1)*$pages;
                 }
                 $notice = getNotices($start, $pages, 'spe');
+                if (session()->has('language')) {
+                $lanCode = session()->get('language');
+                App::setLocale($lanCode);
+            }
             @endphp
             @if($notice)
                 <div class="col-md-6 sub-container event-notice ">
                     <div class="heading">
-                        <span class="heading-1">Notice</span>
+                        <span class="heading-1">{{__('front.notice')}}</span>
                     </div>
                     @foreach($notice as $notices)
                         @if($notices->status===1)
