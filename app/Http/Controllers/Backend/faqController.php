@@ -59,7 +59,9 @@ class faqController extends Controller
         try{
             $faq    = new FAQ();
             $faq->questions = $request->question;
+            $faq->questions_bn = $request->question_bn;
             $faq->answers = $request->answer;
+            $faq->answers_bn = $request->answer_bn;
             $faq->save();
 
             Toastr::success('FAQ Successfully Added');
@@ -111,9 +113,10 @@ class faqController extends Controller
 
         try{
             $faq = FAQ::findOrFail($request->old_id);
-
             $faq->questions = $request->editQuestion;
+            $faq->questions_bn = $request->editQuestion_bn;
             $faq->answers = $request->editAnswer;
+            $faq->answers_bn = $request->editAnswer_bn;
             $faq->status = $request->row_status;
             $faq->update();
 

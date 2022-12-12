@@ -13,10 +13,14 @@
             @for ($i = 0; $i < $row; $i++)
                 @php
                     $image = $abouts[$i]->image;
-                       if ($abouts[$i]->project_overview !== null){
-                           $overView = $abouts[$i]->project_overview;
+                       if ($abouts[$i]->project_overview !== null && $abouts[$i]->project_overview_bn !== null){
+                             if (App::isLocale('bn')) {
+                                   $overView = $abouts[$i]->project_overview_bn;
+                             }else{
+                                  $overView = $abouts[$i]->project_overview;
+                             }
                            break;
-                       } else {
+                       }else {
                            $overView = '';
                        }
                 @endphp
@@ -24,18 +28,18 @@
         @endif
         @if($overView!=='')
             @php
-                if (strlen($overView)>120){
-                   $overView_ = substr($overView,0,120);
-                }else{
-                    $overView_ = $overView ;
-                }
+                  if (strlen($overView)>120){
+                     $overView_ = substr($overView,0,120);
+                  }else{
+                      $overView_ = $overView ;
+                  }
             @endphp
             <div class="col-md-4 summary">
                 <div class="icon">
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
                 <h2>{{__('front.projectOverview')}}</h2>
-                <p>{{$overView_}}</p>
+                <p>{!! $overView_ !!}</p>
                 <a href="{{url('overview')}}">
                     <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>
@@ -52,7 +56,11 @@
                 @php
                     $image = $abouts[$i]->image;
                        if ($abouts[$i]->project_goal !== null){
-                           $goal = $abouts[$i]->project_goal;
+                           if (App::isLocale('bn')) {
+                                  $goal = $abouts[$i]->project_goal_bn;
+                             }else{
+                                  $goal = $abouts[$i]->project_goal;
+                             }
                            break;
                        } else {
                            $goal = '';
@@ -73,7 +81,7 @@
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
                 <h2>{{__('front.projectGoal')}}</h2>
-                <p>{{$goal_}}</p>
+                <p>{!! $goal_ !!}</p>
                 <a href="{{url('goal')}}">
                     <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>
@@ -90,7 +98,11 @@
                 @php
                     $image = $abouts[$i]->image;
                        if ($abouts[$i]->mission !== null){
-                           $mission = $abouts[$i]->mission;
+                            if (App::isLocale('bn')) {
+                                  $mission = $abouts[$i]->mission_bn;
+                             }else{
+                                  $mission = $abouts[$i]->mission;
+                             }
                            break;
                        } else {
                            $mission = '';
@@ -111,7 +123,7 @@
                     <img src="{{asset('storage/'.$image)}}" alt="summary">
                 </div>
                 <h2>{{__('front.projectMission')}}</h2>
-                <p>{{$mission_}}</p>
+                <p>{!! $mission_ !!}</p>
                 <a href="{{url('mission')}}">
                     <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                 </a>

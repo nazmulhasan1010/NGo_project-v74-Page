@@ -18,8 +18,8 @@
                             @if($sliders->title&&$sliders->description)
                                 <div class="modal-content">
                                     <div class="content-text">
-                                        <h1>{{$sliders->title}}</h1>
-                                        <h3>{{$sliders->description}}</h3>
+                                        <h1>{{App::isLocale('bn')?$sliders->title_bn:$sliders->title}}</h1>
+                                        <h3>{{App::isLocale('bn')?$sliders->description_bn:$sliders->description}}</h3>
                                     </div>
                                 </div>
                             @endif

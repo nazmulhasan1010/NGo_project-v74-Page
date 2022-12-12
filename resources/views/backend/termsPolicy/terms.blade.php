@@ -121,6 +121,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="terms_bn">Terms And Conditions (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="terms_bn"
+                                                          name="terms_bn">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger light" data-dismiss="modal">Close
@@ -155,6 +168,19 @@
                                                 <textarea class="form-control"
                                                           id="editTerms"
                                                           name="editTerms">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editTerms_bn">Terms And Conditions (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="editTerms_bn"
+                                                          name="editTerms_bn">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -197,7 +223,6 @@
 @endpush
 @push('onpage-js')
     <script>
-
         @if ($errors->any())
         $('#addNewModal').modal('show');
         @endif
@@ -229,6 +254,8 @@
             e.preventDefault();
         });
         CKEDITOR.replace('terms');
+        CKEDITOR.replace('terms_bn');
         CKEDITOR.replace('editTerms');
+        CKEDITOR.replace('editTerms_bn');
     </script>
 @endpush

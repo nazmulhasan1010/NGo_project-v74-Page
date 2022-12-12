@@ -58,7 +58,7 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $key+1}}</td>
-                                            <td>{{ $item->project_overview }}</td>
+                                            <td>{{ $overview_ }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}"
                                                      width="100px"
@@ -125,6 +125,12 @@
                                         @endif
                                     </div>
                                     <div class="row">
+                                        <label for="overview">Overview (BN)<span class="req">*</span> </label>
+                                        <textarea class="form-control" id="overview" name="overview_bn"
+                                                  placeholder="Overview">
+                                        </textarea>
+                                    </div>
+                                    <div class="row">
                                         <div class="preview-img">
                                             <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
                                                  class="imagePreView imagePreViewSelect imagePreViewEmpty">
@@ -178,6 +184,15 @@
                                         @if ($errors->has('project_overview'))
                                             <span class="text-danger">{{ $errors->first('project_overview') }}</span>
                                         @endif
+                                    </div>
+                                    <div class="row">
+                                        <label for="edit_category_name_bn">Overview (BN) <span class="req">*</span>
+                                        </label>
+                                        <textarea type="text" class="form-control" id="edit_category_name_bn"
+                                                  name="category_name_bn"
+                                                  value=""
+                                                  placeholder="Overview">
+                                        </textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
@@ -267,6 +282,7 @@
 
                     $('#row_id').val(response.row_data.id);
                     $('#edit_category_name').val(response.row_data.project_overview);
+                    $('#edit_category_name_bn').val(response.row_data.project_overview_bn);
                     $('#row_status').val(response.row_data.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + response.row_data.image);
                     $('#restoreImage').attr('data-id', response.row_data.image);

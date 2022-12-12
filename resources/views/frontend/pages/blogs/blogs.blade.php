@@ -27,21 +27,30 @@
             <div class="col-md-8 successes">
                 @foreach($blogs as $blog)
                     @if($blog->status===1)
+                        @php
+                            if (App::isLocale('bn')) {
+                                 $title = $blog->title_bn;
+                                 $description = $blog->description_bn;
+                            }else{
+                                 $title = $blog->title;
+                                 $description = $blog->description;
+                            }
+                        @endphp
                         <img src="{{asset('storage/'.$blog->image)}}" alt="">
                         <div class="info-field mt-3">
                             @php
-                                if (strlen($blog->description)>500){
-                                   $description = substr($blog->description,0,500).'...';
+                                if (strlen($description)>500){
+                                   $des = substr($description,0,500).'...';
                                 }else{
-                                    $description = $blog->description ;
+                                    $des = $description ;
                                 }
                             @endphp
                             <div class="date">
                                 <span><i class="fa-regular fa-clock"></i></span>
                                 <span>{{date("d", strtotime($blog->updated_at)).' '.substr(date("F", strtotime($blog->updated_at)),0,3).'  '.date("Y", strtotime($blog->updated_at)) }}</span>
                             </div>
-                            <h2>{{$blog->title}}</h2>
-                            <p>{{$description}}</p>
+                            <h2>{!! $title !!}</h2>
+                            <p>{!! $des !!}</p>
                             <p>{{$blog->address}}</p>
                             <a href="{{url('blog/'.$blog->id)}}">
                                 <button type="button" class="more-button ">

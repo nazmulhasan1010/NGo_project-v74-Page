@@ -33,12 +33,19 @@
             <div class="col-md-8 successes knowledge">
                 @foreach($knowledge as $know)
                     @if($know->status===1)
+                        @php
+                            if (App::isLocale('bn')) {
+                                  $title =$know->title_bn;
+                             }else{
+                                  $title =$know->title;
+                             }
+                        @endphp
                         <div class="info-field">
                             @php
-                                if (strlen($know->title)>50){
-                                   $title = substr($know->title,0,50).'...';
+                                if (strlen($title)>50){
+                                   $title_ = substr($title,0,50).'...';
                                 }else{
-                                    $title = $know->title ;
+                                    $title_ = $title ;
                                 }
                             @endphp
 
@@ -50,7 +57,7 @@
 
                                     </div>
                                     <span class="category-preview"><a href="{{url('knowledge/'.$know->category)}}">{{$know->category}}</a></span>
-                                    <h2>{{$title}}</h2>
+                                    <h2>{!! $title_ !!}</h2>
                                 </div>
                                 <div class="col-md-4 attachPreview">
                                     @php

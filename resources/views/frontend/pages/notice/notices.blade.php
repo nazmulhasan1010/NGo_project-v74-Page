@@ -30,6 +30,15 @@
                     </div>
                     @foreach($notice as $notices)
                         @if($notices->status===1)
+                            @php
+                                if (App::isLocale('bn')) {
+                                     $title = $notices->title_bn;
+                                     $description = $notices->description_bn;
+                                }else{
+                                     $title = $notices->title;
+                                     $description = $notices->description;
+                                }
+                            @endphp
                             <div class="row notice">
                                 <div class="col-md-2 notices">
                                     <div class="date">
@@ -38,21 +47,21 @@
                                 </div>
                                 <a href="{{url('notice/'.$notices->id)}}" class="col-md-10 notices">
                                     @php
-                                        if (strlen($notices->title)>40){
-                                           $title = substr($notices->title,0,39).'...';
+                                        if (strlen($title)>40){
+                                           $title_ = substr($title,0,39).'...';
                                         }else{
-                                            $title = $notices->title ;
+                                            $title_ = $title ;
                                         }
                                     @endphp
-                                    <h3>{{$title}}</h3>
+                                    <h3>{!! $title_ !!}</h3>
                                     @php
-                                        if (strlen($notices->description)>300){
-                                           $des = substr($notices->description,0,299).'...';
+                                        if (strlen($description)>300){
+                                           $des = substr($description,0,299).'...';
                                         }else{
-                                            $des = $notices->description ;
+                                            $des = $description ;
                                         }
                                     @endphp
-                                    <p>{{$des}}</p>
+                                    <p>{!! $des !!}</p>
                                 </a>
                             </div>
                         @endif

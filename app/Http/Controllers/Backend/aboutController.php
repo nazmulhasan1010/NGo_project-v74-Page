@@ -66,6 +66,7 @@ class aboutController extends Controller
         ]);
         $instructions = explode('.', $request->hint);
         $ins = $instructions[0];
+        $ins_bn = $instructions[0].'_bn';
         $sta = '';
         $checkExists = About::select($ins)->get();
         // return $checkExists;
@@ -89,6 +90,7 @@ class aboutController extends Controller
                 $fileName = imageUploadWithCustomSize($request->summaryImage, "1200", "800", "about");
                 $addAbout = new About();
                 $addAbout->$ins = $request->overview;
+                $addAbout->$ins_bn = $request->overview_bn;
                 $addAbout->image = 'about/'.$fileName;
                 $addAbout->save();
 
@@ -146,6 +148,7 @@ class aboutController extends Controller
         ]);
         $inst = explode('.', $cat);
         $column = $inst[0];
+        $column_bn = $inst[0].'_bn';
         try {
             if ($request->old_image === 'change') {
                 $fileName = 'about/' . imageUploadWithCustomSize($request->editSummaryImage, "1200", "800", "about");
@@ -155,8 +158,8 @@ class aboutController extends Controller
             }
 
             $about = About::findOrFail($request->old_id);
-
             $about->$column = $request->category_name;
+            $about->$column_bn = $request->category_name_bn;
             $about->status = $request->row_status;
             $about->image = $fileName;
             $about->update();

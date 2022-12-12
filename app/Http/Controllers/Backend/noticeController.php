@@ -67,7 +67,9 @@ class noticeController extends Controller
         try {
             $notice = new Notice();
             $notice->title = $request->noticeTitle;
+            $notice->title_bn = $request->noticeTitle_bn;
             $notice->description = $request->noticeDescription;
+            $notice->description_bn = $request->noticeDescription_bn;
             $notice->attachment = $file;
             $notice->dateAt = date('d F Y ', strtotime($date));
             $notice->save();
@@ -122,7 +124,6 @@ class noticeController extends Controller
             'old_id' => 'required',
             'editNoticeAttachment' => 'mimes:pdf,jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
-//        return $request->all();
         date_default_timezone_set('Asia/Dhaka');
         $date = date('Y-m-d');
         try {
@@ -137,9 +138,10 @@ class noticeController extends Controller
                 $file = $request->old_file;
             }
             $notice = Notice::findOrFail($request->old_id);
-
             $notice->title = $request->editNoticeTitle;
+            $notice->title_bn = $request->editNoticeTitle_bn;
             $notice->description = $request->editNoticeDescription;
+            $notice->description_bn = $request->editNoticeDescription_bn;
             $notice->dateAt = date('d F Y ', strtotime($date));
             $notice->attachment = $file;
             $notice->status = $request->row_status;

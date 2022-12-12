@@ -111,12 +111,16 @@ return [
     'photoGallery2'=>'গ্যালারি',
     'videoGallery1'=>'ভিডিও',
 
-    'terms'=>'বিধি - নিষেধ এবং শর্তাবলী',
+    'terms'=>'বিধি-নিষেধ এবং শর্তাবলী',
+    'terms1'=>'বিধি-নিষেধ ',
+    'terms2'=>'এবং শর্তাবলী',
     'ourProduct'=>'আমাদের পণ্য',
     'promo'=>'প্রচার কোড',
     'paymentMethod'=>'মূল্যপরিশোধ পদ্ধতি',
     'contactUs'=>'যোগাযোগ করুন',
     'privacyPolicy'=>'গোপনীয়তা নীতি',
+    'privacyPolicy1'=>'গোপনীয়তা',
+    'privacyPolicy2'=>'নীতি',
     'help'=>'সাহায্য',
 
     'latestPost1'=>'সর্বশেষ',

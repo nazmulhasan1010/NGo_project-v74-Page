@@ -18,6 +18,15 @@
 @endphp
 @foreach($latest as $latestStory)
     @if($latestStory->status === 1)
+        @php
+            if (App::isLocale('bn')) {
+                 $title = $latestStory->title_bn;
+                 $description = $latestStory->description_bn;
+            }else{
+                $title = $latestStory->title;
+                 $description = $latestStory->description;
+            }
+        @endphp
         <a href="{{url($url_1.'/'.$latestStory->id)}}" class="row latest-post-links">
             <div class="col-md-6 lp-links ">
                 <img src="{{asset('storage/'.$latestStory->image)}}" alt="">
@@ -28,21 +37,21 @@
                     <span>{{date("d", strtotime($latestStory->updated_at)).'  '.substr(date("F", strtotime($latestStory->updated_at)),0,3).'  '.date("Y", strtotime($latestStory->updated_at)) }}</span>
                 </div>
                 @php
-                    if (strlen($latestStory->title)>25){
-                   $title_ls = substr($latestStory->title,0,25).'...';
+                if (strlen($title)>25){
+                   $title_ls = substr($title,0,25).'...';
                 }else{
-                    $title_ls = $latestStory->title ;
+                    $title_ls = $title ;
                 }
                 @endphp
-                <h2>{{$title_ls}}</h2>
+                <h2>{!! $title_ls !!}</h2>
                 @php
-                    if (strlen($latestStory->description)>50){
-                   $des_ls = substr($latestStory->description,0,50).'...';
+                    if (strlen($description)>50){
+                   $des_ls = substr($description,0,50).'...';
                 }else{
-                    $des_ls = $latestStory->description ;
+                    $des_ls = $description ;
                 }
                 @endphp
-                <p>{{$des_ls}}</p>
+                <p>{!! $des_ls !!}</p>
             </div>
         </a>
     @endif

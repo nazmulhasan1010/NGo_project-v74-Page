@@ -3,9 +3,9 @@
 @section('content')
     @php
         if (session()->has('language')) {
-               $lanCode = session()->get('language');
-               App::setLocale($lanCode);
-           }
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
     @endphp
     @include('layouts.partials.frontend.pageTitle')
     <div class="project_summary bg-white-cu content-100">
@@ -27,8 +27,8 @@
                             </div>
                             <div class="row notice notice-show">
                                 <a href="{{url('notice/'.$notices->id)}}" class="col-md-10 notices">
-                                    <h3>{{$notices->title}}</h3>
-                                    <p>{{$notices->description}}</p>
+                                    <h3>{{App::isLocale('bn')?$notices->title_bn:$notices->title}}</h3>
+                                    <p>{{App::isLocale('bn')?$notices->description_bn:$notices->description}}</p>
                                 </a>
                             </div>
                             @php

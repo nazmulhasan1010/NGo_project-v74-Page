@@ -3,7 +3,11 @@
 @section('content')
     @include('layouts.partials.frontend.pageTitle')
     @php
-        $area = getWorkingArea();
+        if (session()->has('language')) {
+            $lanCode = session()->get('language');
+            App::setLocale($lanCode);
+        }
+            $area = getWorkingArea();
     @endphp
 
     <div class="project_summary bg-dark-cu content-100">
@@ -12,8 +16,8 @@
                 <img src="{{asset('storage/' . $area->image)}}" alt="">
             </div>
             <div class="col-md-12 working-area working-area-12">
-                <h2>{{$area->area}}</h2>
-                <p>{{$area->description}}</p>
+                <h2>{{App::isLocale('bn')?$area->area_bn:$area->area}}</h2>
+                <p>{{App::isLocale('bn')?$area->description_bn:$area->description}}</p>
             </div>
         </div>
     </div>

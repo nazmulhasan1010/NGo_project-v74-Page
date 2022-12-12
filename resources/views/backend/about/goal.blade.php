@@ -49,9 +49,16 @@
                                     </thead>
                                     <tbody>
                                     @foreach ($about as $key=>$item)
+                                        @php
+                                            if (strlen($item->project_goal)>100){
+                                               $goal_ = substr($item->project_goal,0,100);
+                                            }else{
+                                                 $goal_ = $item->project_goal ;
+                                            }
+                                        @endphp
                                         <tr>
                                             <td>{{ $key+1}}</td>
-                                            <td>{{ $item->project_goal }}</td>
+                                            <td>{{ $goal_ }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}"
                                                      width="100px"
@@ -115,6 +122,12 @@
                                         </textarea>
                                     </div>
                                     <div class="row">
+                                        <label for="overview">Project goal (BN) <span class="req">*</span> </label>
+                                        <textarea class="form-control" id="overview" name="overview_bn"
+                                                  placeholder="Overview">
+                                        </textarea>
+                                    </div>
+                                    <div class="row">
                                         <div class="preview-img">
                                             <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
                                                  class="imagePreView imagePreViewSelect imagePreViewEmpty">
@@ -157,10 +170,9 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
                                     <div class="row">
                                         <input type="text" id="row_id" name="old_id" hidden>
-                                        <label for="edit_category_name">Project goal <span class="req">*</span>
+                                        <label for="edit_category_name">Project goal (BN) <span class="req">*</span>
                                         </label>
                                         <input type="text" class="form-control" id="edit_category_name"
                                                name="category_name"
@@ -169,6 +181,14 @@
                                         @if ($errors->has('project_goal'))
                                             <span class="text-danger">{{ $errors->first('project_goal') }}</span>
                                         @endif
+                                    </div>
+                                    <div class="row">
+                                        <label for="edit_category_name_bn">Project goal <span class="req">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="edit_category_name_bn"
+                                               name="category_name_bn"
+                                               value=""
+                                               placeholder="Project goal">
                                     </div>
                                     <div class="row">
                                         <div class="preview-img">
@@ -258,6 +278,7 @@
 
                     $('#row_id').val(r_val.id);
                     $('#edit_category_name').val(r_val.project_goal);
+                    $('#edit_category_name_bn').val(r_val.project_goal_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

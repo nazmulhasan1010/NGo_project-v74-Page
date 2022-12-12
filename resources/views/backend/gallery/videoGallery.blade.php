@@ -115,6 +115,15 @@
                                                        name="videoTitle" placeholder="Title">
                                             </div>
                                         </div>
+                                    </div> <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="videoTitle_bn">Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="videoTitle_bn"
+                                                       name="videoTitle_bn" placeholder="Title">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="preview-img">
@@ -167,9 +176,19 @@
                                                        name="editVideoTitle"
                                                        value=""
                                                        placeholder="Video Title">
-                                                @if ($errors->has('title'))
-                                                    <span class="text-danger">{{ $errors->first('title') }}</span>
-                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editVideoTitle_bn">Title (BN) <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editVideoTitle_bn"
+                                                       name="editVideoTitle_bn"
+                                                       value=""
+                                                       placeholder="Video Title">
                                             </div>
                                         </div>
                                     </div>
@@ -251,6 +270,7 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editVideoTitle').val(r_val.title);
+                    $('#editVideoTitle_bn').val(r_val.title_bn);
                     $('#old_video').val(r_val.link);
                     $('#row_status').val(r_val.status);
                     $('.videoEditPreview').html(r_val.link);

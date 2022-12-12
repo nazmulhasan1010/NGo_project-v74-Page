@@ -120,9 +120,30 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="areaTitle_bn">Working Area (BN)</label>
+                                                <input type="text" class="form-control" placeholder="Area"
+                                                       name="areaTitle_bn"
+                                                       id="areaTitle_bn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <input type="hidden" value="project_overview" name="hint">
                                                 <label for="description">Description <span class="req">*</span> </label>
                                                 <textarea class="form-control" id="description" name="description"
+                                                          placeholder="Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <input type="hidden" value="project_overview" name="hint">
+                                                <label for="description_bn">Description (BN)<span class="req">*</span> </label>
+                                                <textarea class="form-control" id="description_bn" name="description_bn"
                                                           placeholder="Description">
                                                 </textarea>
                                             </div>
@@ -180,16 +201,38 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="editAreaTitle_bn">Working Area (BN)</label>
+                                                <input type="text" class="form-control" placeholder="Area"
+                                                       name="editAreaTitle_bn"
+                                                       id="editAreaTitle_bn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <input type="text" id="row_id" name="old_id" hidden>
                                                 <label for="areaDescription">Description <span class="req">*</span>
                                                 </label>
                                                 <input type="text" class="form-control" id="areaDescription"
-                                                       name="description"
+                                                       name="editAreaDescription"
                                                        value=""
                                                        placeholder="Description">
                                                 @if ($errors->has('description'))
                                                     <span class="text-danger">{{ $errors->first('description') }}</span>
                                                 @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="areaDescription_bn">Description (BN) <span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="areaDescription_bn"
+                                                       name="editAreaDescription_bn"
+                                                       value=""
+                                                       placeholder="Description">
                                             </div>
                                         </div>
                                     </div>
@@ -205,9 +248,6 @@
                                                         Inactive
                                                     </option>
                                                 </select>
-                                                @if ($errors->has('status'))
-                                                    <span class="text-danger">{{ $errors->first('status') }}</span>
-                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -280,7 +320,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editAreaTitle').val(r_val.area);
+                    $('#editAreaTitle_bn').val(r_val.area_bn);
                     $('#areaDescription').val(r_val.description);
+                    $('#areaDescription_bn').val(r_val.description_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

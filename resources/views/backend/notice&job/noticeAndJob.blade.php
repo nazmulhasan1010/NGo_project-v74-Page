@@ -117,12 +117,36 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="noticeTitle_bn">Notice Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="noticeTitle_bn"
+                                                       name="noticeTitle_bn" placeholder="Title..">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="noticeDescription">Notice Description<span
                                                         class="req">*</span>
                                                 </label>
                                                 <textarea class="form-control"
                                                           id="noticeDescription"
                                                           name="noticeDescription">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="noticeDescription_bn">Notice Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="noticeDescription_bn"
+                                                          name="noticeDescription_bn">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -175,6 +199,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editNoticeTitle_bn">Notice Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editNoticeTitle_bn"
+                                                       name="editNoticeTitle_bn" placeholder="Notice Title">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
@@ -185,6 +220,19 @@
                                                 <textarea class="form-control"
                                                           id="editNoticeDescription"
                                                           name="editNoticeDescription">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editNoticeDescription_bn">Notice Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="editNoticeDescription_bn"
+                                                          name="editNoticeDescription_bn">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -271,7 +319,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editNoticeTitle').val(r_val.title);
+                    $('#editNoticeTitle_bn').val(r_val.title_bn);
                     $('#editNoticeDescription').val(r_val.description);
+                    $('#editNoticeDescription_bn').val(r_val.description_bn);
                     $('#old_file').val(r_val.attachment);
                     $('#row_status').val(r_val.status);
                 },

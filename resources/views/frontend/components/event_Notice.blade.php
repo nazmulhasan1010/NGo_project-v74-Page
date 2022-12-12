@@ -9,33 +9,40 @@
                 </div>
                 @foreach($event as $events)
                     @if($events->status===1)
-
+                        @php
+                            if (App::isLocale('bn')) {
+                                  $title = $events->title_bn;
+                                  $description = $events->description_bn;
+                             }else{
+                                  $title = $events->title;
+                                  $description = $events->description;
+                             }
+                        @endphp
                         <div class="row event">
                             <div class="col-md-4 events">
                                 <img src="{{asset('storage/' .$events->image)}}" alt="">
                             </div>
                             <div class="col-md-8 events">
                                 @php
-                                    if (strlen($events->title)>35){
-                                       $title = substr($events->title,0,34);
+                                    if (strlen($title)>35){
+                                       $title = substr($title,0,34);
                                     }else{
-                                        $title = $events->title ;
+                                        $title = $title ;
                                     }
                                 @endphp
-                                <h4>{{$title}}</h4>
+                                <h4>{!! $title !!}</h4>
                                 <div class="event-date-place">
-
                                     <span>{{date("d", strtotime($events->start)).' '.substr(date("F", strtotime($events->start)),0,3).' '.date("Y", strtotime($events->start)) .' - ' .date("d", strtotime($events->end)).' '.substr(date("F", strtotime($events->end)),0,3).' ' .date("Y", strtotime($events->end))}}</span>
                                     <span>{{$events->place}}</span>
                                 </div>
                                 @php
-                                    if (strlen($events->description)>80){
-                                       $des = substr($events->description,0,80).'...';
+                                    if (strlen($description)>80){
+                                       $des = substr($description,0,80).'...';
                                     }else{
-                                        $des = $events->description ;
+                                        $des = $description ;
                                     }
                                 @endphp
-                                <p>{{$des}}</p>
+                                <p>{!! $des !!}</p>
                                 <a href="{{url('event/'.$events->id)}}">
                                     <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                                 </a>
@@ -57,6 +64,15 @@
                 </div>
                 @foreach($notice as $notices)
                     @if($notices->status===1)
+                        @php
+                            if (App::isLocale('bn')) {
+                                  $title = $notices->title_bn;
+                                  $description = $notices->description_bn;
+                             }else{
+                                  $title = $notices->title;
+                                  $description = $notices->description;
+                             }
+                        @endphp
                         <div class="row notice">
                             <div class="col-md-2 notices">
                                 <div class="date">
@@ -65,21 +81,21 @@
                             </div>
                             <a href="{{url('notice/'.$notices->id)}}" class="col-md-10 notices">
                                 @php
-                                    if (strlen($notices->title)>40){
-                                       $title = substr($notices->title,0,39).'...';
+                                    if (strlen($title)>40){
+                                       $title = substr($title,0,39).'...';
                                     }else{
-                                        $title = $notices->title ;
+                                        $title = $title ;
                                     }
                                 @endphp
-                                <h3>{{$title}}</h3>
+                                <h3>{!! $title !!}</h3>
                                 @php
-                                    if (strlen($notices->description)>300){
-                                       $des = substr($notices->description,0,299).'...';
+                                    if (strlen($description)>300){
+                                       $des = substr($description,0,299).'...';
                                     }else{
-                                        $des = $notices->description ;
+                                        $des = $description ;
                                     }
                                 @endphp
-                                <p>{{$des}}</p>
+                                <p>{!! $des !!}</p>
                             </a>
                         </div>
                     @endif

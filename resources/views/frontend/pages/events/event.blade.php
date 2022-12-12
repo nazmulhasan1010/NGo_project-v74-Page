@@ -25,19 +25,12 @@
                                     <img src="{{asset('storage/' .$events->image)}}" alt="">
                                 </div>
                                 <div class="col-md-8 events">
-                                    @php
-                                        if (strlen($events->title)>35){
-                                           $title = substr($events->title,0,34);
-                                        }else{
-                                            $title = $events->title ;
-                                        }
-                                    @endphp
-                                    <h4>{{$title}}</h4>
+                                    <h4>{{App::isLocale('bn')?$events->title_bn:$events->title}}</h4>
                                     <div class="event-date-place">
                                         <span>{{date("d", strtotime($events->start)).' '.substr(date("F", strtotime($events->start)),0,3).' '.date("Y", strtotime($events->start)) .' - ' .date("d", strtotime($events->end)).' '.substr(date("F", strtotime($events->end)),0,3).' ' .date("Y", strtotime($events->end))}}</span>
                                         <span>{{$events->place}}</span>
                                     </div>
-                                    <p>{{$events->description}}</p>
+                                    <p>{{App::isLocale('bn')?$events->description_bn:$events->description}}</p>
                                 </div>
                             </div>
 

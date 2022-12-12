@@ -15,13 +15,13 @@
                 @foreach($blog as $blog_)
                     @if($blog_->status===1)
                         <img src="{{asset('storage/'.$blog_->image)}}" alt="">
-                        <div class="info-field">
+                        <div class="info-field mt-3">
                             <div class="date">
                                 <span><i class="fa-regular fa-clock"></i></span>
                                 <span>{{date("d", strtotime($blog_->updated_at)).'  '.substr(date("F", strtotime($blog_->updated_at)),0,3).'  '.date("Y", strtotime($blog_->updated_at)) }}</span>
                             </div>
-                            <h2>{{$blog_->title}}</h2>
-                            <p>{{$blog_->description}}</p>
+                            <h2>{{App::isLocale('bn')?$blog_->title_bn:$blog_->title}}</h2>
+                            <p>{{App::isLocale('bn')?$blog_->description_bn:$blog_->description}}</p>
                             <p>{{$blog_->address}}</p>
                         </div>
                     @endif

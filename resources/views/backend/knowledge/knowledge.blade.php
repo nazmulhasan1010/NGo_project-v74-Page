@@ -118,6 +118,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="knowledgeTitle_bn">Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="knowledgeTitle_bn"
+                                                       name="knowledgeTitle_bn" placeholder="Title">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
@@ -128,6 +139,19 @@
                                                 <textarea class="form-control"
                                                           id="knowledgeDes"
                                                           name="knowledgeDes">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="knowledgeDes_bn">Description (BN)<span
+                                                        class="req"></span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="knowledgeDes_bn"
+                                                          name="knowledgeDes_bn">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -208,6 +232,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="knowledgeEditTitle_bn">Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="knowledgeEditTitle_bn"
+                                                       name="knowledgeEditTitle_bn" placeholder="Title">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
@@ -225,6 +260,19 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="knowledgeEditDes_bn">Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="knowledgeEditDes_bn"
+                                                          name="knowledgeEditDes_bn">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <input type="hidden" id="old_file" name="old_file">
                                                 <label for="fileEdit">Attachment
                                                 </label>
@@ -233,7 +281,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="editCategory" class="col-form-label">Category <span
@@ -242,9 +290,17 @@
                                                         class="form-control"
                                                         required>
                                                     <option value="">Select</option>
-                                                    <option value="brochure" {{old('category')=='brochure' ? 'selected' : ''}}>Brochure</option>
-                                                    <option value="publication" {{old('category')=='publication' ? 'selected' : ''}}>Publication {{old('category')}}</option>
-                                                    <option value="guideline" {{old('category')=='guideline' ? 'selected' : ''}}>Policy Guideline</option>
+                                                    <option
+                                                        value="brochure" {{old('category')=='brochure' ? 'selected' : ''}}>
+                                                        Brochure
+                                                    </option>
+                                                    <option
+                                                        value="publication" {{old('category')=='publication' ? 'selected' : ''}}>
+                                                        Publication {{old('category')}}</option>
+                                                    <option
+                                                        value="guideline" {{old('category')=='guideline' ? 'selected' : ''}}>
+                                                        Policy Guideline
+                                                    </option>
                                                     <option value="others">Others</option>
                                                 </select>
                                             </div>
@@ -329,7 +385,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#knowledgeEditTitle').val(r_val.title);
+                    $('#knowledgeEditTitle_bn').val(r_val.title_bn);
                     $('#knowledgeEditDes').val(r_val.description);
+                    $('#knowledgeEditDes_bn').val(r_val.description_bn);
                     $('#editCategory').val(r_val.category);
                     $('#old_file').val(r_val.attachment);
                     $('#row_status').val(r_val.status);

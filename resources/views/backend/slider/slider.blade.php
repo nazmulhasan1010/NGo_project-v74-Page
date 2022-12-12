@@ -120,10 +120,32 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="sliderTitle_bn">Slider Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="sliderTitle_bn" name="sliderTitle_bn"
+                                                          placeholder="Title">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="sliderDescription">Slider Description<span
                                                         class="req">*</span> </label>
                                                 <textarea class="form-control" id="sliderDescription"
                                                           name="sliderDescription" placeholder="Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="sliderDescription_bn">Slider Description (BN)<span
+                                                        class="req">*</span> </label>
+                                                <textarea class="form-control" id="sliderDescription_bn"
+                                                          name="sliderDescription_bn" placeholder="Description">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -180,9 +202,20 @@
                                                           value=""
                                                           placeholder="Slider Title">
                                                 </textarea>
-                                                @if ($errors->has('title'))
-                                                    <span class="text-danger">{{ $errors->first('title') }}</span>
-                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editSliderTitle_bn">Slider Title (BN) <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editSliderTitle_bn"
+                                                          name="editSliderTitle_bn"
+                                                          value=""
+                                                          placeholder="Slider Title">
+                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -197,9 +230,20 @@
                                                           value=""
                                                           placeholder="Slider Description">
                                             </textarea>
-                                                @if ($errors->has('description'))
-                                                    <span class="text-danger">{{ $errors->first('description') }}</span>
-                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editComponentDescription_bn">Slider Description (BN) <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editComponentDescription_bn"
+                                                          name="editComponentDescription_bn"
+                                                          value=""
+                                                          placeholder="Slider Description">
+                                            </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -290,7 +334,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editSliderTitle').val(r_val.title);
+                    $('#editSliderTitle_bn').val(r_val.title_bn);
                     $('#editComponentDescription').val(r_val.description);
+                    $('#editComponentDescription_bn').val(r_val.description_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

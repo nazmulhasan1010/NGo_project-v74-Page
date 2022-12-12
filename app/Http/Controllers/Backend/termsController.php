@@ -58,6 +58,7 @@ class termsController extends Controller
         try {
             $terms = new Terms();
             $terms->terms = $request->terms;
+            $terms->terms_bn = $request->terms_bn;
             $terms->save();
 
             Toastr::success('Terms Successfully Added');
@@ -109,12 +110,13 @@ class termsController extends Controller
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-//        return $request->all();
         try {
             $terms = Terms::findOrFail($request->old_id);
-
             if ($request->editTerms){
                 $terms->terms = $request->editTerms;
+            }
+            if ($request->editTerms_bn){
+                $terms->terms_bn = $request->editTerms_bn;
             }
             $terms->status = $request->row_status;
             $terms->update();

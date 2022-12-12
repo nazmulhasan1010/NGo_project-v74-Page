@@ -21,7 +21,11 @@
                     @php
                         $image = $abouts[$i]->image;
                             if ($abouts[$i]->project_goal !== null){
-                                $goal = $abouts[$i]->project_goal;
+                                if (App::isLocale('bn')) {
+                                  $goal = $abouts[$i]->project_goal_bn;
+                             }else{
+                                  $goal = $abouts[$i]->project_goal;
+                             }
                                 break;
                             } else {
                                 $goal = '';
@@ -37,7 +41,7 @@
                     <span class="heading-1">{{__('front.projectSummary1')}}</span>
                     <span class="heading-2">{{__('front.goal2')}}</span>
                 </div>
-                <p>{{$goal}}</p>
+                <p>{!! $goal !!}</p>
             </div>
 
         </div>

@@ -121,6 +121,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="privacy_bn">Privacy Policy (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="privacy_bn"
+                                                          name="privacy_bn">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="modal-footer">
@@ -157,6 +170,19 @@
                                                 <textarea class="form-control"
                                                           id="editPrivacy"
                                                           name="editPrivacy">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editPrivacy_bn">Privacy Policy (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="editPrivacy_bn"
+                                                          name="editPrivacy_bn">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -231,6 +257,8 @@
             e.preventDefault();
         });
         CKEDITOR.replace('privacy');
+        CKEDITOR.replace('privacy_bn');
         CKEDITOR.replace('editPrivacy');
+        CKEDITOR.replace('editPrivacy_bn');
     </script>
 @endpush

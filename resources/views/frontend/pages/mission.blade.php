@@ -21,7 +21,11 @@
                     @php
                         $image = $abouts[$i]->image;
                             if ($abouts[$i]->mission !== null){
-                                $mission = $abouts[$i]->mission;
+                                 if (App::isLocale('bn')) {
+                                  $mission = $abouts[$i]->mission_bn;
+                             }else{
+                                  $mission = $abouts[$i]->mission;
+                             }
                                 break;
                             } else {
                                 $mission = '';
@@ -37,7 +41,7 @@
                     <span class="heading-1">{{__('front.projectSummary1')}}</span>
                     <span class="heading-2">{{__('front.mission')}}</span>
                 </div>
-                <p>{{$mission}}</p>
+                <p>{!! $mission !!}</p>
             </div>
 
         </div>

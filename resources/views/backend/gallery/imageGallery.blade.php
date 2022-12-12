@@ -116,6 +116,15 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="imgTitle_bn">Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="imgTitle_bn" name="imgTitle_bn" placeholder="Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="preview-img">
                                             <img src="{{asset('assets/backend/images/avatar/upload.png')}}" class="imagePreView imagePreViewSelect imagePreViewEmpty">
                                         </div>
@@ -164,6 +173,18 @@
                                                 <input type="text" class="form-control" id="editAlbumTitle" name="editAlbumTitle"
                                                           value=""
                                                           placeholder="Album Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editAlbumTitle_bn">Title (BN) <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editAlbumTitle_bn" name="editAlbumTitle_bn"
+                                                       value=""
+                                                       placeholder="Album Title">
                                             </div>
                                         </div>
                                     </div>
@@ -254,6 +275,7 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editAlbumTitle').val(r_val.title);
+                    $('#editAlbumTitle_bn').val(r_val.title_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

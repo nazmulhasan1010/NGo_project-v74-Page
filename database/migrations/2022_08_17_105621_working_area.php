@@ -16,8 +16,10 @@ class WorkingArea extends Migration
         Schema::create('workingAreas', function (Blueprint $table) {
             $table->id();
             $table->string('image',255)->nullable();
-            $table->string('area',255)->nullable();
-            $table->string('description',5000)->nullable();
+            $table->string('area',2000)->nullable();
+            $table->string('area_bn',2000)->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('description_bn')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

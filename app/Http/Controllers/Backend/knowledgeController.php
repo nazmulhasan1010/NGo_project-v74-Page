@@ -56,7 +56,6 @@ class knowledgeController extends Controller
             'knowledgeTitle' => 'required',
             'knowledgeAttachment' => 'required|mimes:pdf,jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
-        //return $request->all();
         if ($request->knowledgeCategory === 'others' && $request->knowledgeOtC !== null) {
             $category = $request->knowledgeOtC;
         } else {
@@ -72,7 +71,9 @@ class knowledgeController extends Controller
         try {
             $knowledge = new Knowledge();
             $knowledge->title = $request->knowledgeTitle;
+            $knowledge->title_bn = $request->knowledgeTitle_bn;
             $knowledge->description = $request->knowledgeDes;
+            $knowledge->description_bn = $request->knowledgeDes_bn;
             $knowledge->category = $category;
             $knowledge->attachment = $file;
             $knowledge->save();
@@ -137,12 +138,12 @@ class knowledgeController extends Controller
         } else {
             $file = $request->old_file;
         }
-//return $request->all();
         try {
             $knowledge = Knowledge::findOrFail($request->old_id);
-
             $knowledge->title = $request->knowledgeEditTitle;
+            $knowledge->title_bn = $request->knowledgeEditTitle_bn;
             $knowledge->description = $request->knowledgeEditDes;
+            $knowledge->description_bn = $request->knowledgeEditDes_bn;
             $knowledge->category = $category;
             $knowledge->attachment = $file;
             $knowledge->status = $request->row_status;

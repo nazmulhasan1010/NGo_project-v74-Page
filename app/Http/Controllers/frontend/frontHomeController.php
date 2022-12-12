@@ -25,7 +25,7 @@ class frontHomeController extends Controller
     public function index()
     {
         $slider = Slider::get();
-        $area = Workingarea::latest()->first();
+        $area = Workingarea::latest()->get();
         $activities = Activity::latest()->take(3)->get();
         $event = Event::latest()->take(3)->get();
         $notice = Notice::latest()->take(4)->get();
@@ -33,7 +33,7 @@ class frontHomeController extends Controller
         $photos = ImageGallery::latest()->take(9)->get();
         $videos = VideoGallery::latest()->take(3)->get();
         $partners = Partner::latest()->get();
-        $abouts = About::latest()->get();
+        $abouts = About::get();
         return view('frontend.pages.home', [
             'slider' => $slider,
             'area' => $area,

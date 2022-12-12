@@ -56,14 +56,16 @@ class newsController extends Controller
     {
         $this->validate($request, [
             'newsTitle' => 'required',
-            'newsImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
+            'newsImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
 
         try {
             $fileName = imageUploadWithCustomSize($request->newsImage, "1200", "800", "news");
             $news = new News();
             $news->title = $request->newsTitle;
+            $news->title_bn = $request->newsTitle_bn;
             $news->description = $request->newsDescription;
+            $news->description_bn = $request->newsDescription_bn;
             $news->image = 'news/' . $fileName;
             $news->save();
 
@@ -128,7 +130,9 @@ class newsController extends Controller
             $news = News::findOrFail($request->old_id);
 
             $news->title = $request->editNewsTitle;
+            $news->title_bn = $request->editNewsTitle_bn;
             $news->description = $request->editNewsDescription;
+            $news->description_bn = $request->editNewsDescription_bn;
             $news->image = $fileName;
             $news->status = $request->row_status;
             $news->update();

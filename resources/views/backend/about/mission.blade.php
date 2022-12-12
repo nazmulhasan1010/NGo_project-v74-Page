@@ -49,9 +49,16 @@
                                     </thead>
                                     <tbody>
                                     @foreach ($about as $key=>$item)
+                                        @php
+                                            if (strlen($item->mission)>100){
+                                               $mission_ = substr($item->mission,0,100);
+                                            }else{
+                                                 $mission_ = $item->mission ;
+                                            }
+                                        @endphp
                                         <tr>
                                             <td>{{ $key+1}}</td>
-                                            <td>{{ $item->mission }}</td>
+                                            <td>{{ $mission_ }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}"
                                                      width="100px"
@@ -115,6 +122,12 @@
                                         </textarea>
                                     </div>
                                     <div class="row">
+                                        <label for="mission">Mission (BN)<span class="req">*</span> </label>
+                                        <textarea class="form-control" id="mission" name="overview_bn"
+                                                  placeholder="Mission">
+                                        </textarea>
+                                    </div>
+                                    <div class="row">
                                         <div class="preview-img">
                                             <img src="{{asset('assets/backend/images/avatar/upload.png')}}"
                                                  class="imagePreView imagePreViewSelect imagePreViewEmpty">
@@ -164,11 +177,19 @@
                                         </label>
                                         <input type="text" class="form-control" id="edit_category_name"
                                                name="category_name"
-                                               value="{{old('mission', empty($errors->mission) ? '' : $errors->mission)}}"
+                                               value=""
                                                placeholder="Project mission">
                                         @if ($errors->has('mission'))
                                             <span class="text-danger">{{ $errors->first('mission') }}</span>
                                         @endif
+                                    </div>
+                                    <div class="row">
+                                        <label for="edit_category_name_bn">Project mission (BN) <span class="req">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="edit_category_name_bn"
+                                               name="category_name_bn"
+                                               value=""
+                                               placeholder="Project mission">
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
@@ -258,6 +279,7 @@
 
                     $('#row_id').val(r_val.id);
                     $('#edit_category_name').val(r_val.mission);
+                    $('#edit_category_name_bn').val(r_val.mission_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

@@ -58,6 +58,7 @@ class privacyController extends Controller
         try {
             $privacy = new Privacy();
             $privacy->privacy = $request->privacy;
+            $privacy->privacy_bn = $request->privacy_bn;
             $privacy->save();
 
             Toastr::success('Privacy Successfully Added');
@@ -115,6 +116,9 @@ class privacyController extends Controller
 
             if ($request->editPrivacy){
                 $privacy->privacy = $request->editPrivacy;
+            }
+            if ($request->editPrivacy_bn){
+                $privacy->privacy_bn = $request->editPrivacy_bn;
             }
             $privacy->status = $request->row_status;
             $privacy->update();

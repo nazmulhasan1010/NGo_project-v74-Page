@@ -15,9 +15,12 @@ class About extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('project_overview',2000)->nullable();
-            $table->string('project_goal',2000)->nullable();
-            $table->string('mission',2000)->nullable();
+            $table->longText('project_overview')->nullable();
+            $table->longText('project_overview_bn')->nullable();
+            $table->longText('project_goal')->nullable();
+            $table->longText('project_goal_bn')->nullable();
+            $table->longText('mission')->nullable();
+            $table->longText('mission_bn')->nullable();
             $table->string('values',2000)->nullable();
             $table->string('image',255)->nullable();
             $table->boolean('status')->default(true);

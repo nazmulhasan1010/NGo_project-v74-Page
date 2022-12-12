@@ -31,32 +31,40 @@
                     </div>
                     @foreach($event as $events)
                         @if($events->status===1)
-
+                            @php
+                             if (App::isLocale('bn')) {
+                                  $title = $events->title_bn;
+                                  $description = $events->description_bn;
+                             }else{
+                                  $title = $events->title;
+                                  $description = $events->description;
+                             }
+                            @endphp
                             <div class="row event">
                                 <div class="col-md-4 events">
                                     <img src="{{asset('storage/' .$events->image)}}" alt="">
                                 </div>
                                 <div class="col-md-8 events ">
                                     @php
-                                        if (strlen($events->title)>35){
-                                           $title = substr($events->title,0,34);
+                                        if (strlen($title)>35){
+                                           $title_ = substr($title,0,34);
                                         }else{
-                                            $title = $events->title ;
+                                            $title_ = $title ;
                                         }
                                     @endphp
-                                    <h4>{{$title}}</h4>
+                                    <h4>{!! $title_ !!}</h4>
                                     <div class="event-date-place">
                                         <span>{{date("d", strtotime($events->start)).' '.substr(date("F", strtotime($events->start)),0,3).' '.date("Y", strtotime($events->start)) .' - ' .date("d", strtotime($events->end)).' '.substr(date("F", strtotime($events->end)),0,3).' ' .date("Y", strtotime($events->end))}}</span>
                                         <span>{{$events->place}}</span>
                                     </div>
                                     @php
-                                        if (strlen($events->description)>600){
-                                           $des = substr($events->description,0,600).'...';
+                                        if (strlen($description)>600){
+                                           $des = substr($description,0,600).'...';
                                         }else{
-                                            $des = $events->description ;
+                                            $des = $description ;
                                         }
                                     @endphp
-                                    <p>{{$des}}</p>
+                                    <p>{!! $des !!}</p>
                                     <a href="{{url('event/'.$events->id)}}">
                                         <button type="button" class="more-button">{{__('front.lrnMore')}}</button>
                                     </a>

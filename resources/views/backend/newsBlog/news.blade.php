@@ -119,11 +119,33 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="newsTitle_bn">News Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="newsTitle_bn"
+                                                       name="newsTitle_bn" placeholder="News Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="newsDescription">News Description<span
                                                         class="req">*</span>
                                                 </label>
                                                 <textarea class="form-control" id="newsDescription"
                                                           name="newsDescription" placeholder="News Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="newsDescription_bn">News Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="newsDescription_bn"
+                                                          name="newsDescription_bn" placeholder="News Description">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -181,9 +203,19 @@
                                                        name="editNewsTitle"
                                                        value=""
                                                        placeholder="News Title">
-                                                @if ($errors->has('title'))
-                                                    <span class="text-danger">{{ $errors->first('title') }}</span>
-                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editNewsTitle_bn">News Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editNewsTitle_bn"
+                                                       name="editNewsTitle_bn"
+                                                       value=""
+                                                       placeholder="News Title">
                                             </div>
                                         </div>
                                     </div>
@@ -195,6 +227,18 @@
                                                 </label>
                                                 <textarea class="form-control" id="editNewsDescription"
                                                           name="editNewsDescription" placeholder="News Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editNewsDescription_bn">News Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editNewsDescription_bn"
+                                                          name="editNewsDescription_bn" placeholder="News Description">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -286,7 +330,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editNewsTitle').val(r_val.title);
+                    $('#editNewsTitle_bn').val(r_val.title_bn);
                     $('#editNewsDescription').val(r_val.description);
+                    $('#editNewsDescription_bn').val(r_val.description_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

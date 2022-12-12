@@ -31,8 +31,6 @@ class blogController extends Controller
             Toastr::warning($e->getMessage());
             return redirect()->back();
         }
-
-
     }
 
     /**
@@ -55,14 +53,16 @@ class blogController extends Controller
     {
         $this->validate($request, [
             'blogTitle' => 'required',
-            'blogImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
+            'blogImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
 
         try {
             $fileName = imageUploadWithCustomSize($request->blogImage, "1200", "800", "blog");
             $blog = new Blog();
             $blog->title = $request->blogTitle;
+            $blog->title_bn = $request->blogTitle_bn;
             $blog->description = $request->blogDescription;
+            $blog->description_bn = $request->blogDescription_bn;
             $blog->image = 'blog/' . $fileName;
             $blog->save();
 
@@ -115,19 +115,18 @@ class blogController extends Controller
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-
         try {
             if ($request->old_image === 'change') {
-                $fileName = 'blog/' . imageUploadWithCustomSize($request->editReportImage, "1200", "800", "blog");
+                $fileName = 'blog/' . imageUploadWithCustomSize($request->editBlogImage, "1200", "800", "blog");
                 Storage::delete('public/' . Blog::findOrFail($request->old_id)->image);
             } else {
                 $fileName = $request->old_image;
             }
-
             $blog = Blog::findOrFail($request->old_id);
-
-            $blog->title = $request->editReportTitle;
-            $blog->description = $request->editReportDescription;
+            $blog->title = $request->editBlogTitle;
+            $blog->title_bn = $request->editBlogTitle_bn;
+            $blog->description = $request->editBlogDescription;
+            $blog->description_bn = $request->editBlogDescription_bn;
             $blog->image = $fileName;
             $blog->status = $request->row_status;
             $blog->update();

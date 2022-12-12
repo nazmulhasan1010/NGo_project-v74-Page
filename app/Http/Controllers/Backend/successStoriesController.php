@@ -62,8 +62,10 @@ class successStoriesController extends Controller
             $fileName = imageUploadWithCustomSize($request->successStoriesImage, "1200", "800", "successStories");
             $successStories = new SuccessStories();
             $successStories->title = $request->successStoriesTitle;
+            $successStories->title_bn = $request->successStoriesTitle_bn;
             $successStories->image = 'successStories/' . $fileName;
             $successStories->description = $request->successStoriesDescription;
+            $successStories->description_bn = $request->successStoriesDescription_bn;
             $successStories->save();
 
             Toastr::success('A Success Stories Added');
@@ -127,8 +129,10 @@ class successStoriesController extends Controller
             $foods = SuccessStories::findOrFail($request->old_id);
 
             $foods->title = $request->editSuccessStoriesTitle;
+            $foods->title_bn = $request->editSuccessStoriesTitle_bn;
             $foods->image = $fileName;
             $foods->description = $request->editSuccessStoriesDescription;
+            $foods->description_bn = $request->editSuccessStoriesDescription_bn;
             $foods->status = $request->row_status;
             $foods->update();
 

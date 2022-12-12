@@ -20,10 +20,10 @@
                 @foreach($faq as $faqs)
                     @if($faqs->status == 1)
                         <div class="faq-qna">
-                            <div class="faq-qu"><span>{{$faqs->questions}}</span> <i
+                            <div class="faq-qu"><span>{{App::isLocale('bn')? $faqs->questions_bn:$faqs->questions}}</span> <i
                                     class="fa-solid fa-plus"></i>
                             </div>
-                            <div class="faq-ans">{{$faqs->answers}}</div>
+                            <div class="faq-ans">{{App::isLocale('bn')?$faqs->answers_bn:$faqs->answers}}</div>
                         </div>
                     @endif
                 @endforeach

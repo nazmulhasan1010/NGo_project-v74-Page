@@ -15,8 +15,10 @@ class Faq extends Migration
     {
         Schema::create('f_a_q_s', function (Blueprint $table) {
             $table->id();
-            $table->string('questions',2000)->nullable();
-            $table->string('answers',2000)->nullable();
+            $table->longText('questions')->nullable();
+            $table->longText('questions_bn')->nullable();
+            $table->longText('answers')->nullable();
+            $table->longText('answers_bn')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

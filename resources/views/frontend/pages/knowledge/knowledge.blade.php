@@ -10,6 +10,12 @@
                 <div class="col-md-12 sub-container event-notice ">
                     @foreach($knowledge as $knowledgeData)
                         @if($knowledgeData->status===1)
+                            @php
+                                if (session()->has('language')) {
+                                    $lanCode = session()->get('language');
+                                     App::setLocale($lanCode);
+                                }
+                            @endphp
                             <div class="row notice notice-show ">
                                 <div class="col-md-12 notices">
                                     <div class="date">
@@ -19,8 +25,8 @@
                             </div>
                             <div class="row notice notice-show">
                                 <a href="{{url('notice/'.$knowledgeData->id)}}" class="col-md-10 notices">
-                                    <h3>{{$knowledgeData->title}}</h3>
-                                    <p>{{$knowledgeData->description}}</p>
+                                    <h3>{{App::isLocale('bn')?$knowledgeData->title_bn:$knowledgeData->title}}</h3>
+                                    <p>{{App::isLocale('bn')? $knowledgeData->description_bn:$knowledgeData->description}}</p>
                                 </a>
                             </div>
                             @php
@@ -28,7 +34,8 @@
                                 $ext = $file[count($file)-1];
                             @endphp
                             @if($ext === 'pdf')
-                                <object data="{{asset('storage/knowledge/'.$knowledgeData->attachment)}}" type="application/pdf"
+                                <object data="{{asset('storage/knowledge/'.$knowledgeData->attachment)}}"
+                                        type="application/pdf"
                                         internalinstanceid="9" title=""
                                         style="
                                             width: 100%;

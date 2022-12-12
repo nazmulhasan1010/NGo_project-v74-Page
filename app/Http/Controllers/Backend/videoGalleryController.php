@@ -61,6 +61,7 @@ class videoGalleryController extends Controller
             if (preg_match('/(youtube.com|youtu.be)\/(embed)?(\?v=)?(\S+)?/', $request->videoLink)) {
                 $videoGallery = new VideoGallery();
                 $videoGallery->title = $request->videoTitle;
+                $videoGallery->title_bn = $request->videoTitle_bn;
                 $videoGallery->link = $request->videoLink;
                 $videoGallery->save();
 
@@ -129,6 +130,7 @@ class videoGalleryController extends Controller
             if (preg_match('/(youtube.com|youtu.be)\/(embed)?(\?v=)?(\S+)?/', $link)) {
                 $videoGallery = VideoGallery::findOrFail($request->old_id);
                 $videoGallery->title = $request->editVideoTitle;
+                $videoGallery->title_bn = $request->editVideoTitle_bn;
                 $videoGallery->link = $link;
                 $videoGallery->status = $request->row_status;
                 $videoGallery->update();

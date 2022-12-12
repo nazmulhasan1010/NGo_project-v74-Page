@@ -30,7 +30,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Project Goal</h4>
+                            <h4 class="card-title">Frequently Asked Questions</h4>
                             <button type="button" class="btn btn-primary mb-2" data-toggle="modal"
                                     data-target="#addNewModal">Add New
                             </button>
@@ -103,7 +103,6 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <input type="hidden" value="project_goal.Project Goal" name="hint">
                                                 <label for="question">Question <span class="req">*</span> </label>
                                                 <textarea class="form-control" id="question" name="question"
                                                           placeholder="How to ...">
@@ -114,9 +113,28 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <input type="hidden" value="project_goal.Project Goal" name="hint">
+                                                <label for="question_bn">Question (BN) <span class="req">*</span> </label>
+                                                <textarea class="form-control" id="question_bn" name="question_bn"
+                                                          placeholder="How to ...">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="answer">Answer <span class="req">*</span> </label>
                                                 <textarea class="form-control" id="answer" name="answer"
+                                                          placeholder="Answer">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="answer_bn">Answer (BN) <span class="req">*</span> </label>
+                                                <textarea class="form-control" id="answer_bn" name="answer_bn"
                                                           placeholder="Answer">
                                                 </textarea>
                                             </div>
@@ -162,9 +180,29 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="editQuestion_bn">Question (BN) <span class="req">*</span> </label>
+                                                <textarea class="form-control" id="editQuestion_bn" name="editQuestion_bn"
+                                                          placeholder="How to ...">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="editAnswer">Answer <span class="req">*</span> </label>
                                                 <textarea class="form-control" id="editAnswer" name="editAnswer"
                                                           placeholder="editAnswer">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editAnswer_bn">Answer (BN)<span class="req">*</span> </label>
+                                                <textarea class="form-control" id="editAnswer_bn" name="editAnswer_bn"
+                                                          placeholder="Answer">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -234,7 +272,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editAnswer').val(r_val.answers);
+                    $('#editAnswer_bn').val(r_val.answers_bn);
                     $('#editQuestion').val(r_val.questions);
+                    $('#editQuestion_bn').val(r_val.questions_bn);
                     $('#row_status').val(r_val.status);
                 },
                 error: function (response) {

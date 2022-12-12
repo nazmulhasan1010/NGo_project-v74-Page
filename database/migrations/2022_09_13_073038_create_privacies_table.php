@@ -15,7 +15,8 @@ class CreatePrivaciesTable extends Migration
     {
         Schema::create('privacies', function (Blueprint $table) {
             $table->id();
-            $table->string('privacy', 10000)->nullable();
+            $table->longText('privacy')->nullable();
+            $table->longText('privacy_bn')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

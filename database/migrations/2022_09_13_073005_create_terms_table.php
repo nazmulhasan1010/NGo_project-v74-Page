@@ -15,7 +15,8 @@ class CreateTermsTable extends Migration
     {
         Schema::create('terms', function (Blueprint $table) {
             $table->id();
-            $table->string('terms', 10000)->nullable();
+            $table->longText('terms')->nullable();
+            $table->longText('terms_bn')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

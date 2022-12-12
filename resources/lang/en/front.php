@@ -115,11 +115,15 @@ return [
 
 
     'terms'=>'Terms & Condition',
+    'terms1'=>'Terms & ',
+    'terms2'=>'Condition',
     'ourProduct'=>'Our Product',
     'promo'=>'Promo code',
     'paymentMethod'=>'Payment Method',
     'contactUs'=>'Contact Us',
     'privacyPolicy'=>'Privacy Policy',
+    'privacyPolicy1'=>'Privacy',
+    'privacyPolicy2'=>'Policy',
     'help'=>'Help',
 
 

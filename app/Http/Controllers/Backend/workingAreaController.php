@@ -51,7 +51,6 @@ class workingAreaController extends Controller
      */
     public function store(Request $request)
     {
-//       return $request->all();
         $this->validate($request, [
             'areaTitle' => 'required',
             'image' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
@@ -61,7 +60,9 @@ class workingAreaController extends Controller
             $fileName = imageUploadWithCustomSize($request->image, "1200", "800", "workingArea");
             $workingArea = new Workingarea();
             $workingArea->area = $request->areaTitle;
+            $workingArea->area_bn = $request->areaTitle_bn;
             $workingArea->description = $request->description;
+            $workingArea->description_bn = $request->description_bn;
             $workingArea->image = 'workingArea/' . $fileName;
             $workingArea->save();
 
@@ -113,9 +114,7 @@ class workingAreaController extends Controller
     {
         $this->validate($request, [
             'old_id' => 'required',
-//            'editImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
         ]);
-        // return $request->all();
 
         try {
             if ($request->old_image === 'change') {
@@ -125,9 +124,10 @@ class workingAreaController extends Controller
                 $fileName = $request->old_image;
             }
             $workingArea = Workingarea::findOrFail($request->old_id);
-
             $workingArea->area = $request->editAreaTitle;
-            $workingArea->description = $request->description;
+            $workingArea->area_bn = $request->editAreaTitle_bn;
+            $workingArea->description = $request->editAreaDescription;
+            $workingArea->description_bn = $request->editAreaDescription_bn;
             $workingArea->image = $fileName;
             $workingArea->status = $request->row_status;
             $workingArea->update();
@@ -149,7 +149,6 @@ class workingAreaController extends Controller
     public function destroy($id)
     {
         try {
-
             Storage::delete('public/' . Workingarea::findOrFail($id)->image);
             Workingarea::findOrFail($id)->delete();
             Toastr::success('Working area Successfully Deleted');

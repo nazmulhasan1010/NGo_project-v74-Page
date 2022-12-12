@@ -71,7 +71,7 @@
                                     <div class="col-md-3 gallery-image">
                                         <img src="{{asset('storage/'.$images->image)}}" alt="gallery">
                                         <input type="hidden"
-                                               value="{{$images->title}}">
+                                               value="{{App::isLocale('bn')?$images->title_bn:$images->title}}">
                                     </div>
                                 @endif
                             @endforeach
@@ -101,7 +101,7 @@
                                     <div class="col-md-3 gallery-image">
                                         <img src="{{asset('storage/'.$images->image)}}" alt="gallery">
                                         <input type="hidden"
-                                               value="{{$images->title}}">
+                                               value="{{App::isLocale('bn')?$images->title_bn:$images->title}}">
                                     </div>
                                 @endif
                             @endforeach
@@ -131,7 +131,7 @@
                                     <div class="col-md-3 gallery-image">
                                         <img src="{{asset('storage/'.$images->image)}}" alt="gallery">
                                         <input type="hidden"
-                                               value="{{$images->title}}">
+                                               value="{{App::isLocale('bn')?$images->title_bn:$images->title}}">
                                     </div>
                                 @endif
                             @endforeach
@@ -160,8 +160,7 @@
                                 @if($images->status == 1 && $year == 2022)
                                     <div class="col-md-3 gallery-image">
                                         <img src="{{asset('storage/'.$images->image)}}" alt="gallery">
-                                        <input type="hidden"
-                                               value="{{$images->title}}">
+                                        <input type="hidden" value="{{App::isLocale('bn')?$images->title_bn:$images->title}}">
                                     </div>
                                 @endif
                             @endforeach

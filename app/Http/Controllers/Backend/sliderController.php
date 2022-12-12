@@ -60,7 +60,9 @@ class sliderController extends Controller
 
             $category = new Slider();
             $category->title = $request->sliderTitle;
+            $category->title_bn = $request->sliderTitle_bn;
             $category->description = $request->sliderDescription;
+            $category->description_bn = $request->sliderDescription_bn;
             $category->image = 'slider/' . $fileName;
             $category->save();
 
@@ -113,7 +115,6 @@ class sliderController extends Controller
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-        // return $request->all();
 
         try {
             if ($request->old_image === 'change') {
@@ -123,9 +124,10 @@ class sliderController extends Controller
                 $fileName = $request->old_image;
             }
             $slider = Slider::findOrFail($request->old_id);
-
             $slider->title = $request->editSliderTitle;
+            $slider->title_bn = $request->editSliderTitle_bn;
             $slider->description = $request->editComponentDescription;
+            $slider->description_bn = $request->editComponentDescription_bn;
             $slider->image = $fileName;
             $slider->status = $request->row_status;
             $slider->update();

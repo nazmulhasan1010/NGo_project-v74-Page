@@ -119,11 +119,33 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
                                             <div class="form-group">
+                                                <label for="eventTitle_bn">Event Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="eventTitle_bn"
+                                                       name="eventTitle_bn" placeholder="Event Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
                                                 <label for="eventDescription">Event Description<span
                                                         class="req">*</span>
                                                 </label>
                                                 <textarea class="form-control" id="eventDescription"
                                                           name="eventDescription" placeholder="Event Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="eventDescription_bn">Event Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="eventDescription_bn"
+                                                          name="eventDescription_bn" placeholder="Event Description">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -210,9 +232,19 @@
                                                        name="editEventTitle"
                                                        value=""
                                                        placeholder="Event Title">
-                                                @if ($errors->has('title'))
-                                                    <span class="text-danger">{{ $errors->first('title') }}</span>
-                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editEventTitle_bn">Event Title (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editEventTitle_bn"
+                                                       name="editEventTitle_bn"
+                                                       value=""
+                                                       placeholder="Event Title">
                                             </div>
                                         </div>
                                     </div>
@@ -224,6 +256,18 @@
                                                 </label>
                                                 <textarea class="form-control" id="editEventDescription"
                                                           name="editEventDescription" placeholder="Event Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editEventDescription_bn">Event Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editEventDescription_bn"
+                                                          name="editEventDescription_bn" placeholder="Event Description">
                                                 </textarea>
                                             </div>
                                         </div>
@@ -345,7 +389,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editEventTitle').val(r_val.title);
+                    $('#editEventTitle_bn').val(r_val.title_bn);
                     $('#editEventDescription').val(r_val.description);
+                    $('#editEventDescription_bn').val(r_val.description_bn);
                     $('#row_status').val(r_val.status);
                     $('#editEventStart').val(r_val.start);
                     $('#editEventEnd').val(r_val.end);

@@ -15,7 +15,8 @@ class VideoGallery extends Migration
     {
         Schema::create('video_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('title',255)->nullable();
+            $table->string('title',2000)->nullable();
+            $table->string('title_bn',2000)->nullable();
             $table->string('link',2000)->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();

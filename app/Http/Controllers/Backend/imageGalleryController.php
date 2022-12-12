@@ -60,6 +60,7 @@ class imageGalleryController extends Controller
             $fileName = imageUploadWithCustomSize($request->albumImage, "1200", "800", "album");
             $albumImage = new ImageGallery();
             $albumImage->title = $request->imgTitle;
+            $albumImage->title_bn = $request->imgTitle_bn;
             $albumImage->image = 'album/' . $fileName;
             $albumImage->save();
 
@@ -112,8 +113,6 @@ class imageGalleryController extends Controller
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-        // return $request->all();
-
         try {
             if ($request->old_image === 'change') {
                 $fileName = 'album/' . imageUploadWithCustomSize($request->editImage, "1200", "800", "album");
@@ -122,8 +121,8 @@ class imageGalleryController extends Controller
                 $fileName = $request->old_image;
             }
             $imageGallery = ImageGallery::findOrFail($request->old_id);
-
             $imageGallery->title = $request->editAlbumTitle;
+            $imageGallery->title_bn = $request->editAlbumTitle_bn;
             $imageGallery->image = $fileName;
             $imageGallery->status = $request->row_status;
             $imageGallery->update();

@@ -32,8 +32,6 @@ class eventController extends Controller
             Toastr::warning($e->getMessage());
             return redirect()->back();
         }
-
-
     }
 
     /**
@@ -63,7 +61,9 @@ class eventController extends Controller
             $fileName = imageUploadWithCustomSize($request->eventImage, "1200", "800", "event");
             $event = new Event();
             $event->title = $request->eventTitle;
+            $event->title_bn = $request->eventTitle_bn;
             $event->description = $request->eventDescription;
+            $event->description_bn = $request->eventDescription_bn;
             $event->start = $request->eventStart;
             $event->end = $request->eventEnd;
             $event->place = $request->eventPlace;
@@ -129,9 +129,10 @@ class eventController extends Controller
             }
 
             $event = Event::findOrFail($request->old_id);
-
             $event->title = $request->editEventTitle;
+            $event->title_bn = $request->editEventTitle_bn;
             $event->description = $request->editEventDescription;
+            $event->description_bn = $request->editEventDescription_bn;
             $event->status = $request->row_status;
             $event->start = $request->editEventStart;
             $event->end = $request->editEventEnd;

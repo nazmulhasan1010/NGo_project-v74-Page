@@ -116,6 +116,41 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="successStoriesTitle_bn">Title (BN)<span class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="successStoriesTitle_bn"
+                                                       name="successStoriesTitle_bn" placeholder="Title">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="successStoriesDescription">Description<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="successStoriesDescription"
+                                                          name="successStoriesDescription" placeholder="Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="successStoriesDescription_bn">Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="successStoriesDescription"
+                                                          name="successStoriesDescription_bn" placeholder="Description">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="preview-img">
@@ -132,19 +167,6 @@
                                                     <input type="file" class="form-control" id="uploadImage"
                                                            name="successStoriesImage" hidden>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="successStoriesDescription">Description<span
-                                                        class="req">*</span>
-                                                </label>
-                                                <textarea class="form-control" id="successStoriesDescription"
-                                                          name="successStoriesDescription" placeholder="Description">
-                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +211,43 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editSuccessStoriesTitle_bn">Title (BN) <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="editSuccessStoriesTitle_bn"
+                                                       name="editSuccessStoriesTitle_bn"
+                                                       value=""
+                                                       placeholder="Title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editSuccessStoriesDescription">Description <span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editSuccessStoriesDescription"
+                                                          name="editSuccessStoriesDescription">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <label for="editSuccessStoriesDescription_bn">Description (BN)<span
+                                                        class="req">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="editSuccessStoriesDescription_bn"
+                                                          name="editSuccessStoriesDescription_bn">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="preview-img">
                                             <img src="" id="imagePreView"
@@ -209,19 +267,6 @@
                                                            hidden>
                                                     <input type="hidden" id="old_image" name="old_image">
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12">
-                                            <div class="form-group">
-                                                <label for="editSuccessStoriesDescription">Food Description<span
-                                                        class="req">*</span>
-                                                </label>
-                                                <textarea class="form-control" id="editSuccessStoriesDescription"
-                                                          name="editSuccessStoriesDescription">
-                                                </textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -290,7 +335,9 @@
                     var r_val = response.row_data;
                     $('#row_id').val(r_val.id);
                     $('#editSuccessStoriesTitle').val(r_val.title);
+                    $('#editSuccessStoriesTitle_bn').val(r_val.title_bn);
                     $('#editSuccessStoriesDescription').val(r_val.description);
+                    $('#editSuccessStoriesDescription_bn').val(r_val.description_bn);
                     $('#row_status').val(r_val.status);
                     $('.imagePreViewEdit').attr('src', "{{asset('storage')}}" + "/" + r_val.image);
                     $('#restoreImage').attr('data-id', r_val.image);

@@ -22,7 +22,11 @@
                     @php
                         $image = $abouts[$i]->image;
                             if ($abouts[$i]->project_overview !== null){
-                                $overView = $abouts[$i]->project_overview;
+                                if (App::isLocale('bn')) {
+                                   $overView = $abouts[$i]->project_overview_bn;
+                             }else{
+                                  $overView = $abouts[$i]->project_overview;
+                             }
                                 break;
                             } else {
                                 $overView = '';
@@ -38,7 +42,7 @@
                     <span class="heading-1">{{__('front.projectSummary1')}}</span>
                     <span class="heading-2">{{__('front.overView')}}</span>
                 </div>
-                <p>{{$overView}}</p>
+                <p>{!! $overView !!}</p>
             </div>
 
         </div>
