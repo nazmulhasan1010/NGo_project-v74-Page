@@ -3,15 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'AASCO') }} | @yield('title')</title>
-
     {{--    fav icon --}}
-    <link rel="icon" href="{{ asset('assets/frontend/img-icon/pksf.png') }}">
-
+    <link rel="icon" href="{{asset('storage/'. getLogo('fav')[0]->image)}}">
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/2e7d7272e8.js" crossorigin="anonymous"></script>
     <!-- Template CSS -->

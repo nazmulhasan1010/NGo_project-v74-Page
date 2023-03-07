@@ -185,6 +185,7 @@
                                             @php
                                                 $category = getCategories($item->category,'spe');
                                             @endphp
+
                                             <td>{{ $category[0]->title }}</td>
                                             <td>
                                                 {{ $item->status ==  1 ? 'Active' : 'Inactive'}}
@@ -211,7 +212,6 @@
                                                         @method('DELETE')
                                                     </form>
                                                 </div>
-
                                             </td>
                                         </tr>
                                     @endforeach
@@ -831,7 +831,7 @@
                             field = $('#editOwnerInfoShow'),
                             table = $('#editOwnerInfoShowTable tr');
                         getProductOwner(id, field, table);
-                    }else{
+                    } else {
                         $('#editOwnerInfoShow').css('display', 'none');
                     }
                 },

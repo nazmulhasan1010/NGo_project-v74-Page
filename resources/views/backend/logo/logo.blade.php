@@ -133,6 +133,9 @@
 
                                                 <input type="radio"  id="Secondary" name="logoStatus" value="secondary">
                                                 <label for="Secondary" class="col-form-label">Secondary</label><br>
+
+                                                <input type="radio"  id="fav" name="logoStatus" value="fav">
+                                                <label for="fav" class="col-form-label">Fav Icon</label><br>
                                             </div>
                                         </div>
                                     </div>
@@ -193,6 +196,9 @@
 
                                                 <input type="radio"  id="editSecondary" name="editLogoStatus" value="secondary">
                                                 <label for="editSecondary" class="col-form-label">Secondary</label><br>
+
+                                                <input type="radio"  id="fav" name="logoStatus" value="fav">
+                                                <label for="fav" class="col-form-label">Fav Icon</label><br>
                                             </div>
                                         </div>
                                     </div>

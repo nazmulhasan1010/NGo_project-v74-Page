@@ -6,7 +6,13 @@ use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 
 use App\Models\Logo;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -20,7 +26,7 @@ class logoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Application|Factory|View|RedirectResponse
      */
     public function index()
     {
@@ -38,7 +44,7 @@ class logoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -48,8 +54,8 @@ class logoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -57,7 +63,6 @@ class logoController extends Controller
             'logoStatus' => 'required',
             'logoImage' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:5048',
         ]);
-//return $request->all();
         try {
             $imageName = time() . '.' . $request->logoImage->getClientOriginalExtension();
             if (!Storage::disk('public')->exists('logo')) {
@@ -86,8 +91,8 @@ class logoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Logo $logo
-     * @return \Illuminate\Http\Response
+     * @param Logo $logo
+     * @return void
      */
     public function show(Logo $logo)
     {
@@ -97,8 +102,8 @@ class logoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Logo $logo
-     * @return \Illuminate\Http\JsonResponse
+     * @param Logo $logo
+     * @return JsonResponse
      */
     public function edit(Logo $logo)
     {
@@ -108,16 +113,15 @@ class logoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Logo $logo
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param $cat
+     * @return RedirectResponse
      */
     public function update(Request $request, $cat)
     {
         $this->validate($request, [
             'old_id' => 'required',
         ]);
-//         return $request->all();
 
         try {
             if ($request->old_image === 'change') {
@@ -151,8 +155,8 @@ class logoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Logo $logo
-     * @return \Illuminate\Http\RedirectResponse
+     * @param $id
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

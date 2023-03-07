@@ -11,9 +11,10 @@
                     <div class=" d-none d-lg-flex " style="  align-items: center; height: 60px; padding: 0 20px;">
                         @if (count($logo)>0)
                             @if($logo[0]->status===1)
-                                <a href="{{url('/')}}"><img style="width: 200px; "
-                                                            src="{{asset('storage/'. $logo[0]->image)}}"
-                                                            alt="logo"/></a>
+                                <a href="{{url('/')}}">
+                                    <img style="height: 60px; " src="{{asset('storage/'. $logo[0]->image)}}"
+                                         alt="logo"/>
+                                </a>
                             @endif
                         @endif
                     </div>
@@ -125,7 +126,9 @@
                             <a href="#">{{__('front.vendors')}}</a>
                             <ul class="dropdown">
                                 @foreach($enterprises as $enterprise)
-                                    <li><a href="{{route('vendorProducts',['vendorCompany'=>$enterprise->owner_company,'vendorId'=>encrypt($enterprise->id)])}}">{{$enterprise->owner_company}}</a></li>
+                                    <li>
+                                        <a href="{{route('vendorProducts',['vendorCompany'=>$enterprise->owner_company,'vendorId'=>encrypt($enterprise->id)])}}">{{$enterprise->owner_company}}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </li>

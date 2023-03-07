@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'AASCO') }} | @yield('title')</title>
 
     {{--    fav icon --}}
-    <link rel="icon" href="{{ asset('assets/frontend/img-icon/pksf.png') }}">
+    <link rel="icon" href="{{asset('storage/'. getLogo('fav')[0]->image)}}">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/2e7d7272e8.js" crossorigin="anonymous"></script>
